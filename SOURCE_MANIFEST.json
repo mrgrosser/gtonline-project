@@ -596,6 +596,12 @@
       "sha256": "b090b7ca6fc17d6423cf0b195ee7bbcbef375f2e1d59aa59bce5f7d419b61b1d"
     },
     {
+      "path": "research/test_native_itnet_completion.py",
+      "origin": "golden-tee-research/test_native_itnet_completion.py",
+      "sanitized": false,
+      "sha256": "3efaea1ac75901f8d784113f82bdfd922d32cb1b867bc5976c2cc1c473f96ff3"
+    },
+    {
       "path": "research/test_native_player_dispatch.py",
       "origin": "golden-tee-research/test_native_player_dispatch.py",
       "sanitized": false,
