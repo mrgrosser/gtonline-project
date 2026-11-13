@@ -33,3 +33,13 @@ Six methods passed against the private ELF. These are not six live login tests. 
 3. Build a fail-closed adapter to local storage only for evidence-backed formats. Website profile structure can inform local design but cannot establish cabinet wire format.
 
 Physical checks remain fan/header inspection, Online menu state, controlled swipe, displayed identity and profile save/reload under the established isolation/recovery procedure. Cabinet state is unchanged.
+
+## Follow-up: original product initialization and field parsing
+
+The earlier synthetic-registry limitations above are historical. The original product association initializer (`0x089ad620`) and version initializer (`0x089ac86e`) now execute in an offline harness. They construct164 association entries. C++ map insertion/storage and diagnostic strings are modeled; original association-vector construction, lookup, matching, and version comparison execute unchanged. This is not a complete original C++ runtime or live application test.
+
+Selected actual associations are8→9,14→15,166→15 and220→221. Alternate check-in166 shares reply15; its identity must not automatically be equated with a raw player/card identity. The separate version policy accepts unsigned byte versions up to the initialized maximum:8:1,9:2,14:7,15:7,166:7,220:0,221:0. All256 version values for each of these seven messages were checked (1,792 subcases). A permitted version is not proof of its payload schema.
+
+Seven registry test methods pass, including crossed pairs, generic ACK rejection and repeated lookups. Missing-node insertion and zero-association diagnostic paths remain outside scope. The complete wrapper's generic-registry fallback is not exercised.
+
+The metadata-driven player field loop is now tested separately; see [wire codec and limits](PLAYER_WIRE.md). This advances offline compatibility evidence, not authentication, UI or profile persistence on the cabinet.

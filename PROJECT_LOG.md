@@ -351,3 +351,15 @@ For every meaningful code, configuration, hardware, protocol, or recovery change
 - Remaining unknowns / next validation:
 - Evidence reference: sanitized filename or future public commit link
 ```
+
+### 2026-11-13 — Original player registry, payload loop and read-only bridge
+
+- Scope: offline only; cabinet, gateway and account settings unchanged.
+- Executed original product association/version initializers with modeled map storage. Actual selected associations:8→9,14/166→15,220→221. Tested1,792 byte-version combinations across seven IDs.
+- Added a strict payload codec for14/v7,15/v7 and221/v0 and read-only local identity lookup. No network login response, implicit player creation or entitlement defaults.
+- Compared the complete18-field player-info payload with the original field-reading loop, stopping before its database/application callback. Tested string/integer boundaries and identity conversion.
+- Correction: high-bit UINT32 wire values become signed decimal intermediate text in this native path; expectations now reflect that. Harness bounds on truncated native reads are not evidence of native length validation.
+- Verification:49 methods pass in the existing private research environment:30 standalone wire/store/compression and19 native registry/payload/synthetic-policy methods. An initial system-Python run failed three native imports because emulation dependencies were absent; rerunning with the existing research virtual environment passed.
+- Public export adds six source files;113 source/dependency files total. No private executable, capture, full metadata, account data or database is included.
+- Remaining: full application-handler semantics, actual physical swipe path, screen identity and save/reload. Green LIVE still does not establish login.
+- Details: [PLAYER_WIRE.md](PLAYER_WIRE.md), [PLAYER_REPLY_POLICY.md](PLAYER_REPLY_POLICY.md).

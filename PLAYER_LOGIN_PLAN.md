@@ -50,3 +50,13 @@ Static inspection explains the prior uninitialized-object failure: general repli
 ## Follow-up: initialized synthetic registry
 
 Six native-policy test methods now pass with a deliberately synthetic registry. This resolves the harness's uninitialized-context obstacle and demonstrates table-driven matching, negative cases, and cursor reset, but **does not establish the game's actual registry contents or candidate player pairings**. See [scope and results](PLAYER_REPLY_POLICY.md).
+
+## Follow-up: original product initialization and field parsing
+
+The earlier synthetic-registry limitations above are historical. The original product association initializer (`0x089ad620`) and version initializer (`0x089ac86e`) now execute in an offline harness. They construct164 association entries. C++ map insertion/storage and diagnostic strings are modeled; original association-vector construction, lookup, matching, and version comparison execute unchanged. This is not a complete original C++ runtime or live application test.
+
+Selected actual associations are8→9,14→15,166→15 and220→221. Alternate check-in166 shares reply15; its identity must not automatically be equated with a raw player/card identity. The separate version policy accepts unsigned byte versions up to the initialized maximum:8:1,9:2,14:7,15:7,166:7,220:0,221:0. All256 version values for each of these seven messages were checked (1,792 subcases). A permitted version is not proof of its payload schema.
+
+Seven registry test methods pass, including crossed pairs, generic ACK rejection and repeated lookups. Missing-node insertion and zero-association diagnostic paths remain outside scope. The complete wrapper's generic-registry fallback is not exercised.
+
+The metadata-driven player field loop is now tested separately; see [wire codec and limits](PLAYER_WIRE.md). This advances offline compatibility evidence, not authentication, UI or profile persistence on the cabinet.
