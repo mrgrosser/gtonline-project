@@ -247,6 +247,14 @@ Positive registration can modify both hardware-backed storage and PostgreSQL sta
 - Static follow-up explains the native player-policy probe's missing runtime context: it depends on a message registry and association logic. Those branches are not yet acceptance-verified.
 - Added `PLAYER_STORE.md` with API, runnable synthetic example, tested behavior and limitations. Cabinet and gateway remain untouched.
 
+### 2026-11-13 — Native player reply policy harness
+
+- Added `test_player_reply_policy.py` and [native-policy notes](PLAYER_REPLY_POLICY.md). Six offline test methods pass against the privately supplied original executable.
+- Initialized a synthetic in-memory lookup table instead of passing a null context. Original matching routines accept configured pairs and reject crossed/empty associations; a deliberately changed table changes the outcome. Repeated calls and multi-entry vectors also pass.
+- The tested general policy branch does not validate payload version; its accepting a version argument is not proof of a supported player schema. Generic ACK is rejected for the tested player request IDs.
+- Scope limitation: actual product registry initialization, real pairings, payload parsing and cabinet login remain unverified. No original code or real account/capture data is published.
+- No cabinet or gateway changes. Physical fan, Online-menu, card and profile-reload checks still await the operator.
+
 ## 5. Protocol coverage snapshot
 
 Message numbers are research references, not a complete protocol specification. Versions and field layouts matter; supporting one version does not establish all versions.

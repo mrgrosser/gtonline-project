@@ -46,3 +46,7 @@ Offline decoding can proceed without the operator present. The screen, swipe and
 ## Native player-policy investigation update
 
 Static inspection explains the prior uninitialized-object failure: general replies pass through a per-context message registry (`0x0897a758`) and request/reply association logic (`0x0897a088`). Earlier special-case ACK/control policy checks do not establish these general player paths. This pass did not initialize or validate that registry, so14→15 and8→9 remain metadata-derived candidates, not native acceptance results.
+
+## Follow-up: initialized synthetic registry
+
+Six native-policy test methods now pass with a deliberately synthetic registry. This resolves the harness's uninitialized-context obstacle and demonstrates table-driven matching, negative cases, and cursor reset, but **does not establish the game's actual registry contents or candidate player pairings**. See [scope and results](PLAYER_REPLY_POLICY.md).

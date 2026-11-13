@@ -4,11 +4,11 @@
 
 This is the recoverable project source used through November 13, 2026, exported from the working research directories. It includes successful approaches, superseded experiments, and historical cabinet-specific scripts. It is **not a turnkey emulator, installer, or complete reproducible cabinet environment**.
 
-The original private working files were not changed. The public copies replace identifying deployment details with examples. `SOURCE_MANIFEST.json` lists all 106 exported source/dependency files, their relative origin, whether sanitization occurred, and the SHA-256 of the published copy. It does not contain hashes of private data.
+The original private working files were not changed. The public copies replace identifying deployment details with examples. `SOURCE_MANIFEST.json` lists all 107 exported source/dependency files, their relative origin, whether sanitization occurred, and the SHA-256 of the published copy. It does not contain hashes of private data.
 
 ## Layout
 
-- `research/`: 87 protocol, crypto, capture, emulation, routing, recovery, test and dependency files.
+- `research/`: 88 protocol, crypto, capture, emulation, routing, recovery, test and dependency files.
 - `hardware/`: 19 earlier SSH/GPU compatibility, deployment, recovery and verification files, including minimal patches rather than complete vendor scripts.
 - `PROJECT_LOG.md`: chronological findings, verification limits and current cabinet state.
 - `SOURCE_MANIFEST.json`: source inventory and public-file integrity hashes.
@@ -110,3 +110,7 @@ Eight synthetic test methods pass without private data. The combined20-test priv
 ## Offline identity/profile storage follow-up
 
 The archive now contains106 source/dependency files. [PLAYER_STORE.md](PLAYER_STORE.md) describes the local persistence API and limitations. Run `python3 research/test_player_store.py` for15 temporary-database/synthetic-identity tests. The store is not connected to cabinet login. Together with the compression module,23 explicit standalone tests run without private inputs; do not use blanket discovery of the historical integration scripts.
+
+### Native player reply policy subset
+
+`cd research && python3 -m unittest -v test_player_reply_policy` ran six methods successfully with the privately supplied original ELF. This is an offline synthetic-registry harness, not a standalone fresh-clone test or live login proof. See [limitations](PLAYER_REPLY_POLICY.md).
