@@ -1,0 +1,611 @@
+{
+  "scope": "Sanitized original project source, not a deployable cabinet image",
+  "files": [
+    {
+      "path": "research/apply_trust_when_ready.py",
+      "origin": "golden-tee-research/apply_trust_when_ready.py",
+      "sanitized": false,
+      "sha256": "d178dd851c0184ccc6aab818f56f0b108d71a66b1f297e53d20d8d9bf849926e"
+    },
+    {
+      "path": "research/baseline_relay.py",
+      "origin": "golden-tee-research/baseline_relay.py",
+      "sanitized": true,
+      "sha256": "22b67d4b0eff21850f60c175e10f9deea8844051480adfbfaac431f06b590c75"
+    },
+    {
+      "path": "research/build_registration_db_restore.py",
+      "origin": "golden-tee-research/build_registration_db_restore.py",
+      "sanitized": false,
+      "sha256": "b8d8dfe544fe1651e04b70a774f4b985cf56fd41e30c0a70710debbda3ff43f0"
+    },
+    {
+      "path": "research/cabinet_heartbeat_test.py",
+      "origin": "golden-tee-research/cabinet_heartbeat_test.py",
+      "sanitized": true,
+      "sha256": "84ce622a6589595d47e14a8f348ef1a164ca7ea5e7dfe362fc868f1794721591"
+    },
+    {
+      "path": "research/cabinet_relay_bridge.py",
+      "origin": "golden-tee-research/cabinet_relay_bridge.py",
+      "sanitized": true,
+      "sha256": "c52922cd22c754c6c01b140a81cee87ee2580536a7341cb67f902b2a551d5a9a"
+    },
+    {
+      "path": "research/capture_baseline_after_timeout.py",
+      "origin": "golden-tee-research/capture_baseline_after_timeout.py",
+      "sanitized": true,
+      "sha256": "1507ffe8fdb51de60bf3baada55ba35bcaffe2e12d4e09b6dc0ca44b371fe87b"
+    },
+    {
+      "path": "research/capture_itnet.py",
+      "origin": "golden-tee-research/capture_itnet.py",
+      "sanitized": true,
+      "sha256": "eda6247594c55c82d918bea571a51682b8580e77fa6d3d94122e919410c6c58c"
+    },
+    {
+      "path": "research/capture_startup_baseline.py",
+      "origin": "golden-tee-research/capture_startup_baseline.py",
+      "sanitized": true,
+      "sha256": "a17d58ade7f289f17b7e6d03185a2a6722e043437953841b50093275eb054041"
+    },
+    {
+      "path": "research/decode_force_call.py",
+      "origin": "golden-tee-research/decode_force_call.py",
+      "sanitized": true,
+      "sha256": "e15c8201e442c9cdb9027b6348903fec6294e4eb27939d7ad25beb33b130902f"
+    },
+    {
+      "path": "research/emulate_complete_session_reply.py",
+      "origin": "golden-tee-research/emulate_complete_session_reply.py",
+      "sanitized": false,
+      "sha256": "58cf8f9b46ef0009752f6d8e104dbfc325d3693d90176a1d05d114cb12c920fa"
+    },
+    {
+      "path": "research/emulate_outgoing_session.py",
+      "origin": "golden-tee-research/emulate_outgoing_session.py",
+      "sanitized": false,
+      "sha256": "416632f6e21cec9d3a9eaf9613cd975a3b5798104e1c187f38279c2293dc593c"
+    },
+    {
+      "path": "research/emulate_plain_registration_path.py",
+      "origin": "golden-tee-research/emulate_plain_registration_path.py",
+      "sanitized": false,
+      "sha256": "0d82180e87212adb7b7cfc9f16bb50ae8186caf1ff8fa6234fa76c05f95b9968"
+    },
+    {
+      "path": "research/emulate_postsave_status.py",
+      "origin": "golden-tee-research/emulate_postsave_status.py",
+      "sanitized": false,
+      "sha256": "8453049fa668df4e73f8281c2183a5cd5fe3bd37caef08f404106aceb72f2fb5"
+    },
+    {
+      "path": "research/emulate_proxy_update.py",
+      "origin": "golden-tee-research/emulate_proxy_update.py",
+      "sanitized": false,
+      "sha256": "c5b3a0479a8e37cccb4728552bed186aed8e79abfd12fd2a33bf62d0eb0528dc"
+    },
+    {
+      "path": "research/emulate_registration_parse.py",
+      "origin": "golden-tee-research/emulate_registration_parse.py",
+      "sanitized": false,
+      "sha256": "56f630c53e33442cedbafd3eca7e09de18806b730fc09a8c0b2bec072407ee75"
+    },
+    {
+      "path": "research/emulate_response_validation.py",
+      "origin": "golden-tee-research/emulate_response_validation.py",
+      "sanitized": false,
+      "sha256": "5fd04d7ca1e886f14ab7efb3dea4d451b769e4ae055a0cd2d8cb04baf1946d1f"
+    },
+    {
+      "path": "research/emulate_session_acceptance.py",
+      "origin": "golden-tee-research/emulate_session_acceptance.py",
+      "sanitized": false,
+      "sha256": "b5d530f4480b8d075d3a3d171a162796dfeb6d71d6addd387e2325722321aecd"
+    },
+    {
+      "path": "research/emulate_session_envelope.py",
+      "origin": "golden-tee-research/emulate_session_envelope.py",
+      "sanitized": false,
+      "sha256": "973d065deac978ddf8b1a30cd4a8d1dfbea57fbb4ee441b9904f73b426e27bcb"
+    },
+    {
+      "path": "research/emulate_session_math.py",
+      "origin": "golden-tee-research/emulate_session_math.py",
+      "sanitized": false,
+      "sha256": "340d97804922b985ce39b3dc3426ec347e2633c5ad7af4de65429fa94821755a"
+    },
+    {
+      "path": "research/emulate_session_payload.py",
+      "origin": "golden-tee-research/emulate_session_payload.py",
+      "sanitized": false,
+      "sha256": "ec8180739b18735bcb05d05bed3781281231eda3c9df798a1f27b8c4d7a1a24c"
+    },
+    {
+      "path": "research/emulate_session_signature.py",
+      "origin": "golden-tee-research/emulate_session_signature.py",
+      "sanitized": false,
+      "sha256": "4f8dd4afd406f7f2954afbd9661c03f287c47bd52ec4513ed20c37fd980396a1"
+    },
+    {
+      "path": "research/emulate_storage_read.py",
+      "origin": "golden-tee-research/emulate_storage_read.py",
+      "sanitized": false,
+      "sha256": "26e3af7ae43a8d3f6616e610c8f101bf736fe368134163449945578cd7f42318"
+    },
+    {
+      "path": "research/emulate_storage_write.py",
+      "origin": "golden-tee-research/emulate_storage_write.py",
+      "sanitized": false,
+      "sha256": "f7ec50a84846d75bd9f1f16cc7b86e37d4c876219ae3e6b4fb6e47335781b176"
+    },
+    {
+      "path": "research/emulate_trust_swap.py",
+      "origin": "golden-tee-research/emulate_trust_swap.py",
+      "sanitized": false,
+      "sha256": "c7614ad97f257894a3a0e718aae8146fdf24c11976c6067c471d85b924c03990"
+    },
+    {
+      "path": "research/emulation-requirements.txt",
+      "origin": "golden-tee-research/emulation-requirements.txt",
+      "sanitized": false,
+      "sha256": "a02a68f25e516156198e386a435e9a9fd55af07d61e9e398525bb32fae561d4d"
+    },
+    {
+      "path": "research/gateway_registration_guard.py",
+      "origin": "golden-tee-research/gateway_registration_guard.py",
+      "sanitized": true,
+      "sha256": "c176cd08592bde644bedb3a073e22acbe43f0c172d0e68d0bf148e68fc689fbd"
+    },
+    {
+      "path": "research/gdb_public_trust_drill.py",
+      "origin": "golden-tee-research/gdb_public_trust_drill.py",
+      "sanitized": false,
+      "sha256": "633415f58c5683d2a653113e5c6945a5d0c86d07f73f0db946d9b6a859cec652"
+    },
+    {
+      "path": "research/heartbeat_probe.py",
+      "origin": "golden-tee-research/heartbeat_probe.py",
+      "sanitized": false,
+      "sha256": "3bdea97f26c46f6a6dc6a19de128b6029166c9ca9d63f729476420f2a608f2bc"
+    },
+    {
+      "path": "research/inspect_capture.py",
+      "origin": "golden-tee-research/inspect_capture.py",
+      "sanitized": false,
+      "sha256": "c4cc72df2262cb3ad6436dfa75f9358d11a3632ffb2fb7f1ec6ebb1030c18125"
+    },
+    {
+      "path": "research/local_followups.py",
+      "origin": "golden-tee-research/local_followups.py",
+      "sanitized": false,
+      "sha256": "6d75868b66df2196917381e8e99245166e50e66fc37b3047b945107483b18d16"
+    },
+    {
+      "path": "research/native_crypto_machine.py",
+      "origin": "golden-tee-research/native_crypto_machine.py",
+      "sanitized": false,
+      "sha256": "866ada0e8dc10a237ad7d65e0db128ed2ea661d015ef916af1aa60e358420db6"
+    },
+    {
+      "path": "research/native_rng_fixture.py",
+      "origin": "golden-tee-research/native_rng_fixture.py",
+      "sanitized": false,
+      "sha256": "b27b9468f801c39b1b3b65b0d28cd902a7fb81cdb95d56c2d3fb725124d744c4"
+    },
+    {
+      "path": "research/positive_registration_session.py",
+      "origin": "golden-tee-research/positive_registration_session.py",
+      "sanitized": false,
+      "sha256": "3ba82c264ce4c4d4a57934f3400b9b4d1e3d31a947fc2209ea4e8bb7417660a2"
+    },
+    {
+      "path": "research/prepare_management_route.py",
+      "origin": "golden-tee-research/prepare_management_route.py",
+      "sanitized": false,
+      "sha256": "cae09aefd2270feecd35ba4bf96e22589311e22dfe0ea66ec845ac53f4afea6e"
+    },
+    {
+      "path": "research/prepare_private_keys.py",
+      "origin": "golden-tee-research/prepare_private_keys.py",
+      "sanitized": false,
+      "sha256": "102f4716a9743c40260c41ca5f5a1849d294fb526e211a7a1dc30cb64bcb92be"
+    },
+    {
+      "path": "research/preserve_ephemeral_session.py",
+      "origin": "golden-tee-research/preserve_ephemeral_session.py",
+      "sanitized": false,
+      "sha256": "549aefa02a8e264ec86f3d5adbf24205c82f3bdc2bc65fcd186e9e65f95597d7"
+    },
+    {
+      "path": "research/private_session_crypto.py",
+      "origin": "golden-tee-research/private_session_crypto.py",
+      "sanitized": false,
+      "sha256": "fe8803b4193b11dec8218bf1edf48b800efb9db59a2cc26932151f5d68c63567"
+    },
+    {
+      "path": "research/private_session_responder.py",
+      "origin": "golden-tee-research/private_session_responder.py",
+      "sanitized": false,
+      "sha256": "a40f4088b82d1c4fd0f8b93fb059d0308a843baaaad1e26193b08c6acff3d54c"
+    },
+    {
+      "path": "research/read_after_ui_storage.py",
+      "origin": "golden-tee-research/read_after_ui_storage.py",
+      "sanitized": false,
+      "sha256": "428242c979a5a59fabc251fbf244524f9fa4384f311a93565b41f2278404a0ca"
+    },
+    {
+      "path": "research/read_gateway_post_storage.py",
+      "origin": "golden-tee-research/read_gateway_post_storage.py",
+      "sanitized": false,
+      "sha256": "100e603812a320602e6f3474711b2dbb3b157773d592c932c7ce0bf6e2ac890f"
+    },
+    {
+      "path": "research/read_gateway_pre_storage.py",
+      "origin": "golden-tee-research/read_gateway_pre_storage.py",
+      "sanitized": false,
+      "sha256": "ef77c3342c8cd2457177cd4a4ecf2a83e5c6ddcc2ea813c782df763041949a54"
+    },
+    {
+      "path": "research/read_gateway_restored_storage.py",
+      "origin": "golden-tee-research/read_gateway_restored_storage.py",
+      "sanitized": false,
+      "sha256": "c17a4c1d57718a0584df3c22402fdd523ed6294ed302a69825f8a1e0c7463675"
+    },
+    {
+      "path": "research/read_private_post_storage.py",
+      "origin": "golden-tee-research/read_private_post_storage.py",
+      "sanitized": false,
+      "sha256": "b783ab04df34641d804d7e84166100234285a0d2515f0dda603be33dd71fbc3b"
+    },
+    {
+      "path": "research/read_private_pre_storage.py",
+      "origin": "golden-tee-research/read_private_pre_storage.py",
+      "sanitized": false,
+      "sha256": "22db5b89cb0829b53d08b05bca4bca9315bb891f8f8a79e85dae67502921be80"
+    },
+    {
+      "path": "research/read_private_restored_storage.py",
+      "origin": "golden-tee-research/read_private_restored_storage.py",
+      "sanitized": false,
+      "sha256": "05d2af31567395fa6a1712006953115e7b0d67c41e5af1886a15d17f9853abb9"
+    },
+    {
+      "path": "research/read_registration_storage.py",
+      "origin": "golden-tee-research/read_registration_storage.py",
+      "sanitized": false,
+      "sha256": "6388521c851064ea833b557797775569bcbbdcbe1122deb53f1b85d383681571"
+    },
+    {
+      "path": "research/read_restored_ui_storage.py",
+      "origin": "golden-tee-research/read_restored_ui_storage.py",
+      "sanitized": false,
+      "sha256": "ac3f0f2bac03b7112b9eee2c2a184ff705416bb8892d37449109446b6d577a40"
+    },
+    {
+      "path": "research/read_ui_pre_storage.py",
+      "origin": "golden-tee-research/read_ui_pre_storage.py",
+      "sanitized": false,
+      "sha256": "dfb02158bac6563b4982875ec63c1196e599857756f7fcfedd7b117972e3122d"
+    },
+    {
+      "path": "research/recovery-gate-gateway-staged.sh",
+      "origin": "golden-tee-research/recovery-gate-gateway-staged.sh",
+      "sanitized": true,
+      "sha256": "d199fa6a76489aab649b833ba355585a388abded72983d66b1b189acca6d2e3e"
+    },
+    {
+      "path": "research/recovery-gate-positive-staged.sh",
+      "origin": "golden-tee-research/recovery-gate-positive-staged.sh",
+      "sanitized": true,
+      "sha256": "78abddd61a00d3920fe2fab807e671dbabd8a9da48176acddf764a7ad212efb5"
+    },
+    {
+      "path": "research/reencoding_relay.py",
+      "origin": "golden-tee-research/reencoding_relay.py",
+      "sanitized": true,
+      "sha256": "80231ad98d332ec063470650dcc1d6dba9088680ebc9ba474d7350b101419c68"
+    },
+    {
+      "path": "research/refresh_public_context.py",
+      "origin": "golden-tee-research/refresh_public_context.py",
+      "sanitized": false,
+      "sha256": "acc2ed7d2594642ca370a5ebdf49f825bd8d7fa5c44c3f05cf7453aeec4737a4"
+    },
+    {
+      "path": "research/registration_fixture.py",
+      "origin": "golden-tee-research/registration_fixture.py",
+      "sanitized": false,
+      "sha256": "776a1b5308d7bb0949ed742a370b8d990a93bfcae42250b51ef8a17bb9b54144"
+    },
+    {
+      "path": "research/registration_recovery_model.py",
+      "origin": "golden-tee-research/registration_recovery_model.py",
+      "sanitized": false,
+      "sha256": "53249a9d89265bdf3387fb5135733629dd0210002e687ab04fee0cfad7b8e859"
+    },
+    {
+      "path": "research/registration_storage_drill.py",
+      "origin": "golden-tee-research/registration_storage_drill.py",
+      "sanitized": true,
+      "sha256": "50015d18bcd95d533924174284d6ccd5744ea68876404991164ae1db8e3a19a0"
+    },
+    {
+      "path": "research/restore_original_registration.py",
+      "origin": "golden-tee-research/restore_original_registration.py",
+      "sanitized": false,
+      "sha256": "dbf7ecdda9f695df265805c74e73c6a544be99fae41b3f793947936139c49ca8"
+    },
+    {
+      "path": "research/run-heartbeat-window.sh",
+      "origin": "golden-tee-research/run-heartbeat-window.sh",
+      "sanitized": true,
+      "sha256": "34442536421ea05e17108082c04ef33e618a531a245d3abc3bb43299e93c6cbd"
+    },
+    {
+      "path": "research/run-relay-window.sh",
+      "origin": "golden-tee-research/run-relay-window.sh",
+      "sanitized": true,
+      "sha256": "d99589a645b841a7d0d912ad8446cdb0d9265f72e3950c3ad0000411365fac81"
+    },
+    {
+      "path": "research/run_positive_host.py",
+      "origin": "golden-tee-research/run_positive_host.py",
+      "sanitized": true,
+      "sha256": "5652e4891a4448482eb523819c21d958eb53f874147ec337b07ce313e250101c"
+    },
+    {
+      "path": "research/run_private_host.py",
+      "origin": "golden-tee-research/run_private_host.py",
+      "sanitized": true,
+      "sha256": "47b39de0617a1ebd674b2290d047cfb523dcd009e6f84e4e010145a07e02e7a5"
+    },
+    {
+      "path": "research/session_transport.py",
+      "origin": "golden-tee-research/session_transport.py",
+      "sanitized": false,
+      "sha256": "06198a5d6cb33aa2228739bff93f97bf67a301c23fe2ee1b261bfa0b98d93f05"
+    },
+    {
+      "path": "research/snapshot_registration_db.py",
+      "origin": "golden-tee-research/snapshot_registration_db.py",
+      "sanitized": true,
+      "sha256": "c3b0aca5e4aec1936d7803439cd116470301f707d786ca19066967461f5b5a08"
+    },
+    {
+      "path": "research/summarize_tcp_capture.py",
+      "origin": "golden-tee-research/summarize_tcp_capture.py",
+      "sanitized": false,
+      "sha256": "0189c2843823f9832d23ad7bcc585f6556319b302f6b6026a1b2572666717fb1"
+    },
+    {
+      "path": "research/test_fixture_transport.py",
+      "origin": "golden-tee-research/test_fixture_transport.py",
+      "sanitized": false,
+      "sha256": "7fd21d8f54ea422dc6a3d631546b5d5519aeb9483d9d669185d0677b2f952180"
+    },
+    {
+      "path": "research/test_followup_wire.py",
+      "origin": "golden-tee-research/test_followup_wire.py",
+      "sanitized": false,
+      "sha256": "c3ea3caeeef2dd6253694c9d31d597add84530149f14c35cfce4c25130362578"
+    },
+    {
+      "path": "research/test_gateway_gate.py",
+      "origin": "golden-tee-research/test_gateway_gate.py",
+      "sanitized": true,
+      "sha256": "16d553d3f69fddd2bab8bd3dc7f02650c37f2008621bc74d2dfcbedc6ce1c0c7"
+    },
+    {
+      "path": "research/test_gateway_isolation.py",
+      "origin": "golden-tee-research/test_gateway_isolation.py",
+      "sanitized": true,
+      "sha256": "c8a51291d72a4d9606668c4b467f270cb35bb1aada9e350dba16df85300e1ea2"
+    },
+    {
+      "path": "research/test_gateway_local_path.py",
+      "origin": "golden-tee-research/test_gateway_local_path.py",
+      "sanitized": true,
+      "sha256": "78f2cbc93f525f78cba6e9bd5e664864065b1dc01ea0eb0e00547d421d972157"
+    },
+    {
+      "path": "research/test_gateway_registration_guard.py",
+      "origin": "golden-tee-research/test_gateway_registration_guard.py",
+      "sanitized": false,
+      "sha256": "b9a2bdd427f750e369f4dee0fdf692055ebae68701b541e49304e684c6a22608"
+    },
+    {
+      "path": "research/test_isolation_namespace.py",
+      "origin": "golden-tee-research/test_isolation_namespace.py",
+      "sanitized": true,
+      "sha256": "2a358f01e8c197f7bbcca4fe25374152709898a9df544abb672b76d941627a1a"
+    },
+    {
+      "path": "research/test_local_followups.py",
+      "origin": "golden-tee-research/test_local_followups.py",
+      "sanitized": false,
+      "sha256": "b090b7ca6fc17d6423cf0b195ee7bbcbef375f2e1d59aa59bce5f7d419b61b1d"
+    },
+    {
+      "path": "research/test_positive_gate.py",
+      "origin": "golden-tee-research/test_positive_gate.py",
+      "sanitized": true,
+      "sha256": "5adae16d3666c839ae7665f9e7e02a0ad15c4dccba54028531b0f91338166b96"
+    },
+    {
+      "path": "research/test_positive_registration_session.py",
+      "origin": "golden-tee-research/test_positive_registration_session.py",
+      "sanitized": false,
+      "sha256": "38bf6e5445449a43b41fc761500c237227c7dd98daefeacd7f0cc2eb64a2fb9d"
+    },
+    {
+      "path": "research/test_private_session_crypto.py",
+      "origin": "golden-tee-research/test_private_session_crypto.py",
+      "sanitized": false,
+      "sha256": "01dcc60485aa95d35864bbeef644872f51ce8850dfce6596581037a4c3b34460"
+    },
+    {
+      "path": "research/test_private_session_responder.py",
+      "origin": "golden-tee-research/test_private_session_responder.py",
+      "sanitized": false,
+      "sha256": "ae5e1e002aeb85c9983e596a0cf6fca788a457d59afdcf3ae8187e2097e5e85d"
+    },
+    {
+      "path": "research/test_registration_db_recovery.py",
+      "origin": "golden-tee-research/test_registration_db_recovery.py",
+      "sanitized": true,
+      "sha256": "f29c94dc7ef6229e28538be0a54d63199ee78d3141d0342da647d8e78ec17059"
+    },
+    {
+      "path": "research/test_registration_recovery_model.py",
+      "origin": "golden-tee-research/test_registration_recovery_model.py",
+      "sanitized": false,
+      "sha256": "a67c2b509e301575525c39121516b4865e136198812559e5720ea74777014425"
+    },
+    {
+      "path": "research/test_session_clock_guard.py",
+      "origin": "golden-tee-research/test_session_clock_guard.py",
+      "sanitized": false,
+      "sha256": "f7335898e17cecf5416aa964b81752d838160dbc559839adadfd557f9c8d4f32"
+    },
+    {
+      "path": "research/test_session_transport.py",
+      "origin": "golden-tee-research/test_session_transport.py",
+      "sanitized": false,
+      "sha256": "5370513895b480dc61a0e09e7f29212a14b782ea0610f68ba5a1380a9435d8b6"
+    },
+    {
+      "path": "research/test_storage_drill.py",
+      "origin": "golden-tee-research/test_storage_drill.py",
+      "sanitized": false,
+      "sha256": "7662ffd505fb4df72b1310ac4e6bbfbacb0bc62f5e9cb134a85c500da7a69c23"
+    },
+    {
+      "path": "research/trust_drill_isolation.py",
+      "origin": "golden-tee-research/trust_drill_isolation.py",
+      "sanitized": true,
+      "sha256": "efd648d8e606f4c8294b6c15dcf76d7b9edee467d8fdfe762612ffaa9652df61"
+    },
+    {
+      "path": "research/verify_storage_snapshot.py",
+      "origin": "golden-tee-research/verify_storage_snapshot.py",
+      "sanitized": false,
+      "sha256": "d227aea3e33a2a534d6e33edbada9ee5b8b04e8b7f25c7a8d6a61764c2c1c33c"
+    },
+    {
+      "path": "hardware/proposed/apply.sh",
+      "origin": "goldentee-review/proposed/apply.sh",
+      "sanitized": true,
+      "sha256": "a91b94c5f1e8fe321ef79fe8e7b2612067b25600e259fc058641a1c399ccb015"
+    },
+    {
+      "path": "hardware/proposed/cat",
+      "origin": "goldentee-review/proposed/cat",
+      "sanitized": false,
+      "sha256": "eb0b0d15aa12b010fdd2ef0ee943203bb12fa70c2105030d22730a37859af8e3"
+    },
+    {
+      "path": "hardware/proposed/ssh-lifecycle.patch",
+      "origin": "goldentee-review/proposed/ssh-lifecycle.patch",
+      "sanitized": false,
+      "sha256": "bfe7fb2430ad2a04f618d9b3e9f340210b7b0c2070b5ceda7cf9e372bb66a898"
+    },
+    {
+      "path": "hardware/retest-20261104/1080-health.sh",
+      "origin": "goldentee-review/retest-20261104/1080-health.sh",
+      "sanitized": false,
+      "sha256": "87571e3d0a7ffd595cb196fdceb60a6361cf092717e487662f4402daa55e8b40"
+    },
+    {
+      "path": "hardware/retest-20261104/1080-preflight.sh",
+      "origin": "goldentee-review/retest-20261104/1080-preflight.sh",
+      "sanitized": false,
+      "sha256": "91066a758360973ac465b10a7b93acda857e2c850cf5342c2c712ae713ff8e72"
+    },
+    {
+      "path": "hardware/retest-20261104/1080-running.sh",
+      "origin": "goldentee-review/retest-20261104/1080-running.sh",
+      "sanitized": false,
+      "sha256": "b326662ff2a6d7198acdf0af8975f2467da3656f8f845a98f1f94fbb8318469d"
+    },
+    {
+      "path": "hardware/retest-20261104/cat",
+      "origin": "goldentee-review/retest-20261104/cat",
+      "sanitized": false,
+      "sha256": "496b5a126d20eedf824092466eace1ec1403d34a41e2a0f194bb4ac4dd5bb33f"
+    },
+    {
+      "path": "hardware/retest-20261104/check-startup.sh",
+      "origin": "goldentee-review/retest-20261104/check-startup.sh",
+      "sanitized": false,
+      "sha256": "8c14ee38c4907c0412b9d665234a41256cc513584af4dbaca7838e3bec8a6e9f"
+    },
+    {
+      "path": "hardware/retest-20261104/deploy.sh",
+      "origin": "goldentee-review/retest-20261104/deploy.sh",
+      "sanitized": true,
+      "sha256": "edb021eaf35e8db305238fe2e64484f20ee2e78b2be8cfc9bac56e0b9640053d"
+    },
+    {
+      "path": "hardware/retest-20261104/inspect.sh",
+      "origin": "goldentee-review/retest-20261104/inspect.sh",
+      "sanitized": false,
+      "sha256": "ee380109917cc0e70c7697ca54f39a091d497cf47d2eae75334a619156720052"
+    },
+    {
+      "path": "hardware/retest-20261104/poweroff.sh",
+      "origin": "goldentee-review/retest-20261104/poweroff.sh",
+      "sanitized": false,
+      "sha256": "8f78c215c0fab772f76517b7b005b25c4af023a1b969032554d027ac8210e9dd"
+    },
+    {
+      "path": "hardware/retest-20261104/reboot.sh",
+      "origin": "goldentee-review/retest-20261104/reboot.sh",
+      "sanitized": false,
+      "sha256": "8aae35637270b61bb19d1838e838db57788028cc7a9eea98c3a05f4c92d58301"
+    },
+    {
+      "path": "hardware/retest-20261104/recovery-gate.sh",
+      "origin": "goldentee-review/retest-20261104/recovery-gate.sh",
+      "sanitized": false,
+      "sha256": "78027f7ab7887af639bd9f9beb0058bcc9a094cf2663d6530d2922d44d896657"
+    },
+    {
+      "path": "hardware/retest-20261104/release.sh",
+      "origin": "goldentee-review/retest-20261104/release.sh",
+      "sanitized": false,
+      "sha256": "5848c731f528dd1f817465167d177f64405954aba4cbb45eab659bfe526a58da"
+    },
+    {
+      "path": "hardware/retest-20261104/start-bootagent.sh",
+      "origin": "goldentee-review/retest-20261104/start-bootagent.sh",
+      "sanitized": false,
+      "sha256": "58b3e98da560331e7c4b62e8fffe23e465c4d47791b8fb48eded087fe5faca89"
+    },
+    {
+      "path": "hardware/retest-20261104/verify.py",
+      "origin": "goldentee-review/retest-20261104/verify.py",
+      "sanitized": true,
+      "sha256": "baa53b82dceaad1fe1055f5e70db9897ce8d589bcf28ad3474e4f60e73072dbc"
+    },
+    {
+      "path": "hardware/black-screen-audit/verify-evidence.py",
+      "origin": "goldentee-review/black-screen-audit/verify-evidence.py",
+      "sanitized": true,
+      "sha256": "27cdadedc8c8b461f554faa166f130f4ffeffc7b431a9df252f22488bd1e1005"
+    },
+    {
+      "path": "hardware/ssh/gt-ssh",
+      "origin": "goldentee-review/etc/rc.d/it.d/gt-ssh",
+      "sanitized": false,
+      "sha256": "0d33b0eef1c28a23d3e45e7f0937614a4ef4c015b14021962427de4226cde993"
+    },
+    {
+      "path": "hardware/proposed/nvidia-selector.patch",
+      "origin": "diff of original and proposed NVIDIA selector",
+      "sanitized": true,
+      "sha256": "a4b9a935839d49eda24833ee14ff921c66681080f960a9444ca978f4a1637e97"
+    }
+  ]
+}

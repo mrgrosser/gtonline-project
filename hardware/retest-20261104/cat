@@ -1,0 +1,22 @@
+#!/bin/bash
+# Game-only GTX1080 -> generic 750 Ti profile. Never mask driver setup.
+# Test candidate: gameplay, display and audio still require physical verification.
+if [ "$#" -eq 1 ] && [ "$1" = /proc/bus/pci/devices ]; then
+    ancestor=$PPID
+    for depth in 1 2 3 4; do
+        ancestor_exe=$(/usr/bin/readlink "/proc/$ancestor/exe" 2>/dev/null)
+        case "$ancestor_exe" in
+            '/tmp/go'|'/tmp/go (deleted)')
+                /bin/cat "$1" | /bin/sed 's/\t10de1b80\t/\t10de1380\t/'
+                exit ${PIPESTATUS[0]}
+                ;;
+        esac
+        parent=0
+        while read -r key value rest; do
+            if [ "$key" = 'PPid:' ]; then parent=$value; break; fi
+        done < "/proc/$ancestor/status" 2>/dev/null
+        [ "$parent" -gt 1 ] 2>/dev/null || break
+        ancestor=$parent
+    done
+fi
+exec /bin/cat "$@"

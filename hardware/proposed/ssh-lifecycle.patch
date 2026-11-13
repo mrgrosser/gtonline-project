@@ -1,0 +1,28 @@
+--- original/etc/rc.d/samba
++++ proposed/etc/rc.d/samba
+@@ -37,11 +37,7 @@
+ 		fi
+ 	;;
+ 	stop)
+-		# tpd - 6/7/17 - stop sshd.
+-		stat_busy "Stopping sshd"
+-		PID=`pidof -o %PPID /usr/sbin/sshd`
+-		[ -z "$PID" ] || kill $PID &> /dev/null
+-		stat_done
++		# Local administration: SSH lifecycle is independent of Samba.
+ 
+ 		rc=0
+ 		stat_busy "Stopping Samba Server"
+--- original/etc/rc.d/it.d/it
++++ proposed/etc/rc.d/it.d/it
+@@ -76,7 +76,9 @@
+ 		/etc/rc.d/it.d/checkdynamic $1
+ 	fi
+ 	
+-        /etc/rc.d/it.d/gt-ssh
++        if [ "$1" = "start" ]; then
++            /etc/rc.d/it.d/gt-ssh
++        fi
+ 	return 0
+ }
+ 

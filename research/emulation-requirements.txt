@@ -1,0 +1,3 @@
+pyelftools==0.33
+unicorn==2.1.4
+pycryptodome==4.4.0

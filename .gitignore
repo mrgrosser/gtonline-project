@@ -1,0 +1,24 @@
+# Generated state and private research inputs are never part of this archive.
+**/evidence/
+**/backups/
+**/private-server-keys/
+**/.venv/
+**/__pycache__/
+*.py[cod]
+.env
+.env.*
+*.pem
+*.key
+*.pcap
+*.pcapng
+*.bin
+*.dump
+*.sql
+*.log
+*.jsonl
+*.xwd
+*.ko
+*.asm
+*.tar
+*.tar.gz
+*.zip

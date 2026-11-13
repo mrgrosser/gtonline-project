@@ -1,0 +1,19 @@
+#!/bin/bash
+
+LOG=/game/dynamic/gt-ssh.log
+
+{
+    echo "===== SSH STARTUP ====="
+    date
+
+    echo "Starting SSH"
+    /usr/sbin/sshd
+
+    echo "Network status:"
+    /usr/sbin/ip -4 addr show eth0
+
+    echo "SSH listener:"
+    /usr/bin/ss -lntp | grep ':22'
+
+    echo "===== COMPLETE ====="
+} >> "$LOG" 2>&1

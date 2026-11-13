@@ -222,6 +222,14 @@ Positive registration can modify both hardware-backed storage and PostgreSQL sta
 - Publication scope is documentation only; no private research files, test secrets, captures, or cabinet dumps are included.
 - The cabinet was not modified by this documentation step.
 
+### 2026-11-13 — Sanitized source publication
+
+- At the owner's explicit request, prepared 101 source/dependency files from the protocol/session research and earlier SSH/GPU work for publication. Preserved superseded experiments as history.
+- Replaced identifying deployment values with example placeholders; decoded and sanitized embedded shell payloads. Exported vendor-script modifications as minimal patches, not full vendor scripts.
+- Added a source manifest, publication exclusions, runtime/dependency notes, and explicit offline test commands in `SOURCE_GUIDE.md`.
+- On the sanitized export: 33 mocked checks passed; 65 Python files parsed as Python 3 and 19 shell files passed syntax checks. Fourteen Python 2-only files were not syntax/runtime-validated. Native/private-fixture tests were not rerun.
+- This publication made no cabinet changes. Player login remains unverified; no new live-online milestone is claimed.
+
 ## 5. Protocol coverage snapshot
 
 Message numbers are research references, not a complete protocol specification. Versions and field layouts matter; supporting one version does not establish all versions.
@@ -244,7 +252,7 @@ Message numbers are research references, not a complete protocol specification. 
 
 ## 6. Implementation inventory
 
-The following filenames identify local research components. They are not promises that the code is included in this public document or ready for redistribution. Captures, secrets, generated fixtures, and source files require their own review before publication.
+The following filenames identify research components now included as sanitized source under `research/`. They are not a promise of standalone execution: see `SOURCE_GUIDE.md` for excluded inputs and validation limits. Captures, secrets, generated fixtures, and future source changes require their own review before publication.
 
 | Area | Representative local components |
 | --- | --- |

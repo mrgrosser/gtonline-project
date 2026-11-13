@@ -1,0 +1,14 @@
+--- original/install_nvidia
++++ modified/install_nvidia
+@@ -84,6 +84,11 @@
+ 		
+ 		#GEFORCE_GT_750_TI
+ 		if [ $pciPnP == "10de1380" ]; then
++			driver378=1
++			break
++		fi
++		# GeForce GTX 1080 desktop (10de:1b80): use existing Pascal-capable driver
++		if [ $pciPnP == "10de1b80" ]; then
+ 			driver378=1
+ 			break
+ 		fi
