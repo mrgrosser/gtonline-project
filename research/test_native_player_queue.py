@@ -9,9 +9,10 @@ from emulate_player_payload import FieldMachine
 
 
 class QueueMachine(FieldMachine):
-    def __init__(self, map_present=True, queue_present=True, backend=True):
+    def __init__(self, map_present=True, queue_present=True, backend=True, failure=None):
         super().__init__()
         self.map_present=map_present;self.queue_present=queue_present
+        self.failure=failure;self.operations=[];self.diagnostic=None
         self.queries=[];self.bindings={};self.outputs={};self.stage=0
         self.missing_map=False
         self.row=(183,3,0x123456789abcdef0)
@@ -30,7 +31,7 @@ class QueueMachine(FieldMachine):
         for offset,address in ((4,0x088f94d6),(8,0x088f94e4),(12,byname['execute']),(16,byname['fetch']),(20,byname['close'])):
             self.put(statement_vtable+offset,address)
         self.put(self.owner+0x54,self.factory if backend else 0)
-        for address in (0x08a5a2c0,0x08a5a6a2,0x08a5a67e,0x08a5a8d6,0x08a5a300,0x08967820):
+        for address in (0x08a5a2c0,0x08a5a6a2,0x08a5a67e,0x08a5a8d6,0x08a5a300,0x08967820,0x08967bce,0x08967f55):
             self.uc.hook_add(UC_HOOK_CODE,self.hook,begin=address,end=address)
 
     def hook(self,u,address,size,data):
@@ -40,8 +41,11 @@ class QueueMachine(FieldMachine):
             query=arg(1)
             if query not in (0x08bf8ef8,0x08bf901c):raise RuntimeError('Unexpected query')
             self.stage+=1;self.queries.append(query);self.ret(self.statement)
-        elif name=='execute':self.ret(0)
+        elif name=='execute':
+            self.operations.append((self.stage,name));self.ret(7 if self.failure==(self.stage,name) else 0)
         elif name=='fetch':
+            self.operations.append((self.stage,name))
+            if self.failure==(self.stage,name):self.ret(9);return
             present=self.map_present if self.stage==1 else self.queue_present
             self.put(arg(2),int(present))
             if present:
@@ -53,13 +57,16 @@ class QueueMachine(FieldMachine):
                     obj,category,completion=self.destination
                     u.mem_write(p+8,obj+b'\0');u.mem_write(p+0x10c,struct.pack('<H',category));u.mem_write(p+0x114,struct.pack('<h',completion))
             self.ret(0)
-        elif name=='close':self.ret()
+        elif name=='close':self.operations.append((self.stage,name));self.ret()
         elif address==0x08a5a2c0:self.bindings[arg(0)]=[];self.ret()
         elif address==0x08a5a6a2:
             self.bindings.setdefault(arg(0),[]).append(bytes(u.mem_read(arg(1)+4,8)));self.ret()
         elif address==0x08a5a67e:self.outputs[arg(0)]=arg(1);self.ret()
         elif address in (0x08a5a8d6,0x08a5a300):self.ret()
-        elif address==0x08967820:self.missing_map=True;self.ended=True;u.emu_stop()
+        elif address in (0x08967820,0x08967bce,0x08967f55):
+            self.missing_map=address==0x08967820
+            self.diagnostic={0x08967820:'missing_map',0x08967bce:'map_execute',0x08967f55:'map_fetch'}[address]
+            self.ended=True;u.emu_stop()
         elif address==0x081d4a40:
             p,pos,n,source,length=[arg(i) for i in range(5)]
             old=self.string(p);self.set_string(p,old[:pos]+bytes(u.mem_read(source,length))+old[pos+n:]);self.ret(p)
@@ -99,6 +106,45 @@ class NativePlayerQueueTests(unittest.TestCase):
         self.assertEqual(int.from_bytes(values[0][:2],'little'),0x8123)
         self.assertEqual(int.from_bytes(values[1][:2],'little'),5)
         self.assertEqual(int.from_bytes(values[2],'little'),m.row[2])
+
+    def test_second_query_errors_return_native_failure(self):
+        for operation in ('execute','fetch'):
+            with self.subTest(operation=operation):
+                m=QueueMachine(failure=(2,operation))
+                self.assertEqual(m.run(),(0x432,0))
+                self.assertEqual(m.string(m.context+8),b'unchanged')
+                self.assertEqual(m.operations[-1],(2,'close'))
+                if operation=='execute':self.assertNotIn((2,'fetch'),m.operations)
+
+    def test_first_query_errors_stop_at_distinct_native_diagnostics(self):
+        for operation in ('execute','fetch'):
+            with self.subTest(operation=operation):
+                m=QueueMachine(failure=(1,operation));m.run()
+                self.assertEqual(m.diagnostic,'map_'+operation)
+                self.assertEqual(m.queries,[0x08bf8ef8])
+                self.assertEqual(m.string(m.context+8),b'unchanged')
+                if operation=='execute':self.assertNotIn((1,'fetch'),m.operations)
+
+    def test_failed_second_query_leaves_partial_request_context(self):
+        m=QueueMachine(failure=(2,'fetch'));self.assertEqual(m.run(),(0x432,0))
+        # The first row was copied before query two. Callers must check status.
+        self.assertEqual(bytes(m.uc.mem_read(m.context,3)),b'\xb7\x00\x03')
+        self.assertEqual(struct.unpack('<Q',m.uc.mem_read(m.context+32,8))[0],m.row[2])
+        self.assertEqual(m.string(m.context+8),b'unchanged')
+
+    def test_outer_status_gate_branches_before_context_use(self):
+        # Bounded instruction slice AFTER lookup return; not the whole wrapper.
+        for code in (0,1,0x432,0x433,0x461,0xffff):
+            m=FieldMachine();sp=m.alloc(1024);target=[]
+            m.uc.reg_write(UC_X86_REG_ESP,sp)
+            m.uc.mem_write(sp+0x100,struct.pack('<H2xI',code,0x12345678))
+            def stop(u,address,size,data):
+                target.append(address);u.emu_stop()
+            for address in (0x0897d86e,0x0897d92b):
+                m.uc.hook_add(UC_HOOK_CODE,stop,begin=address,end=address)
+            m.uc.emu_start(0x0897d84d,0x0897d92c,count=32)
+            self.assertEqual(target,[0x0897d92b if code==0 else 0x0897d86e])
+            self.assertEqual(struct.unpack('<H2xI',m.uc.mem_read(sp+0x64,8)),(code,0x12345678))
 
     def test_empty_object_and_unsigned_category_signed_completion(self):
         m=QueueMachine();m.destination=(b'',65535,-32768)

@@ -394,3 +394,7 @@ Selected suite:87 methods passed (37 standalone,47 native/private-executable,3 p
 ### Same-day follow-up — execute base request-queue correlation
 
 Six additional native methods pass using synthetic database boundaries: absent backend0x433, missing outgoing queue0x461, missing container-map diagnostic branch, successful context population and binding/value width checks. The missing-map path stops before logging and does not establish its return status. No SQL, account or cabinet access occurred. See [queue follow-up](PLAYER_V2_CODEC.md#native-queue-follow-up-six-additional-methods). Selected coverage totals93 methods; archive122 source files.
+
+### Nighthawk queue errors and caller status gate
+
+Continued Nighthawk work at the owner's direction; Titan remains a separate possible future evaluation, not an active conversion. Four additional methods check query execute/fetch errors, partial request context on failure, and the caller's immediate status branch. Second-query failures return0x432. First-query diagnostic continuations are still deliberately bounded before logging. Selected coverage97 methods; source inventory remains122. See [queue-error limits](PLAYER_V2_CODEC.md#nighthawk-queue-error-follow-up). Cabinet unchanged.

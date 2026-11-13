@@ -30,3 +30,5 @@ The [offline player/profile store](PLAYER_STORE.md) now supports explicit enroll
 The latest [V2 codec and correlation checks](PLAYER_V2_CODEC.md) bring the selected offline suite to **87 passing methods**, including **37 standalone methods**. Request183/reply184 versions0–3 now have strict payload codecs. The network responder still refuses player login; no database commit or on-screen login is proven.
 
 Six further native queue tests exercise missing-context errors and successful synthetic request correlation. Selected coverage is now93 methods; actual SQL and live login remain unverified.
+
+Nighthawk queue-error and caller status-gate checks bring selected offline coverage to97 methods. Partial request context after a failed lookup is explicitly tested; no live-login claim is made.

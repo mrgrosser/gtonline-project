@@ -71,3 +71,14 @@ The six methods pass with the private executable. This extends the selected suit
 cd research
 python3 -m unittest test_native_player_queue
 ```
+
+## Nighthawk queue-error follow-up
+
+The queue module now has10 methods, adding four tests to the preceding release:
+
+- Modeled second-query execute/fetch errors return original status0x432 and invoke modeled statement close. An execute error skips fetch.
+- First-query execute/fetch failures take distinct native diagnostic paths before the second query; tests stop before logging, without claiming eventual return codes.
+- A second-query failure leaves the already-copied message ID/version and request ID in context while the destination string is unchanged. Consumers must check status, not infer success from populated fields.
+- A separate, explicitly seeded native instruction slice immediately after lookup return copies code/detail and routes zero versus nonzero status to distinct branches. Six codes including0x432/0x433/0x461 are exercised. This is not execution of the complete outer wrapper, its failure callback, cleanup or later UI behavior.
+
+Selected suite now97 methods (37 standalone,57 native/private-executable,3 metadata-dependent). The work remains on the existing Nighthawk executable. No Titan conversion, new image installation or cabinet modification was performed.

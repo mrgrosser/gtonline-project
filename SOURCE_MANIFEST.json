@@ -617,7 +617,7 @@
       "path": "research/test_native_player_queue.py",
       "origin": "golden-tee-research/test_native_player_queue.py",
       "sanitized": false,
-      "sha256": "ec0592b06b309f0a40e50369c3088180b29ff5f1c2222703b9da5786930b4974"
+      "sha256": "b15adf78d0e2d623aedf22d7fbe3aed1f4431c8294b0e2cad28d937818cb6631"
     },
     {
       "path": "research/test_native_player_registry.py",
