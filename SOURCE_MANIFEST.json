@@ -122,6 +122,12 @@
       "sha256": "d178dd851c0184ccc6aab818f56f0b108d71a66b1f297e53d20d8d9bf849926e"
     },
     {
+      "path": "research/avatar_wire.py",
+      "origin": "golden-tee-research/avatar_wire.py",
+      "sanitized": false,
+      "sha256": "c49fd94999fcad626b1049a34504b24e9a7206a5b91a767a6afbcd3ae1a4f58e"
+    },
+    {
       "path": "research/baseline_relay.py",
       "origin": "golden-tee-research/baseline_relay.py",
       "sanitized": true,
@@ -143,7 +149,7 @@
       "path": "research/cabinet_relay_bridge.py",
       "origin": "golden-tee-research/cabinet_relay_bridge.py",
       "sanitized": true,
-      "sha256": "c52922cd22c754c6c01b140a81cee87ee2580536a7341cb67f902b2a551d5a9a"
+      "sha256": "cf7981cd287ac4bd71b70a6c53ac48a8dba2be37abcd769770f89b684c489cd5"
     },
     {
       "path": "research/capture_baseline_after_timeout.py",
@@ -164,6 +170,18 @@
       "sha256": "a17d58ade7f289f17b7e6d03185a2a6722e043437953841b50093275eb054041"
     },
     {
+      "path": "research/completed_round_collector.py",
+      "origin": "golden-tee-research/completed_round_collector.py",
+      "sanitized": false,
+      "sha256": "e289be2c8f8395ebc7cf8d7b246fedc4422886f9b04a4d6348cd74eb73e0933a"
+    },
+    {
+      "path": "research/completed_stats_reply.py",
+      "origin": "golden-tee-research/completed_stats_reply.py",
+      "sanitized": false,
+      "sha256": "edec8cae19d286e56fb610322eddad7a7e2a937942da0dd0217c4278d8016a2b"
+    },
+    {
       "path": "research/container_compression.py",
       "origin": "golden-tee-research/container_compression.py",
       "sanitized": false,
@@ -176,16 +194,52 @@
       "sha256": "e15c8201e442c9cdb9027b6348903fec6294e4eb27939d7ad25beb33b130902f"
     },
     {
+      "path": "research/emulate_avatar.py",
+      "origin": "golden-tee-research/emulate_avatar.py",
+      "sanitized": false,
+      "sha256": "82ef6f124505d959fdba052ee5bc422ac413e1df5835f31197552b961ee4ce26"
+    },
+    {
+      "path": "research/emulate_common_registry.py",
+      "origin": "golden-tee-research/emulate_common_registry.py",
+      "sanitized": false,
+      "sha256": "e177d28b407db988e801748cdc0d8a4dc0d0a6adba788ce223e9d84d58b18fec"
+    },
+    {
       "path": "research/emulate_complete_session_reply.py",
       "origin": "golden-tee-research/emulate_complete_session_reply.py",
       "sanitized": false,
       "sha256": "58cf8f9b46ef0009752f6d8e104dbfc325d3693d90176a1d05d114cb12c920fa"
     },
     {
+      "path": "research/emulate_consumable_inventory.py",
+      "origin": "golden-tee-research/emulate_consumable_inventory.py",
+      "sanitized": false,
+      "sha256": "3085500a8187bc047b18431a083682fb7a6840e1dd1f0ea3b8515a5b27349d8c"
+    },
+    {
       "path": "research/emulate_container_compression.py",
       "origin": "golden-tee-research/emulate_container_compression.py",
       "sanitized": false,
       "sha256": "7c082b1f921b67f373f4331036f624ddfc362e212e2ee8d79f3d4c829d6d9cf0"
+    },
+    {
+      "path": "research/emulate_contest_results.py",
+      "origin": "golden-tee-research/emulate_contest_results.py",
+      "sanitized": false,
+      "sha256": "362ec7243c31c4019df6e1eb3aecfdb38a4589694fd9a0148a25d74b693aa0bc"
+    },
+    {
+      "path": "research/emulate_custom_bag.py",
+      "origin": "golden-tee-research/emulate_custom_bag.py",
+      "sanitized": false,
+      "sha256": "202a0cbb8b45c49b5cae58c5c0019557e21004cb2d938b979f697edfe1df19a3"
+    },
+    {
+      "path": "research/emulate_custom_club.py",
+      "origin": "golden-tee-research/emulate_custom_club.py",
+      "sanitized": false,
+      "sha256": "baafdc7cb64e9b15332f864ad6d1836012171e048f442d19a90086cf327bc1b5"
     },
     {
       "path": "research/emulate_outgoing_session.py",
@@ -278,6 +332,12 @@
       "sha256": "4f8dd4afd406f7f2954afbd9661c03f287c47bd52ec4513ed20c37fd980396a1"
     },
     {
+      "path": "research/emulate_stats_defaults.py",
+      "origin": "golden-tee-research/emulate_stats_defaults.py",
+      "sanitized": false,
+      "sha256": "7ba56b4ad5a0d40eadd914ecb6920476aa56e0e83f303e46cc2dd32984fbcb6d"
+    },
+    {
       "path": "research/emulate_storage_read.py",
       "origin": "golden-tee-research/emulate_storage_read.py",
       "sanitized": false,
@@ -302,6 +362,18 @@
       "sha256": "a02a68f25e516156198e386a435e9a9fd55af07d61e9e398525bb32fae561d4d"
     },
     {
+      "path": "research/equipment_update_inspect.py",
+      "origin": "golden-tee-research/equipment_update_inspect.py",
+      "sanitized": false,
+      "sha256": "599566243ae1166cbf2f9570826c50d7302c0bd0bfec580dd1b65abc86d93842"
+    },
+    {
+      "path": "research/game_start_receipt.py",
+      "origin": "golden-tee-research/game_start_receipt.py",
+      "sanitized": false,
+      "sha256": "2e8a11884513d8d5159fdfc8a54e52a3c8c5485c613a41ed3234a7c9cfd4c138"
+    },
+    {
       "path": "research/gateway_registration_guard.py",
       "origin": "golden-tee-research/gateway_registration_guard.py",
       "sanitized": true,
@@ -320,16 +392,88 @@
       "sha256": "3bdea97f26c46f6a6dc6a19de128b6029166c9ca9d63f729476420f2a608f2bc"
     },
     {
+      "path": "research/imported_profile_adapter.py",
+      "origin": "golden-tee-research/imported_profile_adapter.py",
+      "sanitized": false,
+      "sha256": "0c0bae04dc5beb76ea966af462860f6f3be4612fbdf49f545421bbd300b740b4"
+    },
+    {
       "path": "research/inspect_capture.py",
       "origin": "golden-tee-research/inspect_capture.py",
       "sanitized": false,
       "sha256": "aecad54ff0bc00876412ae6b5f760335d4767ac4c6ca8b472466bc4b7b736893"
     },
     {
+      "path": "research/local_avatar_baseline.py",
+      "origin": "golden-tee-research/local_avatar_baseline.py",
+      "sanitized": false,
+      "sha256": "29452ecde48ca7f86fa2800bd2fed68a6831dfc2c26cdc3b8520cdc9668d6ea1"
+    },
+    {
+      "path": "research/local_consumable_policy.py",
+      "origin": "golden-tee-research/local_consumable_policy.py",
+      "sanitized": false,
+      "sha256": "acdc55b745ef5a322f3fe7d908e1934edfa5e0d6fb09bd17547e4ae5cae7dbd0"
+    },
+    {
+      "path": "research/local_contest_results_policy.py",
+      "origin": "golden-tee-research/local_contest_results_policy.py",
+      "sanitized": false,
+      "sha256": "47dc56b1ff050609b4fbcf37afe639c5da8a233f7e6e00c75d70e162186d9f51"
+    },
+    {
+      "path": "research/local_custom_club_policy.py",
+      "origin": "golden-tee-research/local_custom_club_policy.py",
+      "sanitized": false,
+      "sha256": "22d4219fdd72ea48a88d2191b4528f805888227f8a11902e4e919b472e7429d4"
+    },
+    {
       "path": "research/local_followups.py",
       "origin": "golden-tee-research/local_followups.py",
       "sanitized": false,
-      "sha256": "6d75868b66df2196917381e8e99245166e50e66fc37b3047b945107483b18d16"
+      "sha256": "1603f58194183a47e53a1c788c7502748f3881bca9497e3a6fb08e168a5d5b52"
+    },
+    {
+      "path": "research/local_home_end_receipt.py",
+      "origin": "golden-tee-research/local_home_end_receipt.py",
+      "sanitized": false,
+      "sha256": "8cb5bc5a8facc61785a7d29855d14eee1b2fc2b40dacc21967ec026e932f2a39"
+    },
+    {
+      "path": "research/local_home_selection_ledger.py",
+      "origin": "golden-tee-research/local_home_selection_ledger.py",
+      "sanitized": false,
+      "sha256": "8ef53a4859d5c3cd7b907e477501d8ae95511b82f1965fef960253d6d53e7c77"
+    },
+    {
+      "path": "research/local_inventory_policy.py",
+      "origin": "golden-tee-research/local_inventory_policy.py",
+      "sanitized": false,
+      "sha256": "f9d100407099cf61cd9506389a0a7646954d4f3bf9a80c84547b0effc256b052"
+    },
+    {
+      "path": "research/local_pre_round_bundle.py",
+      "origin": "golden-tee-research/local_pre_round_bundle.py",
+      "sanitized": false,
+      "sha256": "bb9e9e881ba8d01a530cd82f6e00238aa389f690b6bdbb503cd59dbd5a7cf570"
+    },
+    {
+      "path": "research/local_round_history.py",
+      "origin": "golden-tee-research/local_round_history.py",
+      "sanitized": false,
+      "sha256": "6fa68078641b8a8f6e2e7399f4b9173bda6461a93b9887a2b038681b0159cffb"
+    },
+    {
+      "path": "research/local_stats_baseline.py",
+      "origin": "golden-tee-research/local_stats_baseline.py",
+      "sanitized": false,
+      "sha256": "f77bbe62a2cd193b5b73c5439eded023fc387025d420c1cefeea12e74ea72b95"
+    },
+    {
+      "path": "research/local_test_profile.py",
+      "origin": "golden-tee-research/local_test_profile.py",
+      "sanitized": false,
+      "sha256": "6f432e03e9baa504fdb408ae2be6203b005f47e1b743d8380dba8ac681ab2fce"
     },
     {
       "path": "research/native_crypto_machine.py",
@@ -338,10 +482,34 @@
       "sha256": "866ada0e8dc10a237ad7d65e0db128ed2ea661d015ef916af1aa60e358420db6"
     },
     {
+      "path": "research/native_local_stats_projection.py",
+      "origin": "golden-tee-research/native_local_stats_projection.py",
+      "sanitized": false,
+      "sha256": "7b6d482210d20234250da032ddbbc3a253ee7856fdb8d3e0bdd11b78f4103d66"
+    },
+    {
       "path": "research/native_rng_fixture.py",
       "origin": "golden-tee-research/native_rng_fixture.py",
       "sanitized": false,
       "sha256": "b27b9468f801c39b1b3b65b0d28cd902a7fb81cdb95d56c2d3fb725124d744c4"
+    },
+    {
+      "path": "research/observed_bundle_inspect.py",
+      "origin": "golden-tee-research/observed_bundle_inspect.py",
+      "sanitized": false,
+      "sha256": "15c72f6e0ee538624f75538d4456e635933023becce9f485416d50dffadf4a1a"
+    },
+    {
+      "path": "research/player_request_inspect.py",
+      "origin": "golden-tee-research/player_request_inspect.py",
+      "sanitized": false,
+      "sha256": "e5dd639d753f4cef23dccd23f9f6149b5958bfa831fd41b851f29d795e8da14e"
+    },
+    {
+      "path": "research/player_setup_bundle.py",
+      "origin": "golden-tee-research/player_setup_bundle.py",
+      "sanitized": false,
+      "sha256": "d6b8cee0be8be570df00be03afbbfe01b33501a04d9d679f6cb09b3c360904ec"
     },
     {
       "path": "research/player_store.py",
@@ -389,7 +557,7 @@
       "path": "research/private_session_responder.py",
       "origin": "golden-tee-research/private_session_responder.py",
       "sanitized": false,
-      "sha256": "a40f4088b82d1c4fd0f8b93fb059d0308a843baaaad1e26193b08c6acff3d54c"
+      "sha256": "21655c3c0ae6210cd1a9fb6bc2dff8134534fd0aa3af9247a396330f778789d5"
     },
     {
       "path": "research/read_after_ui_storage.py",
@@ -466,8 +634,8 @@
     {
       "path": "research/reencoding_relay.py",
       "origin": "golden-tee-research/reencoding_relay.py",
-      "sanitized": false,
-      "sha256": "1cc995830b60045cf3139da4e3796e027e4a5d200eb93952001c870d828727e0"
+      "sanitized": true,
+      "sha256": "4baf232a604b7157edb16efda1a84a3022aa2a10a2f7b0b91da7fddb028be63e"
     },
     {
       "path": "research/refresh_public_context.py",
@@ -500,6 +668,24 @@
       "sha256": "dbf7ecdda9f695df265805c74e73c6a544be99fae41b3f793947936139c49ca8"
     },
     {
+      "path": "research/round_event_journal.py",
+      "origin": "golden-tee-research/round_event_journal.py",
+      "sanitized": false,
+      "sha256": "44a9673ad1ec0b7d0095fd8c8e542597c6f52c7cbacdcef1e384ae1cfaa2be0a"
+    },
+    {
+      "path": "research/round_receipt_adapter.py",
+      "origin": "golden-tee-research/round_receipt_adapter.py",
+      "sanitized": false,
+      "sha256": "9c93630988310517bcea3ad0df3804a3f7c05adcdffe90a6d3f5c1505d2d4a32"
+    },
+    {
+      "path": "research/round_session_blob.py",
+      "origin": "golden-tee-research/round_session_blob.py",
+      "sanitized": false,
+      "sha256": "0ff88383cc30be5f2c84421b12174f6fa7dc1a5feca28b9ea6130d3d7dd555dd"
+    },
+    {
       "path": "research/run-heartbeat-window.sh",
       "origin": "golden-tee-research/run-heartbeat-window.sh",
       "sanitized": true,
@@ -521,7 +707,13 @@
       "path": "research/run_private_host.py",
       "origin": "golden-tee-research/run_private_host.py",
       "sanitized": true,
-      "sha256": "47b39de0617a1ebd674b2290d047cfb523dcd009e6f84e4e010145a07e02e7a5"
+      "sha256": "7cc348ed7ce46a9c1ac70be347e3b6b52a753c8f2091defe702fcc62ba3121d6"
+    },
+    {
+      "path": "research/session_checkpoint.py",
+      "origin": "golden-tee-research/session_checkpoint.py",
+      "sanitized": false,
+      "sha256": "70b244ed19603f8c1958871e51bc39333f0214eac4111d60275184a6c5cbe67d"
     },
     {
       "path": "research/session_transport.py",
@@ -536,16 +728,46 @@
       "sha256": "c3b0aca5e4aec1936d7803439cd116470301f707d786ca19066967461f5b5a08"
     },
     {
+      "path": "research/stats_wire.py",
+      "origin": "golden-tee-research/stats_wire.py",
+      "sanitized": false,
+      "sha256": "2a8447228e37bda4d16f4d0aa31b35a7ed42080d7bce1447bb16ab5dd13ad36a"
+    },
+    {
       "path": "research/summarize_tcp_capture.py",
       "origin": "golden-tee-research/summarize_tcp_capture.py",
       "sanitized": false,
       "sha256": "0189c2843823f9832d23ad7bcc585f6556319b302f6b6026a1b2572666717fb1"
     },
     {
+      "path": "research/test_completed_round_collector.py",
+      "origin": "golden-tee-research/test_completed_round_collector.py",
+      "sanitized": false,
+      "sha256": "dc8c209e9d81a5f3af0d2e40297214d474ef4152c3d45337d5d66fddcd884f3d"
+    },
+    {
+      "path": "research/test_completed_stats_reply.py",
+      "origin": "golden-tee-research/test_completed_stats_reply.py",
+      "sanitized": false,
+      "sha256": "0f0119a85098fadb816a602837825415e4361ff7887880905b9005a20f1713cf"
+    },
+    {
       "path": "research/test_container_compression.py",
       "origin": "golden-tee-research/test_container_compression.py",
       "sanitized": false,
       "sha256": "47ac0673c9f66f7d3e04c970b2c055902d8c954690b30a7d7bad5c8d340098e3"
+    },
+    {
+      "path": "research/test_diagnostic_bundle.py",
+      "origin": "golden-tee-research/test_diagnostic_bundle.py",
+      "sanitized": false,
+      "sha256": "5fce1e4786dff1f0804e5fe39124446c065f39fb64894d6e0e411a2e07da9cba"
+    },
+    {
+      "path": "research/test_equipment_update_inspect.py",
+      "origin": "golden-tee-research/test_equipment_update_inspect.py",
+      "sanitized": false,
+      "sha256": "dac0863590898c3e1a35e2df44294fae90201f2234fde6236c7a88067ed783d4"
     },
     {
       "path": "research/test_fixture_transport.py",
@@ -558,6 +780,12 @@
       "origin": "golden-tee-research/test_followup_wire.py",
       "sanitized": false,
       "sha256": "c3ea3caeeef2dd6253694c9d31d597add84530149f14c35cfce4c25130362578"
+    },
+    {
+      "path": "research/test_game_start_receipt.py",
+      "origin": "golden-tee-research/test_game_start_receipt.py",
+      "sanitized": false,
+      "sha256": "d12b8ddc065ac4a53402f56e37fc0650077c4f51f88d4f9624a29aa9a7a8ae8a"
     },
     {
       "path": "research/test_gateway_gate.py",
@@ -584,16 +812,130 @@
       "sha256": "b9a2bdd427f750e369f4dee0fdf692055ebae68701b541e49304e684c6a22608"
     },
     {
+      "path": "research/test_home_equipment_route.py",
+      "origin": "golden-tee-research/test_home_equipment_route.py",
+      "sanitized": false,
+      "sha256": "ad8c306ca24a1390e000484f62b17b2f90fb2812cdb2da48eab92a6ed93633b1"
+    },
+    {
+      "path": "research/test_imported_profile_adapter.py",
+      "origin": "golden-tee-research/test_imported_profile_adapter.py",
+      "sanitized": false,
+      "sha256": "d31a8a6111caa8e510613ae664c14a32ee94ad357e38bd255c8a8aa491fc3ea3"
+    },
+    {
       "path": "research/test_isolation_namespace.py",
       "origin": "golden-tee-research/test_isolation_namespace.py",
       "sanitized": true,
       "sha256": "2a358f01e8c197f7bbcca4fe25374152709898a9df544abb672b76d941627a1a"
     },
     {
+      "path": "research/test_local_consumable_policy.py",
+      "origin": "golden-tee-research/test_local_consumable_policy.py",
+      "sanitized": false,
+      "sha256": "8995f6b1c5539944d8459194627e4b25598f426c74bfece4c4599c8e3ad9504e"
+    },
+    {
       "path": "research/test_local_followups.py",
       "origin": "golden-tee-research/test_local_followups.py",
       "sanitized": false,
       "sha256": "b090b7ca6fc17d6423cf0b195ee7bbcbef375f2e1d59aa59bce5f7d419b61b1d"
+    },
+    {
+      "path": "research/test_local_home_end_receipt.py",
+      "origin": "golden-tee-research/test_local_home_end_receipt.py",
+      "sanitized": false,
+      "sha256": "596114167780874731e52610732f3f907935749d980c388f51f9db7c2e18fd89"
+    },
+    {
+      "path": "research/test_local_home_selection_ledger.py",
+      "origin": "golden-tee-research/test_local_home_selection_ledger.py",
+      "sanitized": false,
+      "sha256": "4ad5818e028e1289d2e3f7d37741f11fa685617b5cfdc80e016a6a7296731e81"
+    },
+    {
+      "path": "research/test_local_online_setup.py",
+      "origin": "golden-tee-research/test_local_online_setup.py",
+      "sanitized": false,
+      "sha256": "f8361d652a47a9767f574ee82fd334a67840daf6d19507f4655bb576f7a21c23"
+    },
+    {
+      "path": "research/test_local_pre_round_bundle.py",
+      "origin": "golden-tee-research/test_local_pre_round_bundle.py",
+      "sanitized": false,
+      "sha256": "bbba5dbf93386d2aaa4479396b755f5071a06eafadda9ae24386f1025a8c5c30"
+    },
+    {
+      "path": "research/test_local_round_history.py",
+      "origin": "golden-tee-research/test_local_round_history.py",
+      "sanitized": false,
+      "sha256": "e939cd2dd0a42bf4d0a1ce3978c757f60e5bfe3c3f3ce92612ca5612a4c4d772"
+    },
+    {
+      "path": "research/test_local_test_profile.py",
+      "origin": "golden-tee-research/test_local_test_profile.py",
+      "sanitized": false,
+      "sha256": "a879a59e969f1e7ef929c472b72c8cc9a49edad7263ef94d96bc2b76ddde2a12"
+    },
+    {
+      "path": "research/test_native_avatar.py",
+      "origin": "golden-tee-research/test_native_avatar.py",
+      "sanitized": false,
+      "sha256": "eb974f4637de18cd0eb57c78eb5e36d8fc8cc8e511f6f0b7ebff897b2b5d09c6"
+    },
+    {
+      "path": "research/test_native_body_catalog.py",
+      "origin": "golden-tee-research/test_native_body_catalog.py",
+      "sanitized": false,
+      "sha256": "a167a00fdc6224f9c8ecadb1864e848aee3329c0cdff9f4793ff04038780acee"
+    },
+    {
+      "path": "research/test_native_bundle_positions.py",
+      "origin": "golden-tee-research/test_native_bundle_positions.py",
+      "sanitized": false,
+      "sha256": "25b81cd60d33aefec7dbd434c2c7dbb383bcdf659767382a23627c36727d7fc7"
+    },
+    {
+      "path": "research/test_native_consumable_inventory.py",
+      "origin": "golden-tee-research/test_native_consumable_inventory.py",
+      "sanitized": false,
+      "sha256": "2a11fea39951e77c3cd7021d6a22b4bd65cc3281432f86c94ed17cf9df72ff14"
+    },
+    {
+      "path": "research/test_native_contest_results.py",
+      "origin": "golden-tee-research/test_native_contest_results.py",
+      "sanitized": false,
+      "sha256": "cbad17b9fde61df7ac24de024d357795d3f3b83f78eaada213ff2dd05aab1cb2"
+    },
+    {
+      "path": "research/test_native_custom_bag.py",
+      "origin": "golden-tee-research/test_native_custom_bag.py",
+      "sanitized": false,
+      "sha256": "1b95601e294bb7067d4e2bdaa461aac6b8dace44612a24db9fd1cc02544ff42a"
+    },
+    {
+      "path": "research/test_native_custom_club.py",
+      "origin": "golden-tee-research/test_native_custom_club.py",
+      "sanitized": false,
+      "sha256": "a69a38126d409c559863616431aa9baade549a087b016f40864ccc932ef428ec"
+    },
+    {
+      "path": "research/test_native_home_equipment.py",
+      "origin": "golden-tee-research/test_native_home_equipment.py",
+      "sanitized": false,
+      "sha256": "6f55ac2873201f2d16fc3e7be2b721e1d88f8bed703b3413cd60f1740c6a1dac"
+    },
+    {
+      "path": "research/test_native_inventory_contracts.py",
+      "origin": "golden-tee-research/test_native_inventory_contracts.py",
+      "sanitized": false,
+      "sha256": "10a589c9eb60b5c5b93d0dfca47ba23fa2488fa1c6846290cc073c756e04d93d"
+    },
+    {
+      "path": "research/test_native_inventory_defaults.py",
+      "origin": "golden-tee-research/test_native_inventory_defaults.py",
+      "sanitized": false,
+      "sha256": "0847418ef2ef958e2f474eab93cd58635ce935640fe8da26a0412bb1ce49fb36"
     },
     {
       "path": "research/test_native_itnet_completion.py",
@@ -608,10 +950,28 @@
       "sha256": "5bfde5a97da5ea6f073d6af0cec82d2c9adeb119c3582e98b442dcc3efef1605"
     },
     {
+      "path": "research/test_native_local_stats_projection.py",
+      "origin": "golden-tee-research/test_native_local_stats_projection.py",
+      "sanitized": false,
+      "sha256": "600282cb403b1d8cf05cf8c6c0d72f57949d3c52f2abdc160c11f94c2b923b42"
+    },
+    {
+      "path": "research/test_native_now_selection.py",
+      "origin": "golden-tee-research/test_native_now_selection.py",
+      "sanitized": false,
+      "sha256": "f95760be6e85a692e92dca4b30e8e64d39d2802a3c106de3b5977f29630537ea"
+    },
+    {
       "path": "research/test_native_player_dispatch.py",
       "origin": "golden-tee-research/test_native_player_dispatch.py",
       "sanitized": false,
       "sha256": "1dd224a92cef3e3723e3b38856d9a33e1a735a4f083ab5372c6157cf1a224937"
+    },
+    {
+      "path": "research/test_native_player_error.py",
+      "origin": "golden-tee-research/test_native_player_error.py",
+      "sanitized": false,
+      "sha256": "1530957805182e656ba558aa5fa10eadfd1d3ef119bda54bca5b95fe6a184087"
     },
     {
       "path": "research/test_native_player_handoff.py",
@@ -638,10 +998,22 @@
       "sha256": "5ae5a160806087fe7d571304056a3d271d668b056cc6ce848ecc142966c031fb"
     },
     {
+      "path": "research/test_native_player_request_inspect.py",
+      "origin": "golden-tee-research/test_native_player_request_inspect.py",
+      "sanitized": false,
+      "sha256": "0d8c5806932997567cc545b876c10a53f9d70b8f762c50a78ed0360ca8057547"
+    },
+    {
       "path": "research/test_native_player_routing.py",
       "origin": "golden-tee-research/test_native_player_routing.py",
       "sanitized": false,
       "sha256": "ead0dd6aabf746676b7e981c81653cd468be5d5fbed8fddb7eb0197976378b05"
+    },
+    {
+      "path": "research/test_native_player_selection.py",
+      "origin": "golden-tee-research/test_native_player_selection.py",
+      "sanitized": false,
+      "sha256": "ea97c6d6224a1912085659f7333b27cc73256e520bd30810b7b8abfa2203b068"
     },
     {
       "path": "research/test_native_player_v2.py",
@@ -656,16 +1028,64 @@
       "sha256": "3a968b0c6daf6f8eabcfc5a12649a9125ea72786e8e1f0d2263d951657daaa91"
     },
     {
+      "path": "research/test_native_round_semantics.py",
+      "origin": "golden-tee-research/test_native_round_semantics.py",
+      "sanitized": false,
+      "sha256": "7297c053c9958c9a044e9471e9258a193d8d06bdd00eb78446f671f42601dca3"
+    },
+    {
+      "path": "research/test_native_round_stats.py",
+      "origin": "golden-tee-research/test_native_round_stats.py",
+      "sanitized": false,
+      "sha256": "e4473df7f26d59663486e657ccd37d804239a19a99c49744b84fe3e7858a1191"
+    },
+    {
+      "path": "research/test_native_stats_contract.py",
+      "origin": "golden-tee-research/test_native_stats_contract.py",
+      "sanitized": false,
+      "sha256": "46542111f301609c209a2736684224d47df59e46673650757bbca2c1286c4254"
+    },
+    {
+      "path": "research/test_native_stats_defaults.py",
+      "origin": "golden-tee-research/test_native_stats_defaults.py",
+      "sanitized": false,
+      "sha256": "8eca1d5805df47554abdd1beee6f64ca935e4a8c080e0f04f05c33244250391a"
+    },
+    {
+      "path": "research/test_observed_bundle_inspect.py",
+      "origin": "golden-tee-research/test_observed_bundle_inspect.py",
+      "sanitized": false,
+      "sha256": "e505636282883a25de9ee15d97f49fa293aa3f3c3eb3faf038b40311fdb782be"
+    },
+    {
+      "path": "research/test_pinned_player_not_found.py",
+      "origin": "golden-tee-research/test_pinned_player_not_found.py",
+      "sanitized": false,
+      "sha256": "6b829363a6316cd71a65f0084d9967ca53c227ff503f8f882f486e0d98436be1"
+    },
+    {
       "path": "research/test_player_reply_policy.py",
       "origin": "golden-tee-research/test_player_reply_policy.py",
       "sanitized": false,
       "sha256": "fcdee57333ed7f03267efe6600e2d4ec6b1b590b46498b912b2dcaae338bf794"
     },
     {
+      "path": "research/test_player_request_inspect.py",
+      "origin": "golden-tee-research/test_player_request_inspect.py",
+      "sanitized": false,
+      "sha256": "1d661b689b2c83effc1fd460d6b8b74b551006f34af751746681ad69d7c9c77b"
+    },
+    {
       "path": "research/test_player_response_correlation.py",
       "origin": "golden-tee-research/test_player_response_correlation.py",
       "sanitized": false,
       "sha256": "5f1c8896ff47f603fb555bfd4a0431bb2819aebccd35acf0677281be32136d39"
+    },
+    {
+      "path": "research/test_player_setup_bundle.py",
+      "origin": "golden-tee-research/test_player_setup_bundle.py",
+      "sanitized": false,
+      "sha256": "a9d6f446fb4371baaf69b9153135b32f2797aa72a9def408065a01d876d08b72"
     },
     {
       "path": "research/test_player_store.py",
@@ -722,6 +1142,30 @@
       "sha256": "a67c2b509e301575525c39121516b4865e136198812559e5720ea74777014425"
     },
     {
+      "path": "research/test_round_capture_route.py",
+      "origin": "golden-tee-research/test_round_capture_route.py",
+      "sanitized": false,
+      "sha256": "d59b69650af90efadb03c43d1814ddfc8a02b90beba7fb11b1315cf4b7de8b70"
+    },
+    {
+      "path": "research/test_round_event_journal.py",
+      "origin": "golden-tee-research/test_round_event_journal.py",
+      "sanitized": false,
+      "sha256": "ee8831d46ad595dbeb982a088f04605a8912b6ae089b420bf83cd19e61e17990"
+    },
+    {
+      "path": "research/test_round_receipt_adapter.py",
+      "origin": "golden-tee-research/test_round_receipt_adapter.py",
+      "sanitized": false,
+      "sha256": "343a2e42ffc7935b4bfa41c2a0f64c51e81115ce9d9efdd7fc7a152c9410e5fc"
+    },
+    {
+      "path": "research/test_round_session_blob.py",
+      "origin": "golden-tee-research/test_round_session_blob.py",
+      "sanitized": false,
+      "sha256": "75d40ce7b2399bab2b93eab1190f847039ddedb89d6573749d306fedcf97c556"
+    },
+    {
       "path": "research/test_session_clock_guard.py",
       "origin": "golden-tee-research/test_session_clock_guard.py",
       "sanitized": false,
@@ -734,10 +1178,28 @@
       "sha256": "5370513895b480dc61a0e09e7f29212a14b782ea0610f68ba5a1380a9435d8b6"
     },
     {
+      "path": "research/test_starter_equipment_bundle.py",
+      "origin": "golden-tee-research/test_starter_equipment_bundle.py",
+      "sanitized": false,
+      "sha256": "0343b7370a16e05832c3c0458ca0478adb099bd5a2f5340d2e0da8a6362ec91c"
+    },
+    {
       "path": "research/test_storage_drill.py",
       "origin": "golden-tee-research/test_storage_drill.py",
       "sanitized": false,
       "sha256": "7662ffd505fb4df72b1310ac4e6bbfbacb0bc62f5e9cb134a85c500da7a69c23"
+    },
+    {
+      "path": "research/test_website_best_distances.py",
+      "origin": "golden-tee-research/test_website_best_distances.py",
+      "sanitized": false,
+      "sha256": "990350996e89549ba424489b2ab405bf1013299aff78cefeebd487d287e52016"
+    },
+    {
+      "path": "research/test_website_stats_counts.py",
+      "origin": "golden-tee-research/test_website_stats_counts.py",
+      "sanitized": false,
+      "sha256": "196fa1458811b9bf59a7c28943e0fbc48950074528e0356f37e1b1c39bc96736"
     },
     {
       "path": "research/trust_drill_isolation.py",
@@ -750,6 +1212,18 @@
       "origin": "golden-tee-research/verify_storage_snapshot.py",
       "sanitized": false,
       "sha256": "d227aea3e33a2a534d6e33edbada9ee5b8b04e8b7f25c7a8d6a61764c2c1c33c"
+    },
+    {
+      "path": "research/website_best_distances.py",
+      "origin": "golden-tee-research/website_best_distances.py",
+      "sanitized": false,
+      "sha256": "4aab2fed229d2a9d2739c68a9f9e799ee2fdcb1999cf69d47cb6bb3e5fcf43a2"
+    },
+    {
+      "path": "research/website_stats_counts.py",
+      "origin": "golden-tee-research/website_stats_counts.py",
+      "sanitized": false,
+      "sha256": "1645664311091320fed9052903e6064df94b459ae0d8a618275f39f97dc105dd"
     }
   ]
 }

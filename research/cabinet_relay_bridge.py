@@ -3,10 +3,14 @@
 No protocol interpretation or fabricated replies. Wrapper owns route cleanup.
 """
 from __future__ import print_function
-import json,select,socket,threading,time,os
+import json,select,socket,threading,time,os,argparse
 # Python2 has no time.monotonic; Linux times elapsed is independent of RTC edits.
 def monotonic():return os.times()[4]
-DEADLINE=monotonic()+540
+parser=argparse.ArgumentParser()
+parser.add_argument('--duration',type=int,default=540)
+args=parser.parse_args()
+assert 1<=args.duration<=7200
+DEADLINE=monotonic()+args.duration
 
 def handle(c,port):
     u=None;counts=[0,0]

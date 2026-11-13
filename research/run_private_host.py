@@ -15,7 +15,19 @@ p.add_argument('--trust-ready',required=True,type=Path)
 p.add_argument('--control-path',default='/tmp/gt-private-session-ssh-%u')
 p.add_argument('--resume-session',type=Path)
 p.add_argument('--port',type=int,default=15002)
-a=p.parse_args();assert 1<=a.duration<=600
+p.add_argument('--player-not-found-capture',type=Path,help='Explicit pin of one captured player identity with no local profile')
+p.add_argument('--player-profile-capture',type=Path)
+p.add_argument('--player-store',type=Path)
+p.add_argument('--player-identity-key',type=Path)
+p.add_argument('--game-start-journal',type=Path)
+p.add_argument('--round-event-journal',type=Path)
+p.add_argument('--ack-observed-score22',action='store_true')
+p.add_argument('--home-selection-ledger',type=Path)
+p.add_argument('--verified-home-club-count',type=int)
+p.add_argument('--verified-home-ball-count',type=int)
+a=p.parse_args();assert 1<=a.duration<=7200
+assert not (a.player_profile_capture and a.player_not_found_capture)
+assert bool(a.player_profile_capture)==bool(a.player_store)==bool(a.player_identity_key)
 os.umask(0o077);a.evidence.mkdir(mode=0o700)
 sys.path.insert(0,str(root.parent/'skills/unifi-api/scripts'));import unifi_api as api
 api.load_env_files();gateway,prefix=api.make_network_client()
@@ -48,6 +60,44 @@ def diagnostic_sink(frame):
         finally:os.close(fd)
     elif path.read_bytes()!=frame:raise RuntimeError('Diagnostic receipt conflict')
 r=PrivateResponder(RSA.import_key((root/'private-server-keys/rsa.pem').read_bytes()),DSA.import_key((root/'private-server-keys/dsa.pem').read_bytes()),client_rsa,client_dsa,12345,guard,diagnostic_sink=diagnostic_sink)
+if a.player_not_found_capture:
+    from reencoding_relay import body
+    from player_request_inspect import inspect_player_payload
+    captured=a.player_not_found_capture.read_bytes()
+    ident=request_identity(captured)
+    if ident!={'id':183,'version':3,'flags':0}:raise ValueError('Exact player-info capture required')
+    payload=body(captured);width=2 if payload[0]&16 else 1
+    observed=inspect_player_payload(183,3,payload[1+width:])
+    r.player_not_found_identity=observed.identity
+if a.player_profile_capture:
+    from reencoding_relay import body
+    from player_request_inspect import inspect_player_payload
+    from imported_profile_adapter import ImportedProfileAdapter
+    from player_store import PlayerStore
+    raw=body(a.player_profile_capture.read_bytes())
+    if len(raw)!=22 or raw[:2]!=b'\x60\xb7':raise ValueError('Canonical player capture required')
+    identity=inspect_player_payload(183,3,raw[2:]).identity
+    store=PlayerStore(a.player_store,a.player_identity_key.read_bytes())
+    r.player_profile_adapter=ImportedProfileAdapter(store,identity)
+    r.player_profile_adapter.prepare(raw) # Fail closed before opening listener.
+if a.game_start_journal:
+    if not a.player_profile_capture:raise ValueError('Game-start journal requires pinned local profile')
+    from game_start_receipt import DurableGameStartJournal
+    r.game_start_journal=DurableGameStartJournal(a.game_start_journal)
+if a.round_event_journal:
+    if not a.player_profile_capture:raise ValueError('Round journal requires pinned local profile')
+    from round_event_journal import DurableRoundEventJournal
+    r.round_event_journal=DurableRoundEventJournal(a.round_event_journal)
+if a.ack_observed_score22:
+    if not a.round_event_journal:raise ValueError('Score receipt requires durable journal')
+    r.ack_observed_score22=True
+if a.home_selection_ledger:
+    if not a.player_profile_capture:raise ValueError('Home ledger requires pinned profile')
+    from local_home_selection_ledger import HomeCatalog,HomeSelectionLedger,HOME_POLICY
+    catalog=HomeCatalog(HOME_POLICY,a.verified_home_club_count,a.verified_home_ball_count)
+    equipment=HomeSelectionLedger(a.home_selection_ledger,identity=r.player_profile_adapter.identity,catalog=catalog)
+    r.home_selection_ledger=equipment
+    r.player_profile_adapter.equipment=equipment
 if a.resume_session:
     state=json.loads(a.resume_session.read_text())
     assert state['boot_id']==a.boot_id and state['expires']>int(time.time())
@@ -63,9 +113,9 @@ with socket.socket() as listener:
         try:conn,_=listener.accept()
         except socket.timeout:continue
         with conn:
-            conn.settimeout(min(60,max(.1,deadline-time.monotonic())))
+            conn.settimeout(min(300,max(.1,deadline-time.monotonic())))
             try:
-                while time.monotonic()<deadline and counter<128:
+                while time.monotonic()<deadline and counter<4096:
                     req=read_frame(conn);counter+=1
                     (a.evidence/('%03d-request.bin'%counter)).write_bytes(req)
                     keys={} if not r.session else {r.session['sequence']>>15:r.session['shared_key']}
@@ -76,6 +126,9 @@ with socket.socket() as listener:
                     except UnsupportedApplication:
                         print(json.dumps({'request':counter,'event':'unimplemented_no_ack_connection_retained'}),flush=True)
                         continue
+                    if event=='local_session_reply' and a.resume_session:
+                        from session_checkpoint import save as save_session
+                        save_session(a.resume_session,r.session,a.boot_id)
                     conn.sendall(reply)
                     print(json.dumps({'request':counter,'event':event}),flush=True)
             except EOFError:pass

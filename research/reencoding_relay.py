@@ -57,7 +57,7 @@ def main():
     deadline=time.monotonic()+a.duration;listeners=[];workers=[]
     def handle(c,port):
         try:
-            u=socket.create_connection(('63.116.120.49',port),5)
+            u=socket.create_connection(('203.0.113.49',port),5)
             c.settimeout(5);u.settimeout(5)
             counts=bridge(c,u,deadline)
             print(json.dumps({'port':port,'bytes_to_vendor':counts[0],'bytes_to_game':counts[1]}),flush=True)

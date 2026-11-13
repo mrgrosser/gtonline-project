@@ -4,11 +4,11 @@
 
 This is the recoverable project source used through November 13, 2026, exported from the working research directories. It includes successful approaches, superseded experiments, and historical cabinet-specific scripts. It is **not a turnkey emulator, installer, or complete reproducible cabinet environment**.
 
-The original private working files were not changed. The public copies replace identifying deployment details with examples. `SOURCE_MANIFEST.json` lists all 125 exported source/dependency files, their relative origin, whether sanitization occurred, and the SHA-256 of the published copy. It does not contain hashes of private data.
+The original private working files were not changed. The public copies replace identifying deployment details with examples. `SOURCE_MANIFEST.json` lists all 204 exported source/dependency files, their relative origin, whether sanitization occurred, and the SHA-256 of the published copy. It does not contain hashes of private data.
 
 ## Layout
 
-- `research/`: 103 protocol, crypto, capture, emulation, routing, recovery, test and dependency files.
+- `research/`: 185 protocol, crypto, capture, emulation, routing, recovery, test and dependency files.
 - `hardware/`: 19 earlier SSH/GPU compatibility, deployment, recovery and verification files, including minimal patches rather than complete vendor scripts.
 - `PROJECT_LOG.md`: chronological findings, verification limits and current cabinet state.
 - `SOURCE_MANIFEST.json`: source inventory and public-file integrity hashes.
@@ -144,3 +144,9 @@ python3 -m unittest test_native_itnet_completion test_native_itnet_poll
 ```
 
 Selected combined coverage is110 methods; source inventory125. These tests neither enable player replies nor contact the cabinet.
+
+## Evening source update
+
+The export now includes profile/setup adapters, durable score receipts, local equipment selections, completed-round validation, native statistics projection, session checkpointing and the cached-resource subset fix. Twenty focused private-environment tests passed for the latest setup change, covering all 15 nonempty ordered resource subsets. Many tests require excluded captures, metadata or the original executable; those results are not a claim that the public checkout alone reproduces them. See CONTRIBUTING.md for a focused review map.
+
+Public export verification for this update: 23 standalone storage/compression tests passed; all 79 newly exported Python modules parsed under Python 3; all 204 source-manifest hashes verified. Private-native fixture tests were not rerun from the public checkout.

@@ -26,6 +26,23 @@ def observed_decode(frame,expected):
     if len(messages)!=1:raise ValueError('bundled request unsupported')
     return messages[0]
 
+def observed_diagnostic_decode(frame):
+    """Exact observed diagnostic singles, or update-check followed by PING.
+
+    Only the first diagnostic header's observed flags2 are normalized. Every
+    tail header/field is decoded strictly; no arbitrary bundle ACK is allowed.
+    """
+    identity=request_identity(frame)
+    shape=(identity['id'],identity['version'],identity['flags'])
+    if shape not in ((141,2,2),(146,1,2)):
+        raise ValueError('Unobserved diagnostic request shape')
+    raw=bytearray(body(frame));raw[0]&=0xf0
+    messages=decode_messages(raw)
+    identities=[(m,v) for m,v,_ in messages]
+    if identities not in ([(141,2)],[(146,1)],[(146,1),(1,0)]):
+        raise ValueError('Unsupported diagnostic bundle')
+    return messages
+
 def template_frame(request,template,payload):
     h=inspect_frame(template);inspect_frame(request)
     if h['method']!=0:raise ValueError('uncompressed template required')

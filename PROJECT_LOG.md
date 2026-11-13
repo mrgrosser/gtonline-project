@@ -2,9 +2,9 @@
 
 An ongoing engineering journal for bringing a privately operated Golden Tee cabinet onto a locally controlled replacement service.
 
-**Last documented cabinet state:** November 13, 2026, 13:46 UTC.  
+**Latest documented milestone:** November 13, 2026, approximately 23:20 UTC.
 **Log created:** November 13, 2026.  
-**Project status:** Experimental online-session prototype; player login is not yet demonstrated.
+**Project status:** Experimental card login, gameplay and local persistence demonstrated; protocol coverage remains incomplete.
 
 This initial log reconstructs the recorded work from research notes, test evidence, and recovery records. It is not a claim that every earlier command or hardware action was recorded. Future changes should be appended using the template at the end.
 
@@ -14,7 +14,7 @@ The goal is a private replacement service that the cabinet can communicate with,
 
 This is not a connection to an official online account system. Recovering official player history, operating official tournaments or prizes, and reproducing every vendor feature are outside the demonstrated scope.
 
-### Current result
+### Initial result (historical; superseded by the evening updates)
 
 - Private registration and an encrypted, signed session exchange were accepted by the original cabinet software during an isolated test.
 - Follow-up synchronization replies and acknowledgments were accepted.
@@ -426,3 +426,371 @@ Selected combined suite:107 methods. Public source inventory:124 files. No cabin
 Identified concrete player-info183v3 and alternate-checkin166v7 configuration paths, both initializing handler1. Three new native methods verify bounded constructor initialization and48 generic enqueue-forwarding combinations. Cardless203v0 forwards the same options offset, but its configuration default and handler1's named-worker association are still unresolved. See [routing scope](PLAYER_HANDOFF.md#player-specific-scheduling-configuration).
 
 Selected suite110 methods;125 exported source/dependency files. No cabinet, SQL, account or gateway operations; no live-login claim.
+
+## 2026-11-13 — Now application queue range resolved (offline)
+
+Reviewed the two pending native queue-selection tests and added three focused original-instruction methods. The previously found 13000–13999 selector is a separate queue category. The Now worker also calls an application selector with handler1 and an explicit message-ID range of1–9999, which includes player-info183 and alternate-checkin166. Generic enqueue binds the supplied message ID directly, without a12000/13000 offset. Other queue filters still apply.
+
+The focused selection/routing/queue suite passes18 methods. Tests use synthetic receiver/caller state and stop before SQL; they do not establish live delivery, card login, or profile persistence. Cardless203's config default is still unresolved. No cabinet or network operations were performed by this offline investigation. These new files have not yet been published; earlier public test/source totals remain historical publication counts.
+
+### Capture-only player request inspection
+
+Added a strict offline inspector for183v3's20-byte player identity and166v7's8-byte check-in identity, with identifier-free summaries. Three standalone methods and one original-field-loop/private-metadata method pass; together with existing transport-correlation/player-refusal checks, seven methods pass. No response handler was enabled. A truthful player-not-found error code and its UI handling are not yet established; a zero-filled profile or unrelated captured error must not be substituted. New artifacts remain unpublished.
+
+## 2026-11-13 — evening private card-test preparation
+
+Fresh held-game registration SQL and repeated storage snapshots preserved before a new isolated test. The cabinet accepted private registration, encrypted session and follow-up synchronization; a fresh remote screenshot showed green LIVE. This does not prove player login. Existing cooling-system warning remains visible; CPU package measured37C, but motherboard fan tachometer readings were zero and physical inspection remains pending.
+
+The arrival-time test extends the explicitly bounded host/bridge window up to two hours, with a reboot-to-recovery-gate timer and durable cabinet-only isolation. A captured update-diagnostic plus PING bundle exposed an unsupported combination; a narrow correction is being tested before service restart. No vendor traffic or fabricated player success is used. This is an active test, not a completed rollback or permanent deployment.
+
+### Observed update-check and heartbeat bundle
+
+A fresh controlled-test capture contained146v1 with its observed header flags followed by ordinary PING1v0. The prior single-message diagnostic decoder rejected it. Added only this exact bundle shape, returning an ordered durable-receipt ACK then PONG with the echoed byte; existing diagnostic singles remain supported. Unsupported tails/flags, truncation, missing/failed persistence and failed isolation guard produce no response. No player-login or update-success result is fabricated. The focused21-method suite passed, including native ACK acceptance/wire checks, encrypted correlation and unchanged player refusal. Deployment and live acceptance are separate parent-operated checks; this entry records the offline fix only.
+
+Evening continuation: narrow diagnostic146+PING handling passed21 focused tests and was deployed during the isolated test. After same-boot service restart the cabinet sent another encrypted settings request, which was handled successfully. Card swipe/UI acceptance remains pending. The service is a bounded capture test; persistent registration recovery has not yet been performed.
+
+## 2026-11-13 — physical card request reaches private service
+
+A physical swipe displayed “Accessing Player Information.” The private service received and decrypted player-info183v3 flags0 with the expected20-byte opaque identifier, then observed a retry. Identifier/capture remain private. This proves the card-to-service path, not login: the player response handler remains unimplemented and emitted no reply, explaining the waiting screen. Work continues on native reply/error semantics.
+
+### Bounded negative player reply prepared offline
+
+Original common registry and version initializers now establish that ERROR6v0 is permitted for player-info183v3. Original decode maps wire20001 to client4c1, named “Data Not Found On Server”; the bounded original completion tail reports failure status3 with correlated request identifiers. C++ map storage, string-library operations and persistence callback are modeled; full SQL/network/UI execution is not proven. The explicit not-found UI branch located so far belongs to cardless ID/PIN, not the physical-card screen.
+
+Added a disabled-by-default, exact-identity-pinned183v3 negative-response option. It emits only ERROR6v0/20001 after isolation guard and durable diagnostic capture; no profile, enrollment or success is fabricated. Unsupported identities/shapes remain refused. Twenty focused methods pass, covering actual private capture shape, encrypted correlation, negative cases, persistence/guard failures and native error semantics. This entry records offline readiness only; host integration, live acceptance and physical UI remain separate checks. New code/evidence is not published.
+
+Player failure-response experiment: verified native ERROR6 code20001 maps to Data Not Found and failure completion. Added an opt-in exact-card diagnostic response; default player refusal remains.25 focused tests passed before controlled deployment. This creates no player profile and claims no successful login; awaiting physical screen result.
+
+## Live player failure response,2026-11-13 21:42UTC
+Bob reports “Player stats will not be available.” Private responder emitted pinned ERROR6/20001 for183v3; native log shows product-policy INVALID MSG RESPONSE183->6 then common message error20001 “Data Not Found On Server” and completed processing. Full card→service→failure UI path witnessed; not profile/login success and no official stats retrieval/loss claim. Child continues separate offline local-test-profile adapter investigation; running responder unchanged. Additional mixed235-headed bundle rejected (unsupported header shape), preserved privately for follow-up.
+
+### Separate local profile adapter, not deployed
+
+Prepared an explicit new local-only profile adapter using the existing durable store and strict184v3 codec. Enrollment is an explicit separate operation; request lookup never creates an account. Initial nickname, stable local check-in token, empty histories and zero monetary/registration claims are distinguished from official account data. Exact pin/version/shape checks and unchanged-initial-profile restrictions remain. No actual player was enrolled and the running service was not changed by this work.
+
+Five new methods plus existing store/codec/native-completion coverage pass32 methods. Original product registry accepts183→184 and original dedicated184v3 handler reaches its modeled save/completion for this candidate. This is not actual cabinet persistence or login proof. Mandatory zero rating/bracket/country/quota values have unproven UI meaning; they must not be described as unlimited privileges or verified official values. Website provenance can be retained separately, but numeric display values are not silently converted into wire statistics without units/semantics evidence.
+
+## 2026-11-13 — authorized statistics import
+Authenticated read-only website inspection captured distinct All Courses bests, totals and averages with source/time provenance. Stored a private local profile linked to the observed card through a keyed digest; persistence verified after reopening the database. No account modifications. Personal values, credentials and cookies excluded from public artifacts. Website records are not yet mapped to cabinet protocol fields or deployed as a successful login response.
+
+### Website counters separated from player-info fields
+
+A separate read-only mapping adapter now extracts15 exact integral lifetime event counters from the provenance-bearing All Courses/Totals snapshot;14 other source labels remain unmapped. It preserves source column/time, rejects ambiguous values and never zero-fills missing fields. Four focused methods pass, including original native field-loop checks. High-bit UINT32 fields were rendered as signed decimal by that loop, so supported imported counters are conservatively limited to nonnegative signed31-bit range.
+
+Native9v2 statistics contain66 fields and separate18-/9-hole best records;184v3 player-info has no lifetime best-score/GSP/distance totals. Website bests and averages are not substituted for rating or handicap. Raw distance units, handicap scale, round-count format, averaging window and full response completeness remain unproven. No store, key or running service was changed by this mapping work.
+
+## Local profile response experiment
+Prepared an explicit store-backed player-info184v3 response for the pinned card, retaining real website history separately rather than guessing numeric conversions. Local display name, stable local check-in token and explicit free-play policy are not official balances/ranks/entitlements. Native modeled handler and encrypted guarded response tests pass. Full cabinet database snapshot/catalog preserved before enabling the profile response. Awaiting physical name/menu result; round saving remains unimplemented.
+
+## First physical local check-in
+User confirmed “BOB is checked in” after the private184v3 profile response. Server then received8v1 statistics request, currently unsupported. Course entry did not automatically follow; fresh screen showed attract mode. Check-in is now physically confirmed; course entry, statistics delivery and round persistence remain separate unproven steps.
+
+Correction to screen interpretation: user identified Course Records as the pre-course screen, not attract. Native game log confirmed repeated statistics requests while stalled. Added exact pinned stats8v1 unavailable response (ERROR6/20001), rather than fabricated statistics success;20 tests pass. Awaiting automatic retry and physical course-entry result.
+
+Observed course entry followed retry exhaustion, not acceptance of the stats-unavailable patch: actual startup bundled stats, avatar, consumables and custom-bag requests; later retry bundled stats and game-start. Narrow adapter rejected those bundles. Game began the course with live features disabled and displayed communication/refund wording; no official wallet charge/refund was performed by the private server. Complete post-login bundle handling remains required.
+
+### Post-checkin resource contracts verified offline
+
+The extra startup requests are avatar, consumable inventory and custom golf bags—not contest status or refund operations. Three new methods pass: actual bundle shape/identity consistency, original resource reply/version policy plus common-error fallback, and the native consumable count gate. In particular, an all-empty consumable reply is invalid: native code requires at least two current selections (ball and tee), returning0x482 otherwise. Passing that first gate does not establish valid selection IDs or full reply behavior.
+
+Website-selected appearance IDs are not yet proven equivalent to native IDs/ownership bitmaps. No guessed ownership, empty-inventory success, contest result or refund response was emitted. Exact bundled failure handling needs per-message correlation verification; successful resource delivery still needs actual inventory semantics. Running responder, host and private player store were unchanged by this offline work.
+
+### Bundled resource correlation verified offline
+
+The original incoming message loop passes zero-based positions, not byte offsets,
+through its wrapper; native queue lookup uses those positions with the container
+ID. Two new original-code tests cover this with modeled handler/database boundaries.
+Added a strict ordered four-resource setup adapter and a failure reply per position.
+Mixed identities, reordered messages, malformed tails and game-start retries remain
+refused. Encrypted transport retains guard, durable capture and correlation checks.
+27 focused tests pass. Changes are staged only: the running responder is unchanged,
+and failure handling is not successful online play or score saving.
+
+### Native custom-bag and consumable decoders exercised offline
+
+Twelve focused methods pass (nine new, three existing). Original consumable decoder additionally requires at least31 ball inventory values and one tee inventory value. Native code supplies empty custom-slot defaults itself, but valid selected equipment IDs and quantity provenance remain unresolved; no consumable success response was enabled.
+
+Original custom-bag decoder accepts16 empty lists through modeled save/completion, generating zero valid bags, empty names/descriptions and club sentinel9999. Added an explicit opt-in LOCAL empty-bag response builder; this does not claim the official account has no custom bags. Database/container boundaries are modeled, not actual persistence. Running responder and player store unchanged by this offline work.
+
+Parent reviewed and tested the explicit local-empty custom-bag builder in an
+ordered resource bundle: its218 reply stays in fourth position while unavailable
+resources retain failure responses.16 focused tests pass. This opt-in helper is
+not deployed and does not yet make the complete online setup successful.
+
+### Complete statistics schema handoff checked offline
+
+Four new tests exercise all66 statistics response fields through the original
+field parser and attribute/save handoff with modeled database callbacks. The
+complete-only encoder refuses missing fields and does not silently fill unknown
+website statistics. Initialization/save failures propagate; truncation is stopped
+by the harness. This is not SQL persistence or game UI verification.
+
+Existing private source-table comparison resolves a prior uncertainty: the saved
+Bests table is explicitly18-hole data. Native distance/score interpretation and
+full historical-statistics coverage remain unverified; imported records and the
+running server were not changed by this investigation.
+
+### Native starter-avatar baseline recovered offline
+
+Seven new tests exercise the complete avatar reply parser through modeled save,
+all55 field mappings,64-bit masks, error propagation and native default writes.
+A crucial distinction is now verified: custom-bag selection minus-one preserves
+ordinary clubs; zero selects custom bag zero. The native handler itself grants
+the base body-suit bit. Native normal-reset code supplies basic selections and
+base availability, independently of website inventory IDs.
+
+An explicit local starter-avatar policy and exact-field encoder are available
+for review. They are not imported official equipment, do not copy unlock/demo
+ownership, and have not been deployed or verified on the cabinet. Runtime,
+private store, keys and official account were unchanged by this work.
+
+### Native new-local statistics baseline
+
+Recovered and tested the game's initial statistics values: both best-round fields
+start at200 and handicap at100, while counters and opportunities start at0.
+An explicit new-local-history policy now emits the complete statistics response,
+with caller-supplied name/time. It does not overlay incomplete website history or
+claim these are official records. Eight focused tests pass, including original
+model binding, constructor writes and parser-to-modeled-save handoff. No live
+runtime, database, or imported records were changed; cabinet/UI verification
+remains separate.
+
+### Local game-start receipt contract, offline
+
+Five focused tests pass for strict game-start decoding, original native ACK/error
+admission policy, guarded filesystem persistence, replay/conflict handling and
+failure propagation. A private immutable journal must fsync before any ACK is
+returned. This records a local start event only—not scores, a completed round,
+charges or refunds. Mixed stats/start requires a separate explicit stats reply.
+
+A later captured packet previously described as a standalone start is actually
+start plus refund request plus game end. The new receipt helper rejects that whole
+bundle; it does not acknowledge unimplemented wallet or end-of-round operations.
+No running server, player store or cabinet changes were made by this work.
+
+### Complete local starter setup integrated for controlled cabinet test
+
+35 focused tests pass for encrypted setup, original-code starter resources and
+statistics, guarded persistence, and idempotent durable game-start receipt.
+The new statistics response uses actual native new-player defaults, not a partial
+or fabricated historical import. Official website records remain preserved
+separately; starter equipment is explicitly local and grants no paid inventory.
+The responder was recovered after its earlier process/management tunnel ended,
+with current boot/session/isolation verified, and relaunched as a bounded service.
+Fresh screen shows PRESS START and green LIVE. User asked for one new login/course
+entry test, stopping before a shot. Full setup acceptance and round saving remain
+unverified. Refund/game-end bundles are not acknowledged as completed scores.
+
+### Historical distance units resolved offline
+
+Original incoming-statistics checks equate18000 raw units with500 yards for both
+longest drive and putt, establishing inch-scale storage. Four tests pass, including
+original compare branches and diagnostic text. Added a strict partial mapper for
+18-hole lifetime website distances, preserving source and explicitly marking the
+result as display-quantized—not recovered original sub-unit measurements. Score
+interpretation and ambiguous best-count labels remain unmapped. No store/runtime
+changes or mixing with the fresh-local statistics policy.
+
+### Offline round-event persistence boundary
+
+Identified separate hole-score, game-end and opaque session-data message schemas.
+An end marker contains no score and also occurs after failed/refunded starts, so
+it is not treated as a completed round. Original registry tests accept receipt
+ACKs for these events, but no new network ACK route was enabled.
+
+Added strict pinned raw-event inspection and private fsynced immutable receipts;
+five tests pass. Score is signed16; session data remains opaque. Hole/session
+header flags still require first live capture, and score aggregation, complete
+round detection, historical-stat projection and reload remain unimplemented.
+No runtime, wallet, player store or cabinet modifications were made by this work.
+
+### Additional custom-club reply resolved
+
+After the four-resource setup, the cabinet requested custom-club details for
+slot-1. A new strict local baseline reply uses the original game's no-custom
+component tuple0/0/0, traced through model binding, successful-load consumer,
+setters and normal reset. Six tests pass including the original234 handler,
+registry policy, exact request pinning, failure propagation and truncation.
+This is local baseline equipment, not imported official ownership. The child
+made no runtime changes; parent owns guarded deployment and live verification.
+
+### Cabinet accepted initial setup; additional custom-club request discovered
+
+Cabinet queue confirms successful statistics, avatar, consumables, custom bags,
+and game-start receipt. It then requested custom-club detail for no-custom slot.
+Native reset and consumer mapping verify the three-zero default tuple; six native
+and18 focused integration tests pass. Exact pinned response deployed with guards.
+The preceding attempt exhausted retries before this fix, then reached first tee;
+that is not evidence of clean online setup. Awaiting physical error confirmation
+and actual acceptance of the additional reply. No scores saved yet.
+
+User then confirmed visible course and equipment, and explicitly reported no
+Communication Error. This establishes clean user-visible course entry, correcting
+the inference that the pending/refund-marker traffic necessarily meant an error
+was shown. Additional233 reply acceptance is still not witnessed; score
+persistence and reload remain the next milestones.
+
+### Next test and private pro-shop scope
+
+Local display name corrected to the user's requested name, verified after reopen
+and in both profile/statistics projections. Existing round retains its loaded
+name until next check-in. Durable capture-only round-event handling is staged
+in the bounded test service;14 focused tests pass. User asked to complete one
+hole and pause so actual score traffic can be verified before receipt ACKs or
+aggregation are enabled.
+
+User requested a private digital store. Existing cabinet Equipment UI already
+provides selection and purchase entries; investigation targets its catalog,
+local purchase/unlock ledger and equipment persistence—not a separate storefront
+or real-money charges. Score saving remains the immediate priority.
+
+### Private pro-shop investigation and actual equipment uploads
+
+The existing cabinet has shop/pricing/selection UI; grey purchase controls also
+have native home-edition, offline and before-first-shot gates, so missing backend
+catalog is not yet established as their cause. Documented a local-only backend
+sequence: validated catalog, separate ownership/selection/quantities, retry-safe
+transaction ledger, receipt ACK after commit and reload verification.
+
+Actual menu traffic contains avatar+consumable updates. Added a strict pinned
+capture-only decoder; four tests pass including signed quantity deltas and native
+ACK admission. Observed selected IDs do not directly match mask-bit assumptions,
+so no entitlement grants, update ACKs, real charges or runtime changes were made.
+
+### Native round-score semantics and session-block structure
+
+Three offline original-instruction checks passed: ordinary score generation uses
+cumulative strokes relative to accumulated par, another branch adjusts out the
+current-hole par, and the session-data copy preserves all 444 bytes unchanged.
+The native hole index is zero-based. Session data structurally contains a 12-byte
+header and 18 24-byte hole slots; individual field meanings remain unfinished.
+Do not sum repeated cumulative scores or treat an end notification as completed
+round proof. The nearby leaderboard request is not the hole-report response;
+actual transport receipt behavior remains a separate live verification.
+
+### Partial session scorecard decoder
+
+Original producer and independent aggregate-consumer evidence now identifies
+per-hole strokes, par and Great Shot Points inside session blobs. Added a pure
+partial decoder retaining unknown bytes; six combined checks pass, including
+original native writes into a non-first player's final-hole slot. It does not
+mark rounds complete or mutate lifetime history. Proposed local completion
+cross-check requires a matching terminal hole report and full 18-slot scorecard
+whose strokes-minus-par total agrees; an end notification alone remains invalid.
+
+### Live cumulative scores acknowledged; bounded play window extended
+
+Live reports after holes5 and6 were durably saved with cumulative scores−2 and−3;
+original native code verifies relative-to-par semantics and zero-based hole
+indices. Cabinet queue confirms receipt ACK acceptance. No report summation or
+historical-source mutation. User continuing the round for end-record verification.
+The owned bounded test bridge/server/recovery timer were renewed after inspecting
+current state, keeping the same boot and isolation. Recovery remains owned and
+required; the new window is not permanent WAN access.
+
+### 2026-11-13 — isolated native home locker persistence
+
+Traced the shipped home-edition equipment provisioning path and verified the
+local cabinet catalog bounds through a narrowly scoped read. Added an opt-in
+private selection journal with atomic receipts, replay deduplication, stale
+update suppression, and explicit conflict handling. It stores selected club,
+ball, and tee only; uploaded masks and purchase/consumption deltas do not grant
+ownership. Separate native-home projections preserve the existing home policy,
+without modifying imported website records or official accounts. Twelve offline
+checks pass, including original inventory decoder and original home/consumption
+routines with a documented modeled database-transfer boundary. Cabinet reload
+integration remains unverified; no deployment was performed by this work.
+
+### Best-round representation verified
+
+Two additional original-native aggregate tests prove that the 18-hole best-round
+field is signed relative-to-par (not stroke count), including retaining a better
+negative score across subsequent rounds. Verified native hole-score category
+counts and overlapping holes-in-one. A complete statistics reply must not turn
+unmapped putts/distances/penalties into asserted zeros; documented the proven
+partial-local aggregates and kept imported history separate. Also identified a
+previously ambiguous session-header byte as player-outcome bits, not completion.
+
+Added an offline full native replay alternative to partial statistic overlays:
+original constructor and aggregate routines populate every bound numeric field
+from complete raw session blobs, including putts, with executable provenance and
+strict wire validation. Five focused tests pass. Fractional values unsupported
+by the verified integer wire encoding refuse rather than silently truncate.
+Actual completed-session projection and next-login rendering remain unverified.
+
+### Local contest-results reply verified offline (2026-11-13)
+
+Corrected a protocol interpretation: the pending request is for contest results,
+not a numeric rating or handicap. Added an explicitly scoped local-no-contests
+reply; it does not fabricate official rankings or prizes. Six focused checks
+pass, including original native handler execution with modeled database save,
+error propagation, pinned identity/version enforcement and bounded truncation.
+The native empty reply saves a zero valid-contest count and returns success.
+No cabinet deployment or UI result is claimed by this offline work.
+
+### 2026-11-13 — First completed local round verified
+
+The player completed an eighteen-hole round. Cross-checked its terminal report
+against all eighteen session scorecard slots: 75 strokes on par 72, +3. Saved and
+reopened the private local history database. Original-code aggregation produced
+one completed round, eighteen holes and eighteen putts; the complete statistics
+projection is persisted separately from the untouched imported website history.
+Next-check-in rendering is not yet verified. Nine focused adapter/regression
+checks pass for serving the completed projection with the corrected display name.
+An additional original-code investigation identified message 35 as contest-results
+retrieval, not numeric rating. An explicit no-local-contests reply passes six
+focused tests; no official rankings or prizes are asserted.
+
+### End-of-round equipment receipt scope (2026-11-13)
+
+Inspected the completed round's equipment upload: selected clubs/balls remain
+unchanged and every consumption delta is zero. Added a separate fail-closed,
+matched-session end-receipt helper with durable deduplication, without changing
+inventory balances or the selection journal. Five offline checks pass; the
+successful storage case uses an explicit synthetic appearance authority.
+The real upload changes the avatar body relative to both earlier uploads and the
+existing baseline, so it remains rejected pending independent appearance-policy
+resolution. Tests do not constitute authority to accept that real change.
+
+Deployed the completed-local-statistics reload and exact witnessed pre-round
+bundle response. Local contest results are empty by explicit policy; game-start
+receipt is persisted before ACK. Extended durable raw-event receipts to the
+observed terminal-score and end/session-data shapes, without treating an ACK as
+proof of score aggregation or official upload. Seventeen focused round/start
+checks passed; the actual stored profile and pre-round request also verified.
+Asked for one new physical check-in to verify name/equipment/history reload.
+Final combined appearance/consumables upload remains deliberately unacknowledged:
+it contains an appearance change not yet supported by the selection-only ledger.
+
+### Native cosmetic body policy clarified (2026-11-13)
+
+Further original-code analysis shows the normal player reset grants every body
+in the installed cosmetic catalog, not merely the minimal baseline's first body.
+Three native tests prove catalog-bounded selection and rejection outside that
+range. Body availability is not supplied in this network avatar message, so this
+rule need not trust uploaded unlock masks. The observed end-of-round change is
+only body selection; actual installed catalog count still needs independent
+verification before accepting it under this local policy. The tests do not prove
+why the user's selection changed, and no runtime policy was relaxed.
+
+### Offline completion collector
+
+Added a dry-run-first helper/CLI that extracts validated completed rounds from
+explicit mixed plain captures, retains original evidence, and atomically stores
+round summaries plus a native projection of every verified local round. Replays
+are idempotent; conflicting or missing earlier history refuses. Four tests pass,
+including close/reopen, source adoption and preservation of previous rounds.
+No private runtime or profile store was changed by this implementation.
+
+### Partial setup request correction
+A subsequent course selection stalled because the cabinet requested only statistics and avatar equipment, then retried avatar alone. Existing handling accepted only the complete setup or statistics alone. Extended the pinned read-only setup path for those two observed shapes without course-specific rules. Nineteen focused tests pass; captured requests replay to the expected ordered replies. Bounded local service reloaded and readiness verified; physical course entry remains unverified.
+
+Follow-up: the next attempt requested three resources, exposing that the initial exact-shape correction was too narrow. Shared read-only resource handling now supports all 15 nonempty ordered subsets of the four established resource types, retaining identity checks and rejecting duplicate/reordered requests. Twenty focused tests pass, including every subset. Bounded service reloaded; cabinet recovery still unverified.
+
+### Latest physical outcome and remaining gaps
+
+After the cached-resource fix, the user confirmed course entry. Fresh profile, setup and custom-club requests succeeded. This does not prove complete protocol coverage: standalone contest-results requests remain unsupported, and the final equipment-upload variant still needs integration. Score reports are durably captured; the offline completed-history collector is not an automatic runtime collector yet.
+
+The user also reported missing Great Shot Points. Three received score reports had zero Great Shot Points while ordinary Golden Tee Points increased. Qualification rules versus game-setup effects remain unresolved; no points were fabricated or scoring rules patched.
+
+This publication updates source and documentation only. It does not deploy a permanent service or change the cabinet's current test lifecycle.

@@ -6,14 +6,18 @@ An engineering journal for a private Golden Tee online-service emulator and even
 
 Read **[the project log](PROJECT_LOG.md)** for the dated change history, experiments, verified results, recovery work, and next steps.
 
-## Current milestone — November 13, 2026
+## Current milestone — November 13, 2026 (evening)
 
-- Private registration and encrypted session establishment accepted in an isolated cabinet test.
-- Follow-up synchronization and acknowledgments accepted; a green LIVE indicator observed.
-- Online-menu access, card swipe, player login, and saved profiles **not yet verified end to end**.
-- Original registration state restored after testing; no permanent private service installed.
+- Physical card login and local profile replies demonstrated on the cabinet.
+- A complete 18-hole round persisted locally and reopened; native statistics projection prepared and served.
+- Local Home Edition equipment selections persist; no official purchases or wallet operations.
+- User confirmed course entry after fixing partial/cached setup requests.
+- Still experimental: contest-result request coverage, end-of-round equipment uploads, automatic completed-history collection and Great Shot Points behavior remain incomplete or under investigation.
+- Testing uses a bounded, isolated session with temporary memory/network changes; this is not a persistent drop-in installation.
 
-This repository contains the project journal and **125 sanitized source/dependency files**, including protocol scripts, native emulation harnesses, recovery tools, tests, and earlier GPU/SSH work. It is not a ready-to-install emulator or a connection to official online services.
+This repository contains **204 sanitized source/dependency files**. Private captures, credentials, player databases and proprietary binaries are excluded.
+
+**Helping stabilize it? Start with [CONTRIBUTING.md](CONTRIBUTING.md).**
 
 Read **[the source guide](SOURCE_GUIDE.md)** before running anything: some historical test scripts perform live operations, and many modules require private inputs that are intentionally not included. The guide distinguishes standalone checks from tests requiring private research inputs.
 
