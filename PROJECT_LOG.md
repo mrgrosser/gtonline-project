@@ -398,3 +398,11 @@ Six additional native methods pass using synthetic database boundaries: absent b
 ### Nighthawk queue errors and caller status gate
 
 Continued Nighthawk work at the owner's direction; Titan remains a separate possible future evaluation, not an active conversion. Four additional methods check query execute/fetch errors, partial request context on failure, and the caller's immediate status branch. Second-query failures return0x432. First-query diagnostic continuations are still deliberately bounded before logging. Selected coverage97 methods; source inventory remains122. See [queue-error limits](PLAYER_V2_CODEC.md#nighthawk-queue-error-follow-up). Cabinet unchanged.
+
+## 2026-11-13 — ITNet worker entry points
+
+The supplied decrypted Nighthawk executable matches the existing research executable byte-for-byte. REA/Hopper CLI installation was repaired and verified by successful static decompilation of the known request-context function; private binaries/pseudocode remain excluded. Initial120-second startup timed out; a documented600-second allowance succeeded after roughly9minutes. No MCP registration or cabinet change was made.
+
+Focused static analysis now maps ITNetNowThread through pthread entry0x088f009b to worker0x0893fe2e, and ITNetBackgroundThread through entry0x088f013e to worker0x0891161a. Thread creation sites0x088e805d/0x088e823c and direct worker calls establish the association; it is not inferred from strings alone. Function ranges are corroborated by ELF unwind entries.
+
+Startup and worker diagnostics identify candidate CID/network-device and registration/session gates. Their complete conditions and player-request routing are not yet proven. Next investigation follows scheduling, thread_handler assignment and completion delivery toward game/UI consumers. No new runtime tests or live-login claims are made in this mapping step. The supplied game.bin remains unidentified data.
