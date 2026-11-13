@@ -320,6 +320,12 @@
       "sha256": "b27b9468f801c39b1b3b65b0d28cd902a7fb81cdb95d56c2d3fb725124d744c4"
     },
     {
+      "path": "research/player_store.py",
+      "origin": "golden-tee-research/player_store.py",
+      "sanitized": false,
+      "sha256": "62b3364b9d428467bba77137c0b0af45b958e69861e3c1aa630967413ad9ab82"
+    },
+    {
       "path": "research/positive_registration_session.py",
       "origin": "golden-tee-research/positive_registration_session.py",
       "sanitized": false,
@@ -558,6 +564,12 @@
       "origin": "golden-tee-research/test_local_followups.py",
       "sanitized": false,
       "sha256": "b090b7ca6fc17d6423cf0b195ee7bbcbef375f2e1d59aa59bce5f7d419b61b1d"
+    },
+    {
+      "path": "research/test_player_store.py",
+      "origin": "golden-tee-research/test_player_store.py",
+      "sanitized": false,
+      "sha256": "d7da5e484327976a51ad843e7a498c3568b4371e55e5c47b82cf09544c52eba2"
     },
     {
       "path": "research/test_positive_gate.py",

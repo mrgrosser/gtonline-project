@@ -66,7 +66,7 @@ The private session currently depends on an explicit **RAM-only public trust sel
 | Green LIVE indicator | Observed in a remote screenshot during the isolated test |
 | Latest mixed-request bundle handling | Offline-tested only; resumed live window received no requests |
 | Online menu and card swipe | Awaiting physical cabinet test |
-| Player login and persistent profiles | Not demonstrated; service work remains |
+| Player login and persistent profiles | Local persistence implemented/offline-tested; cabinet login and profile reload remain unverified |
 | Unattended installation and reboot persistence | Not implemented as a finished service |
 
 ## 4. Historical change log
@@ -239,6 +239,14 @@ Positive registration can modify both hardware-backed storage and PostgreSQL sta
 - Mapped candidate player-info, stats, hole-data, name and cardless-login messages from metadata; drafted a SQLite-backed profile design and physical validation sequence in `PLAYER_LOGIN_PLAN.md`. These handlers/storage are not implemented or accepted live. An uninitialized native player-policy probe failed with an unmapped read, so no acceptance claim is made.
 - Cabinet unchanged; final restored state remains the13:46UTC record. Physical fan, Online-menu, card swipe and profile reload checks remain outstanding.
 
+### 2026-11-13 — Offline player identity/profile store
+
+- Implemented `player_store.py` using standard-library SQLite: explicit enrollment, source-scoped HMAC identity lookup, profile revisions, atomic saves and per-player retry receipts. No raw card identity or key is stored; profile payloads themselves are not encrypted at rest.
+- Fifteen offline tests pass, including concurrent identical retries (one commit/one replay), stale updates, conflicting retries, receipt-write rollback, read-only refusal, reopen persistence, wrong-key refusal and forced process exit within the actual save transaction.
+- Profile format is a local version1 JSON object, not a claimed cabinet wire schema. Round/hole semantics, normalization and the player-login adapter remain unimplemented. No responder/player success messages were added.
+- Static follow-up explains the native player-policy probe's missing runtime context: it depends on a message registry and association logic. Those branches are not yet acceptance-verified.
+- Added `PLAYER_STORE.md` with API, runnable synthetic example, tested behavior and limitations. Cabinet and gateway remain untouched.
+
 ## 5. Protocol coverage snapshot
 
 Message numbers are research references, not a complete protocol specification. Versions and field layouts matter; supporting one version does not establish all versions.
@@ -257,7 +265,7 @@ Message numbers are research references, not a complete protocol specification. 
 | Settings 235 v2 → 236 v2 | Empty response handling; not full settings synchronization |
 | Compression 0 / 1 | Uncompressed and zlib paths implemented |
 | Compression 2 | Decoder implemented; synthetic/native comparisons pass; no live proof |
-| Player lookup, profile loading/saving | Not demonstrated |
+| Player lookup, profile loading/saving | Local store tested offline; cabinet wire adapter/end-to-end behavior not demonstrated |
 
 ## 6. Implementation inventory
 

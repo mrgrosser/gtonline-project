@@ -22,3 +22,11 @@
 *.tar
 *.tar.gz
 *.zip
+
+# Local player databases and SQLite sidecars
+*.sqlite
+*.sqlite3
+*.db
+*-journal
+*-wal
+*-shm

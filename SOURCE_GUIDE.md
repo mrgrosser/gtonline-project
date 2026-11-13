@@ -4,11 +4,11 @@
 
 This is the recoverable project source used through November 13, 2026, exported from the working research directories. It includes successful approaches, superseded experiments, and historical cabinet-specific scripts. It is **not a turnkey emulator, installer, or complete reproducible cabinet environment**.
 
-The original private working files were not changed. The public copies replace identifying deployment details with examples. `SOURCE_MANIFEST.json` lists all 104 exported source/dependency files, their relative origin, whether sanitization occurred, and the SHA-256 of the published copy. It does not contain hashes of private data.
+The original private working files were not changed. The public copies replace identifying deployment details with examples. `SOURCE_MANIFEST.json` lists all 106 exported source/dependency files, their relative origin, whether sanitization occurred, and the SHA-256 of the published copy. It does not contain hashes of private data.
 
 ## Layout
 
-- `research/`: 85 protocol, crypto, capture, emulation, routing, recovery, test and dependency files.
+- `research/`: 87 protocol, crypto, capture, emulation, routing, recovery, test and dependency files.
 - `hardware/`: 19 earlier SSH/GPU compatibility, deployment, recovery and verification files, including minimal patches rather than complete vendor scripts.
 - `PROJECT_LOG.md`: chronological findings, verification limits and current cabinet state.
 - `SOURCE_MANIFEST.json`: source inventory and public-file integrity hashes.
@@ -106,3 +106,7 @@ python3 research/test_container_compression.py
 ```
 
 Eight synthetic test methods pass without private data. The combined20-test private-fixture/native suite also passed in the working environment; it is not runnable solely from this export. Separately, seven synthetic inverse-transform comparisons and16 selector checks matched the original game code using `emulate_container_compression.py` and the privately held executable. No live test was performed. Prior publication checks above remain historical results, not a claim that missing private-input tests passed in a clean clone.
+
+## Offline identity/profile storage follow-up
+
+The archive now contains106 source/dependency files. [PLAYER_STORE.md](PLAYER_STORE.md) describes the local persistence API and limitations. Run `python3 research/test_player_store.py` for15 temporary-database/synthetic-identity tests. The store is not connected to cabinet login. Together with the compression module,23 explicit standalone tests run without private inputs; do not use blanket discovery of the historical integration scripts.

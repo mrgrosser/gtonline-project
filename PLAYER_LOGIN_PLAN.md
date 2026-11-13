@@ -1,6 +1,6 @@
 # Player login: offline map and validation plan
 
-Prepared November 13, 2026. **Design/research only: no player login or storage service implemented in this step.**
+Prepared November 13, 2026; updated after the offline storage implementation. **The local identity/profile store now exists and passes15 offline tests; cabinet login remains unimplemented/unverified.** See [storage API and tests](PLAYER_STORE.md).
 
 ## Candidate message families
 
@@ -22,9 +22,9 @@ No complete metadata dump or actual card/profile data is included. A trial nativ
 
 ## Proposed minimal persistence model
 
-Use a local SQLite database through Python's standard library for the first single-cabinet prototype, instead of creating a custom storage engine. This is a design choice, not a deployed database or validated performance claim.
+Use a local SQLite database through Python's standard library for the first single-cabinet prototype, instead of creating a custom storage engine. This local component is now implemented in `research/player_store.py`; it has not been deployed or connected to cabinet login. No performance claim is made.
 
-- `players`: opaque local player ID, display name, creation/update times, profile revision.
+- `players`/`profiles`: implemented opaque local player ID, display name, timestamps, local JSON profile and revision.
 - `identities`: source/type plus a keyed digest of normalized card identity, mapped to a local player. The normalization rule awaits captured wire evidence. The digest key must be separate from session/signing keys; real card values must not enter public logs.
 - `profiles`: explicit versioned fields supported by the observed cabinet request, linked to player ID. Do not invent official account balances, entitlements or history.
 - `rounds` and `hole_updates`: local game/session ID, revision/order information, and a supported deduplication key. Determine retry identity from actual traffic before selecting uniqueness constraints.
@@ -42,3 +42,7 @@ Keep a bounded diagnostic record of message type/version and validation outcome,
 6. Restore/verify cabinet registration state and remove test isolation as usual.
 
 Offline decoding can proceed without the operator present. The screen, swipe and persistence results cannot be inferred from a green LIVE indicator.
+
+## Native player-policy investigation update
+
+Static inspection explains the prior uninitialized-object failure: general replies pass through a per-context message registry (`0x0897a758`) and request/reply association logic (`0x0897a088`). Earlier special-case ACK/control policy checks do not establish these general player paths. This pass did not initialize or validate that registry, so14→15 and8→9 remain metadata-derived candidates, not native acceptance results.
