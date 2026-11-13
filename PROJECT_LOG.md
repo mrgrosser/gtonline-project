@@ -382,3 +382,11 @@ For every meaningful code, configuration, hardware, protocol, or recovery change
 - Nonempty-list testing initially stopped at an unmodeled indexed-key format; added only the two observed formatting variants. Actual reader/control-flow instructions remain unchanged.
 - Total70 offline methods pass (40 native/private-input,30 standalone);118 source/dependency files. Full login, transaction effects, later saves and UI consumption remain unverified. Cabinet untouched.
 - Details and reproduction: [PLAYER_HANDOFF.md](PLAYER_HANDOFF.md).
+
+## 2026-11-13 — V2 codec, completion errors and request correlation
+
+Added strict183/184 versions0–3 payload codecs, with exact field/range/length checks and conservative19-course bounds. Native comparisons cover all four versions and a19-course payload. Five completion tests continue through modeled save/cleanup to the original final status write: initialization failures skip saving, injected save errors survive, and native list mismatch returns0x482. No real database transaction is claimed.
+
+Static tracing connects container ID/offset to outgoing request context, object name and storage category. Three response-builder regression methods preserve correlation headers, supported bundle order and encryption-key slot, while confirming unsupported player requests remain refused. No responder behavior was weakened.
+
+Selected suite:87 methods passed (37 standalone,47 native/private-executable,3 private-metadata correlation). The37 standalone methods also passed in the reviewed public export. Duplicate test discovery and an unsupported synthetic request fixture were corrected during development; see [full contract, commands and limits](PLAYER_V2_CODEC.md). Public archive now has121 source/dependency files. Cabinet, gateway and account unchanged. Live swipe/login/save-reload remain unproven.

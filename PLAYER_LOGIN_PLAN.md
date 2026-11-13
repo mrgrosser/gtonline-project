@@ -64,3 +64,7 @@ The metadata-driven player field loop is now tested separately; see [wire codec 
 ## Subsequent dispatch/handoff correction
 
 The selected earlier map is not exhaustive: actual reply184 pairs with183,166 and203 and uses a dedicated native handler, unlike9/15/221. The18-field generic-loop evidence remains specific to15/v7. New tests cover dispatcher selection and modeled database-error propagation; see [PLAYER_HANDOFF.md](PLAYER_HANDOFF.md). The public wire codec still rejects184.
+
+## Follow-up: strict V2 codec and modeled save completion
+
+The prior first-save-only results are extended by [V2 codec and correlation checks](PLAYER_V2_CODEC.md). The standalone codec now supports184 versions0–3; earlier statements that it rejects184 describe the previous release. Network login remains disabled. Original completion flow now propagates modeled initialization/save failures, and static outgoing-queue correlation is documented separately from runtime proof.

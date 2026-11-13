@@ -79,3 +79,7 @@ python3 -m unittest test_native_player_v2
 ```
 
 Observed combined result:70 offline methods (40 native/private-input,30 standalone). The first nonempty-list attempt stopped at an unmodeled indexed-name formatting call; explicitly modeling the two observed integer format strings enabled the list tests. No native branch or return value was patched to manufacture acceptance.
+
+## Follow-up: strict V2 codec and modeled save completion
+
+The prior first-save-only results are extended by [V2 codec and correlation checks](PLAYER_V2_CODEC.md). The standalone codec now supports184 versions0–3; earlier statements that it rejects184 describe the previous release. Network login remains disabled. Original completion flow now propagates modeled initialization/save failures, and static outgoing-queue correlation is documented separately from runtime proof.

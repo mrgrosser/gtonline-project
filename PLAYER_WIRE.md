@@ -2,7 +2,7 @@
 
 ## Implemented scope
 
-`research/player_wire.py` is a standalone, strict payload-only codec for request14/version7 (20-byte player identity), reply15/version7 (18 fields), and reply221/version0 (one availability byte). Field order/types were checked against the private metadata and the original field-reading loop. No metadata dump or real account data is included.
+`research/player_wire.py` is a standalone, strict payload-only codec for request14/version7 (20-byte player identity), reply15/version7 (18 fields), and reply221/version0 (one availability byte), and request183/reply184 versions0–3. Field order/types were checked against the private metadata and the original field-reading loop. No metadata dump or real account data is included.
 
 It rejects unsupported formats, missing/extra fields, out-of-range values, truncation and trailing bytes. Byte strings remain opaque; fixed identities retain their exact size. No card normalization, implicit enrollment, money/entitlement defaults, transport authentication or network reply is supplied.
 
@@ -47,3 +47,7 @@ Physical preflight: inspect the reported CPU fan/header condition first. Then us
 ## Subsequent dispatch/handoff correction
 
 The selected earlier map is not exhaustive: actual reply184 pairs with183,166 and203 and uses a dedicated native handler, unlike9/15/221. The18-field generic-loop evidence remains specific to15/v7. New tests cover dispatcher selection and modeled database-error propagation; see [PLAYER_HANDOFF.md](PLAYER_HANDOFF.md). The public wire codec still rejects184.
+
+## V2 follow-up
+
+Request183 preserves a 20-byte opaque identity; reply184 supports the version-specific fields described in [V2 codec and correlation](PLAYER_V2_CODEC.md). Course/count lists must match and contain at most 19 entries (a conservative adapter limit, not a proven protocol maximum). The old request14-only lookup is unchanged; this does not connect V2 identities to the store or enable network replies.

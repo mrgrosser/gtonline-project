@@ -13,8 +13,8 @@ class NativePayloadRejected(ValueError):
  pass
 
 class PlayerV2Machine(HandoffMachine):
- def __init__(self):
-  super().__init__()
+ def __init__(self,initialize_status=(0,0)):
+  super().__init__(initialize_status=initialize_status)
   self.identities={};self.reached_save=False
   for a in (0x089b9720,0x0854efa4,0x0898d268,0x08609f56,0x08a26e40,0x08a275bc,0x08a27a82,0x089c3df5):
    self.uc.hook_add(UC_HOOK_CODE,self.hook,begin=a,end=a)
@@ -57,6 +57,10 @@ class PlayerV2Machine(HandoffMachine):
   if version!=0:raise ValueError('Use parse_to_save for extended versions')
   return self.parse_to_save(raw,version)
  def parse_to_save(self, raw, version=0):
+  self._run(raw,version)
+  if not self.reached_save:raise RuntimeError('Dedicated handler did not reach save boundary')
+  return self.attributes
+ def _run(self, raw, version):
   if type(version) is not int or not 0<=version<=3:raise ValueError('Unsupported dedicated version')
   if not isinstance(raw,bytes) or len(raw)>2048:raise ValueError('Bounded bytes required')
   base=0x35000000;start=base+0x1000
@@ -70,5 +74,3 @@ class PlayerV2Machine(HandoffMachine):
   name=self.alloc(24);self.set_string(name,b'OFFLINE_TEST_OBJECT')
   result=self.alloc(8)
   self.invoke(0x089c3170,[result,0,5,0,0,14,name,0,body,version],count=200000)
-  if not self.reached_save:raise RuntimeError('Dedicated handler did not reach save boundary')
-  return self.attributes

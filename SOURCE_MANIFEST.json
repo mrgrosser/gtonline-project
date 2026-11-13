@@ -221,7 +221,7 @@
       "path": "research/emulate_player_v2.py",
       "origin": "golden-tee-research/emulate_player_v2.py",
       "sanitized": false,
-      "sha256": "af9a3393136a74e9159ac7c968e55f18a3279129985ef54b6493a312f2b5899f"
+      "sha256": "3857e7be07f6fbcbb125d2608d4d50c0b689832132727659fc94a25b2b71007d"
     },
     {
       "path": "research/emulate_postsave_status.py",
@@ -353,7 +353,7 @@
       "path": "research/player_wire.py",
       "origin": "golden-tee-research/player_wire.py",
       "sanitized": false,
-      "sha256": "d4daf2320fbbe288fa16eb709682bffe61819595079175bb9bc3ce7fe9a2bdd2"
+      "sha256": "64a9e0b81e97c4c59df44731941486c814cd6f0fa35c49f909a8af06b8e7f1a6"
     },
     {
       "path": "research/positive_registration_session.py",
@@ -623,13 +623,25 @@
       "path": "research/test_native_player_v2.py",
       "origin": "golden-tee-research/test_native_player_v2.py",
       "sanitized": false,
-      "sha256": "8322fa24abeba635a29810a32d42d5d67872413e721eba4ce7c41b2c833e472f"
+      "sha256": "0e96b4ca11400bc0078f82011fa54139486fa40b5f7970f6706cf4656d80cca3"
+    },
+    {
+      "path": "research/test_native_player_v2_completion.py",
+      "origin": "golden-tee-research/test_native_player_v2_completion.py",
+      "sanitized": false,
+      "sha256": "3a968b0c6daf6f8eabcfc5a12649a9125ea72786e8e1f0d2263d951657daaa91"
     },
     {
       "path": "research/test_player_reply_policy.py",
       "origin": "golden-tee-research/test_player_reply_policy.py",
       "sanitized": false,
       "sha256": "fcdee57333ed7f03267efe6600e2d4ec6b1b590b46498b912b2dcaae338bf794"
+    },
+    {
+      "path": "research/test_player_response_correlation.py",
+      "origin": "golden-tee-research/test_player_response_correlation.py",
+      "sanitized": false,
+      "sha256": "5f1c8896ff47f603fb555bfd4a0431bb2819aebccd35acf0677281be32136d39"
     },
     {
       "path": "research/test_player_store.py",
@@ -642,6 +654,12 @@
       "origin": "golden-tee-research/test_player_wire.py",
       "sanitized": false,
       "sha256": "1b1f05095912c3173f499701b93a02a79c004fa9380a52b1a4258059d0f248a6"
+    },
+    {
+      "path": "research/test_player_wire_v2.py",
+      "origin": "golden-tee-research/test_player_wire_v2.py",
+      "sanitized": false,
+      "sha256": "ad4dc8fcdd75e81c5eee28240f16003f86a77e89fb719669e895cd9b24d8f165"
     },
     {
       "path": "research/test_positive_gate.py",

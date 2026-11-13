@@ -95,6 +95,28 @@ class NativePlayerV2Tests(unittest.TestCase):
             with self.assertRaises(PayloadReadPastEnd):
                 PlayerV2Machine().parse_to_save(raw[:-1],version)
 
+    def test_public_encoder_matches_dedicated_handler(self):
+        from test_player_wire_v2 import values
+        for version in range(4):
+            v=values(version)
+            want={k.encode():value for k,value in v.items()
+                  if k not in ('FACEBOOK_EMAIL','FACEBOOK_REG_STATUS','FACEBOOK_ENABLED',
+                               'COURSES','COURSE_GAMES_PLAYED')}
+            for name in ('COURSES','COURSE_GAMES_PLAYED'):
+                for i,value in enumerate(v.get(name,[])):
+                    want[(name+'_'+str(i)).encode()]=value
+            raw=encode_payload(184,version,v)
+            self.assertEqual(dict(PlayerV2Machine().parse_to_save(raw,version)),want)
+
+    def test_conservative_codec_list_bound_native(self):
+        from test_player_wire_v2 import values
+        from player_wire import MAX_COURSES
+        v=values(3);v.update(COURSES=list(range(MAX_COURSES)),COURSE_GAMES_PLAYED=[65535]*MAX_COURSES)
+        got=dict(PlayerV2Machine().parse_to_save(encode_payload(184,3,v),3))
+        for i in range(MAX_COURSES):
+            self.assertEqual(got[('COURSES_'+str(i)).encode()],i)
+            self.assertEqual(got[('COURSE_GAMES_PLAYED_'+str(i)).encode()],65535)
+
     def test_other_versions_not_claimed(self):
         for ver in (-1,4,255,True):
             with self.assertRaises(ValueError):PlayerV2Machine().parse_to_save(b'',ver)
