@@ -200,6 +200,12 @@
       "sha256": "0d82180e87212adb7b7cfc9f16bb50ae8186caf1ff8fa6234fa76c05f95b9968"
     },
     {
+      "path": "research/emulate_player_handoff.py",
+      "origin": "golden-tee-research/emulate_player_handoff.py",
+      "sanitized": false,
+      "sha256": "8e698477d28f24fa952cdd9a5f0193be0c60f00f539f92ee109572d8114c0190"
+    },
+    {
       "path": "research/emulate_player_payload.py",
       "origin": "golden-tee-research/emulate_player_payload.py",
       "sanitized": false,
@@ -210,6 +216,12 @@
       "origin": "golden-tee-research/emulate_player_registry.py",
       "sanitized": false,
       "sha256": "ecbd9a542e0af599bcccdce95e4a463ad4a6f0e9339dfa01161a7984c01b7edc"
+    },
+    {
+      "path": "research/emulate_player_v2.py",
+      "origin": "golden-tee-research/emulate_player_v2.py",
+      "sanitized": false,
+      "sha256": "af9a3393136a74e9159ac7c968e55f18a3279129985ef54b6493a312f2b5899f"
     },
     {
       "path": "research/emulate_postsave_status.py",
@@ -584,6 +596,18 @@
       "sha256": "b090b7ca6fc17d6423cf0b195ee7bbcbef375f2e1d59aa59bce5f7d419b61b1d"
     },
     {
+      "path": "research/test_native_player_dispatch.py",
+      "origin": "golden-tee-research/test_native_player_dispatch.py",
+      "sanitized": false,
+      "sha256": "1dd224a92cef3e3723e3b38856d9a33e1a735a4f083ab5372c6157cf1a224937"
+    },
+    {
+      "path": "research/test_native_player_handoff.py",
+      "origin": "golden-tee-research/test_native_player_handoff.py",
+      "sanitized": false,
+      "sha256": "9e6674810889b05567321bcc13e2a417a3f820dbdce692342c8ea0d4c213a9ab"
+    },
+    {
       "path": "research/test_native_player_payload.py",
       "origin": "golden-tee-research/test_native_player_payload.py",
       "sanitized": false,
@@ -593,7 +617,13 @@
       "path": "research/test_native_player_registry.py",
       "origin": "golden-tee-research/test_native_player_registry.py",
       "sanitized": false,
-      "sha256": "f4f737e01a72fd1c24008916dac9b60879730e74d4c4adbd193aa675c4724090"
+      "sha256": "5ae5a160806087fe7d571304056a3d271d668b056cc6ce848ecc142966c031fb"
+    },
+    {
+      "path": "research/test_native_player_v2.py",
+      "origin": "golden-tee-research/test_native_player_v2.py",
+      "sanitized": false,
+      "sha256": "8322fa24abeba635a29810a32d42d5d67872413e721eba4ce7c41b2c833e472f"
     },
     {
       "path": "research/test_player_reply_policy.py",

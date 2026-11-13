@@ -60,3 +60,7 @@ Selected actual associations are8→9,14→15,166→15 and220→221. Alternate c
 Seven registry test methods pass, including crossed pairs, generic ACK rejection and repeated lookups. Missing-node insertion and zero-association diagnostic paths remain outside scope. The complete wrapper's generic-registry fallback is not exercised.
 
 The metadata-driven player field loop is now tested separately; see [wire codec and limits](PLAYER_WIRE.md). This advances offline compatibility evidence, not authentication, UI or profile persistence on the cabinet.
+
+## Subsequent dispatch/handoff correction
+
+The selected earlier map is not exhaustive: actual reply184 pairs with183,166 and203 and uses a dedicated native handler, unlike9/15/221. The18-field generic-loop evidence remains specific to15/v7. New tests cover dispatcher selection and modeled database-error propagation; see [PLAYER_HANDOFF.md](PLAYER_HANDOFF.md). The public wire codec still rejects184.

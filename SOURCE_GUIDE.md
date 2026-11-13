@@ -4,11 +4,11 @@
 
 This is the recoverable project source used through November 13, 2026, exported from the working research directories. It includes successful approaches, superseded experiments, and historical cabinet-specific scripts. It is **not a turnkey emulator, installer, or complete reproducible cabinet environment**.
 
-The original private working files were not changed. The public copies replace identifying deployment details with examples. `SOURCE_MANIFEST.json` lists all 113 exported source/dependency files, their relative origin, whether sanitization occurred, and the SHA-256 of the published copy. It does not contain hashes of private data.
+The original private working files were not changed. The public copies replace identifying deployment details with examples. `SOURCE_MANIFEST.json` lists all 118 exported source/dependency files, their relative origin, whether sanitization occurred, and the SHA-256 of the published copy. It does not contain hashes of private data.
 
 ## Layout
 
-- `research/`: 94 protocol, crypto, capture, emulation, routing, recovery, test and dependency files.
+- `research/`: 99 protocol, crypto, capture, emulation, routing, recovery, test and dependency files.
 - `hardware/`: 19 earlier SSH/GPU compatibility, deployment, recovery and verification files, including minimal patches rather than complete vendor scripts.
 - `PROJECT_LOG.md`: chronological findings, verification limits and current cabinet state.
 - `SOURCE_MANIFEST.json`: source inventory and public-file integrity hashes.
@@ -118,3 +118,7 @@ The archive now contains106 source/dependency files. [PLAYER_STORE.md](PLAYER_ST
 ## Native registry and payload follow-up
 
 The archive contains113 source/dependency files. Six new source files provide original-initializer tests, native field-loop comparisons and a narrow read-only wire/store bridge. See [PLAYER_WIRE.md](PLAYER_WIRE.md) for the explicit standalone30-method and private-input19-method commands, modeled runtime limits and remaining physical tests. No cabinet changes were made.
+
+## Dispatcher and persistence-boundary follow-up
+
+118 source/dependency files are now inventoried. Five new files and expanded registry tests distinguish generic and dedicated player paths. See [handoff evidence and explicit commands](PLAYER_HANDOFF.md). Combined70 offline methods pass in the private-input research environment;30 standalone methods still require no private files.

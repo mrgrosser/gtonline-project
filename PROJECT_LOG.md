@@ -363,3 +363,22 @@ For every meaningful code, configuration, hardware, protocol, or recovery change
 - Public export adds six source files;113 source/dependency files total. No private executable, capture, full metadata, account data or database is included.
 - Remaining: full application-handler semantics, actual physical swipe path, screen identity and save/reload. Green LIVE still does not establish login.
 - Details: [PLAYER_WIRE.md](PLAYER_WIRE.md), [PLAYER_REPLY_POLICY.md](PLAYER_REPLY_POLICY.md).
+
+### 2026-11-13 — Player dispatch, persistence errors and V2 login correction
+
+- Continued offline after Bob requested all work that does not need physical presence. No cabinet, gateway or account changes.
+- Traced generic attribute persistence and added five native handoff tests with explicitly modeled DB outcomes: initialization failure skips saving; save failures propagate. This is not real SQL/transaction or UI verification.
+- Added five native dispatch methods.9/15/221 use the generic parser;184 uses dedicated handler0x089c3170. Caller supplies object/context; actual login key not yet established.
+- Corrected incomplete login map: actual184 associations are183,166,203. Max versions183/184:3,203:0. Added registry assertions and768 version subcases, bringing selected version checks to2,560. The earlier15/v7 codec is not a universal player-login decoder.
+- First184 probe hit an unmodeled C++ operation; tracing identified its special branch. Tests now stop explicitly at the dedicated handler entry rather than claiming complete decoding.
+- Combined60 methods pass;116 exported source/dependency files. Private SQL/procedures, full metadata, binaries and account details remain excluded.
+- Next offline target: dedicated184 decoder and request/object correlation. Physical login/save/reload still unverified. See [PLAYER_HANDOFF.md](PLAYER_HANDOFF.md).
+
+### 2026-11-13 — Dedicated V2 player decoder through first save
+
+- Continued into the original dedicated184 handler, rather than stopping after discovering its entry point. Versions0–3 now reach the first-save boundary with modeled strings, typed attributes, identity container and DB initialization; no database save is executed.
+- Ten new tests cover basic and extended fields, binary/string/integer edges, course/count list values and native mismatch rejection0x482. Truncated reads are still harness-enforced checks, not claimed native validation.
+- Correction: this typed path preserves unsigned32-bit values, unlike the older generic parser's intermediate signed text. Three legacy social fields are skipped before the first save.
+- Nonempty-list testing initially stopped at an unmodeled indexed-key format; added only the two observed formatting variants. Actual reader/control-flow instructions remain unchanged.
+- Total70 offline methods pass (40 native/private-input,30 standalone);118 source/dependency files. Full login, transaction effects, later saves and UI consumption remain unverified. Cabinet untouched.
+- Details and reproduction: [PLAYER_HANDOFF.md](PLAYER_HANDOFF.md).

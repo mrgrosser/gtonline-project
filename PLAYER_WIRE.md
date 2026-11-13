@@ -43,3 +43,7 @@ Observed:19 methods pass (7 registry,6 payload,6 earlier synthetic policy). Comb
 - On-screen identity, save, reconnect and reload under controlled isolation.
 
 Physical preflight: inspect the reported CPU fan/header condition first. Then use the established cabinet-only isolation, management access and registration rollback procedure. Record menu state before a single controlled swipe. Keep raw card/account data private; publish only sanitized structural observations. Stop on unexpected behavior and verify restoration afterward. This document does not schedule or execute a cabinet test.
+
+## Subsequent dispatch/handoff correction
+
+The selected earlier map is not exhaustive: actual reply184 pairs with183,166 and203 and uses a dedicated native handler, unlike9/15/221. The18-field generic-loop evidence remains specific to15/v7. New tests cover dispatcher selection and modeled database-error propagation; see [PLAYER_HANDOFF.md](PLAYER_HANDOFF.md). The public wire codec still rejects184.

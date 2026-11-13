@@ -32,6 +32,18 @@ class NativePlayerRegistryTests(unittest.TestCase):
         for request, expected in ((166, 1), (60000, 0), (14, 1), (166, 1)):
             self.assertEqual(self.machine.accepts(request, 7, 15), expected)
 
+    def test_v2_info_and_cardless_associations(self):
+        self.assertEqual(self.machine.associations(184), [183, 166, 203])
+        for request in (183, 166, 203, 14, 8, 220):
+            self.assertEqual(self.machine.accepts(request, 0, 184),
+                             int(request in (183, 166, 203)))
+        for message, maximum in ((183, 3), (184, 3), (203, 0)):
+            self.assertEqual(self.machine.maximum_version(message), maximum)
+            for version in range(256):
+                with self.subTest(message=message, version=version):
+                    self.assertEqual(self.machine.accepts_version(message, version),
+                                     int(version <= maximum))
+
     def test_native_maximum_versions(self):
         for message, maximum in ((8, 1), (9, 2), (14, 7), (15, 7),
                                  (166, 7), (220, 0), (221, 0)):
