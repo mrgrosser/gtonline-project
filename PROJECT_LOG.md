@@ -390,3 +390,7 @@ Added strict183/184 versions0–3 payload codecs, with exact field/range/length 
 Static tracing connects container ID/offset to outgoing request context, object name and storage category. Three response-builder regression methods preserve correlation headers, supported bundle order and encryption-key slot, while confirming unsupported player requests remain refused. No responder behavior was weakened.
 
 Selected suite:87 methods passed (37 standalone,47 native/private-executable,3 private-metadata correlation). The37 standalone methods also passed in the reviewed public export. Duplicate test discovery and an unsupported synthetic request fixture were corrected during development; see [full contract, commands and limits](PLAYER_V2_CODEC.md). Public archive now has121 source/dependency files. Cabinet, gateway and account unchanged. Live swipe/login/save-reload remain unproven.
+
+### Same-day follow-up — execute base request-queue correlation
+
+Six additional native methods pass using synthetic database boundaries: absent backend0x433, missing outgoing queue0x461, missing container-map diagnostic branch, successful context population and binding/value width checks. The missing-map path stops before logging and does not establish its return status. No SQL, account or cabinet access occurred. See [queue follow-up](PLAYER_V2_CODEC.md#native-queue-follow-up-six-additional-methods). Selected coverage totals93 methods; archive122 source files.

@@ -4,11 +4,11 @@
 
 This is the recoverable project source used through November 13, 2026, exported from the working research directories. It includes successful approaches, superseded experiments, and historical cabinet-specific scripts. It is **not a turnkey emulator, installer, or complete reproducible cabinet environment**.
 
-The original private working files were not changed. The public copies replace identifying deployment details with examples. `SOURCE_MANIFEST.json` lists all 121 exported source/dependency files, their relative origin, whether sanitization occurred, and the SHA-256 of the published copy. It does not contain hashes of private data.
+The original private working files were not changed. The public copies replace identifying deployment details with examples. `SOURCE_MANIFEST.json` lists all 122 exported source/dependency files, their relative origin, whether sanitization occurred, and the SHA-256 of the published copy. It does not contain hashes of private data.
 
 ## Layout
 
-- `research/`: 102 protocol, crypto, capture, emulation, routing, recovery, test and dependency files.
+- `research/`: 103 protocol, crypto, capture, emulation, routing, recovery, test and dependency files.
 - `hardware/`: 19 earlier SSH/GPU compatibility, deployment, recovery and verification files, including minimal patches rather than complete vendor scripts.
 - `PROJECT_LOG.md`: chronological findings, verification limits and current cabinet state.
 - `SOURCE_MANIFEST.json`: source inventory and public-file integrity hashes.

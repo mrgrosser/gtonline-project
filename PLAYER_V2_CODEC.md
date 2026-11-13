@@ -54,3 +54,20 @@ python3 -m unittest test_player_wire test_player_wire_v2 test_native_player_payl
 During development, importing a TestCase class into the completion module caused duplicate discovery; switching to a module import removed the duplicates. An initial correlation fixture used unsupported235 versions and was correctly refused; the fixture was corrected to supported235/version2 rather than weakening the responder.
 
 Remaining gaps include real queue/database behavior, identity-to-SQL mapping, application/UI consumption, actual swipe request selection, end-to-end login and save/reload. Neither the website account nor the cabinet was used to fabricate missing wire evidence.
+
+## Native queue follow-up: six additional methods
+
+`test_native_player_queue.py` executes the original base lookup at0x08967488 with synthetic statement/results and modeled binding lists, strings and cleanup. No SQL or real database is used.
+
+- An absent backend returns native0x433 without querying.
+- No container-map row takes the original diagnostic branch before the second query. Execution stops at that branch; its eventual return status is not claimed.
+- A missing outgoing-queue row returns native0x461, leaving the existing destination string unchanged.
+- Matching synthetic rows populate the context with message ID/version,64-bit request ID, object name, unsigned16-bit storage category and signed16-bit completion status. Empty object name and signed/unsigned boundaries are covered. This lookup alone does not reject an empty object name.
+- Native binding preparation preserves the16-bit container ID and takes the low8 bits of the offset argument. The64-bit request ID is forwarded into the second binding. This is a base-function behavior, not proof that callers may legally supply out-of-range offsets.
+
+The six methods pass with the private executable. This extends the selected suite from87 to93 methods (37 standalone,53 native/private-executable,3 metadata-dependent correlation). Diagnostic logging, database errors/exceptions, real row selection/uniqueness, other implementations and downstream use remain untested.
+
+```sh
+cd research
+python3 -m unittest test_native_player_queue
+```

@@ -614,6 +614,12 @@
       "sha256": "223a9e6d904eba8cc31408ddc4dbf6c02a36ca9295315e1c5a64b1902c6b77cb"
     },
     {
+      "path": "research/test_native_player_queue.py",
+      "origin": "golden-tee-research/test_native_player_queue.py",
+      "sanitized": false,
+      "sha256": "ec0592b06b309f0a40e50369c3088180b29ff5f1c2222703b9da5786930b4974"
+    },
+    {
       "path": "research/test_native_player_registry.py",
       "origin": "golden-tee-research/test_native_player_registry.py",
       "sanitized": false,
