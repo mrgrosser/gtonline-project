@@ -230,6 +230,15 @@ Positive registration can modify both hardware-backed storage and PostgreSQL sta
 - On the sanitized export: 33 mocked checks passed; 65 Python files parsed as Python 3 and 19 shell files passed syntax checks. Fourteen Python 2-only files were not syntax/runtime-validated. Native/private-fixture tests were not rerun.
 - This publication made no cabinet changes. Player login remains unverified; no new live-online milestone is claimed.
 
+### 2026-11-13 — Offline compression decoder and login research
+
+- Corrected the compression selector to four bits spanning the first two header bytes. Original-code execution matched all16 values; extended selectors are now rejected rather than mistaken for modes0/1/2.
+- Implemented bounded method2 decoding: zlib followed by an inverse byte-sort transform with a sentinel and two trailer indices. Seven synthetic vectors matched the original transform routine.
+- Added eight standard-library-only synthetic compression tests, runnable without private captures or executables. The focused private-fixture/native suite passed20 tests, including plaintext/encrypted method2 settings bundles and refusal when the isolation guard fails.
+- No real method2 capture was available in the surveyed saved containers, and no live retest occurred. This is offline compatibility evidence, not a new player-facing milestone. Selectors>=3 remain unsupported.
+- Mapped candidate player-info, stats, hole-data, name and cardless-login messages from metadata; drafted a SQLite-backed profile design and physical validation sequence in `PLAYER_LOGIN_PLAN.md`. These handlers/storage are not implemented or accepted live. An uninitialized native player-policy probe failed with an unmapped read, so no acceptance claim is made.
+- Cabinet unchanged; final restored state remains the13:46UTC record. Physical fan, Online-menu, card swipe and profile reload checks remain outstanding.
+
 ## 5. Protocol coverage snapshot
 
 Message numbers are research references, not a complete protocol specification. Versions and field layouts matter; supporting one version does not establish all versions.
@@ -247,7 +256,7 @@ Message numbers are research references, not a complete protocol specification. 
 | Banner 188 → 189 | Empty response handling; not a content service |
 | Settings 235 v2 → 236 v2 | Empty response handling; not full settings synchronization |
 | Compression 0 / 1 | Uncompressed and zlib paths implemented |
-| Compression 2 | Unsupported additional transform |
+| Compression 2 | Decoder implemented; synthetic/native comparisons pass; no live proof |
 | Player lookup, profile loading/saving | Not demonstrated |
 
 ## 6. Implementation inventory
@@ -278,7 +287,7 @@ The local emulation environment uses Unicorn, pyelftools, and PyCryptodome. No i
 ## 8. Open work and next validation gates
 
 1. **Physical checks:** inspect the CPU fan and relevant header; observe Start → Online during an authorized isolated retest. Record the actual screen result rather than infer it from the LIVE lamp.
-2. **Follow-up coverage:** live-test the latest mixed-bundle handler; investigate compression method 2 and any newly observed required exchanges without guessing successful replies.
+2. **Follow-up coverage:** live-test the latest mixed-bundle handler and method2 decoder; investigate selectors>=3 and newly observed required exchanges without guessing successful replies.
 3. **Card input:** when the menu is available, capture a controlled test swipe and establish how the cabinet represents and submits player identity. Keep real card data out of public logs.
 4. **Player lifecycle:** implement and verify lookup, unknown-player behavior, profile creation/loading, save updates, and persistence across sessions. Do not claim success until the cabinet displays and subsequently reloads the expected data.
 5. **Stability:** exercise reconnects, process restarts, reboots, clock behavior, incomplete replies, and server unavailability. Confirm recovery independently.

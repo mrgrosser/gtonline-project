@@ -33,7 +33,8 @@ def inspect_frame(data):
         raise ValueError('not exactly one complete container')
     if crc(data[:-4]) != int.from_bytes(data[-4:], 'big'):
         raise ValueError('container CRC mismatch')
-    method = (data[0] >> 6) & 3
+    # Native 0x08958dc7: selector spans byte0 bits6-7 and byte1 bits0-1.
+    method = ((data[1] << 8 | data[0]) >> 6) & 15
     result = dict(bytes=len(data), header_size=header_size,
                   body_size=body_size, method=method,
                   container_id=int.from_bytes(data[9:11], 'big'),

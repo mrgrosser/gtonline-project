@@ -10,13 +10,8 @@ from decode_force_call import decode_messages
 from registration_fixture import encode_messages,frame_for
 import zlib
 
-def body(frame):
-    h=inspect_frame(frame);raw=frame[h['header_size']:-4]
-    if h['method']==0:return raw
-    if h['method']!=1:raise ValueError('compression')
-    d=zlib.decompressobj();out=d.decompress(raw,65537)
-    if len(out)>65536 or not d.eof or d.unused_data:raise ValueError('inflate bound')
-    return out
+from container_compression import body
+
 
 def reencode(request,response):
     # Unknown requests are relayed unchanged, never assigned an invented reply.
@@ -62,7 +57,7 @@ def main():
     deadline=time.monotonic()+a.duration;listeners=[];workers=[]
     def handle(c,port):
         try:
-            u=socket.create_connection(('203.0.113.49',port),5)
+            u=socket.create_connection(('63.116.120.49',port),5)
             c.settimeout(5);u.settimeout(5)
             counts=bridge(c,u,deadline)
             print(json.dumps({'port':port,'bytes_to_vendor':counts[0],'bytes_to_game':counts[1]}),flush=True)

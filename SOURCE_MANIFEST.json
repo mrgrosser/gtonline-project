@@ -2,6 +2,120 @@
   "scope": "Sanitized original project source, not a deployable cabinet image",
   "files": [
     {
+      "path": "hardware/black-screen-audit/verify-evidence.py",
+      "origin": "goldentee-review/black-screen-audit/verify-evidence.py",
+      "sanitized": true,
+      "sha256": "27cdadedc8c8b461f554faa166f130f4ffeffc7b431a9df252f22488bd1e1005"
+    },
+    {
+      "path": "hardware/proposed/apply.sh",
+      "origin": "goldentee-review/proposed/apply.sh",
+      "sanitized": true,
+      "sha256": "a91b94c5f1e8fe321ef79fe8e7b2612067b25600e259fc058641a1c399ccb015"
+    },
+    {
+      "path": "hardware/proposed/cat",
+      "origin": "goldentee-review/proposed/cat",
+      "sanitized": false,
+      "sha256": "eb0b0d15aa12b010fdd2ef0ee943203bb12fa70c2105030d22730a37859af8e3"
+    },
+    {
+      "path": "hardware/proposed/nvidia-selector.patch",
+      "origin": "diff of original and proposed NVIDIA selector",
+      "sanitized": true,
+      "sha256": "a4b9a935839d49eda24833ee14ff921c66681080f960a9444ca978f4a1637e97"
+    },
+    {
+      "path": "hardware/proposed/ssh-lifecycle.patch",
+      "origin": "goldentee-review/proposed/ssh-lifecycle.patch",
+      "sanitized": false,
+      "sha256": "bfe7fb2430ad2a04f618d9b3e9f340210b7b0c2070b5ceda7cf9e372bb66a898"
+    },
+    {
+      "path": "hardware/retest-20261104/1080-health.sh",
+      "origin": "goldentee-review/retest-20261104/1080-health.sh",
+      "sanitized": false,
+      "sha256": "87571e3d0a7ffd595cb196fdceb60a6361cf092717e487662f4402daa55e8b40"
+    },
+    {
+      "path": "hardware/retest-20261104/1080-preflight.sh",
+      "origin": "goldentee-review/retest-20261104/1080-preflight.sh",
+      "sanitized": false,
+      "sha256": "91066a758360973ac465b10a7b93acda857e2c850cf5342c2c712ae713ff8e72"
+    },
+    {
+      "path": "hardware/retest-20261104/1080-running.sh",
+      "origin": "goldentee-review/retest-20261104/1080-running.sh",
+      "sanitized": false,
+      "sha256": "b326662ff2a6d7198acdf0af8975f2467da3656f8f845a98f1f94fbb8318469d"
+    },
+    {
+      "path": "hardware/retest-20261104/cat",
+      "origin": "goldentee-review/retest-20261104/cat",
+      "sanitized": false,
+      "sha256": "496b5a126d20eedf824092466eace1ec1403d34a41e2a0f194bb4ac4dd5bb33f"
+    },
+    {
+      "path": "hardware/retest-20261104/check-startup.sh",
+      "origin": "goldentee-review/retest-20261104/check-startup.sh",
+      "sanitized": false,
+      "sha256": "8c14ee38c4907c0412b9d665234a41256cc513584af4dbaca7838e3bec8a6e9f"
+    },
+    {
+      "path": "hardware/retest-20261104/deploy.sh",
+      "origin": "goldentee-review/retest-20261104/deploy.sh",
+      "sanitized": true,
+      "sha256": "edb021eaf35e8db305238fe2e64484f20ee2e78b2be8cfc9bac56e0b9640053d"
+    },
+    {
+      "path": "hardware/retest-20261104/inspect.sh",
+      "origin": "goldentee-review/retest-20261104/inspect.sh",
+      "sanitized": false,
+      "sha256": "ee380109917cc0e70c7697ca54f39a091d497cf47d2eae75334a619156720052"
+    },
+    {
+      "path": "hardware/retest-20261104/poweroff.sh",
+      "origin": "goldentee-review/retest-20261104/poweroff.sh",
+      "sanitized": false,
+      "sha256": "8f78c215c0fab772f76517b7b005b25c4af023a1b969032554d027ac8210e9dd"
+    },
+    {
+      "path": "hardware/retest-20261104/reboot.sh",
+      "origin": "goldentee-review/retest-20261104/reboot.sh",
+      "sanitized": false,
+      "sha256": "8aae35637270b61bb19d1838e838db57788028cc7a9eea98c3a05f4c92d58301"
+    },
+    {
+      "path": "hardware/retest-20261104/recovery-gate.sh",
+      "origin": "goldentee-review/retest-20261104/recovery-gate.sh",
+      "sanitized": false,
+      "sha256": "78027f7ab7887af639bd9f9beb0058bcc9a094cf2663d6530d2922d44d896657"
+    },
+    {
+      "path": "hardware/retest-20261104/release.sh",
+      "origin": "goldentee-review/retest-20261104/release.sh",
+      "sanitized": false,
+      "sha256": "5848c731f528dd1f817465167d177f64405954aba4cbb45eab659bfe526a58da"
+    },
+    {
+      "path": "hardware/retest-20261104/start-bootagent.sh",
+      "origin": "goldentee-review/retest-20261104/start-bootagent.sh",
+      "sanitized": false,
+      "sha256": "58b3e98da560331e7c4b62e8fffe23e465c4d47791b8fb48eded087fe5faca89"
+    },
+    {
+      "path": "hardware/retest-20261104/verify.py",
+      "origin": "goldentee-review/retest-20261104/verify.py",
+      "sanitized": true,
+      "sha256": "baa53b82dceaad1fe1055f5e70db9897ce8d589bcf28ad3474e4f60e73072dbc"
+    },
+    {
+      "path": "hardware/ssh/gt-ssh",
+      "origin": "goldentee-review/etc/rc.d/it.d/gt-ssh",
+      "sanitized": false,
+      "sha256": "0d33b0eef1c28a23d3e45e7f0937614a4ef4c015b14021962427de4226cde993"
+    },
+    {
       "path": "research/apply_trust_when_ready.py",
       "origin": "golden-tee-research/apply_trust_when_ready.py",
       "sanitized": false,
@@ -50,6 +164,12 @@
       "sha256": "a17d58ade7f289f17b7e6d03185a2a6722e043437953841b50093275eb054041"
     },
     {
+      "path": "research/container_compression.py",
+      "origin": "golden-tee-research/container_compression.py",
+      "sanitized": false,
+      "sha256": "db0ef9b708885cc4100f6aea82ff6ab36a1e1893057575b11d9e53cdf555abc3"
+    },
+    {
       "path": "research/decode_force_call.py",
       "origin": "golden-tee-research/decode_force_call.py",
       "sanitized": true,
@@ -60,6 +180,12 @@
       "origin": "golden-tee-research/emulate_complete_session_reply.py",
       "sanitized": false,
       "sha256": "58cf8f9b46ef0009752f6d8e104dbfc325d3693d90176a1d05d114cb12c920fa"
+    },
+    {
+      "path": "research/emulate_container_compression.py",
+      "origin": "golden-tee-research/emulate_container_compression.py",
+      "sanitized": false,
+      "sha256": "7c082b1f921b67f373f4331036f624ddfc362e212e2ee8d79f3d4c829d6d9cf0"
     },
     {
       "path": "research/emulate_outgoing_session.py",
@@ -173,7 +299,7 @@
       "path": "research/inspect_capture.py",
       "origin": "golden-tee-research/inspect_capture.py",
       "sanitized": false,
-      "sha256": "c4cc72df2262cb3ad6436dfa75f9358d11a3632ffb2fb7f1ec6ebb1030c18125"
+      "sha256": "aecad54ff0bc00876412ae6b5f760335d4767ac4c6ca8b472466bc4b7b736893"
     },
     {
       "path": "research/local_followups.py",
@@ -304,8 +430,8 @@
     {
       "path": "research/reencoding_relay.py",
       "origin": "golden-tee-research/reencoding_relay.py",
-      "sanitized": true,
-      "sha256": "80231ad98d332ec063470650dcc1d6dba9088680ebc9ba474d7350b101419c68"
+      "sanitized": false,
+      "sha256": "1cc995830b60045cf3139da4e3796e027e4a5d200eb93952001c870d828727e0"
     },
     {
       "path": "research/refresh_public_context.py",
@@ -380,6 +506,12 @@
       "sha256": "0189c2843823f9832d23ad7bcc585f6556319b302f6b6026a1b2572666717fb1"
     },
     {
+      "path": "research/test_container_compression.py",
+      "origin": "golden-tee-research/test_container_compression.py",
+      "sanitized": false,
+      "sha256": "47ac0673c9f66f7d3e04c970b2c055902d8c954690b30a7d7bad5c8d340098e3"
+    },
+    {
       "path": "research/test_fixture_transport.py",
       "origin": "golden-tee-research/test_fixture_transport.py",
       "sanitized": false,
@@ -449,7 +581,7 @@
       "path": "research/test_private_session_responder.py",
       "origin": "golden-tee-research/test_private_session_responder.py",
       "sanitized": false,
-      "sha256": "ae5e1e002aeb85c9983e596a0cf6fca788a457d59afdcf3ae8187e2097e5e85d"
+      "sha256": "9b940d762a6f02221a93292e7479e66dcbce7395bf2a9fcb5da64741749ae292"
     },
     {
       "path": "research/test_registration_db_recovery.py",
@@ -492,120 +624,6 @@
       "origin": "golden-tee-research/verify_storage_snapshot.py",
       "sanitized": false,
       "sha256": "d227aea3e33a2a534d6e33edbada9ee5b8b04e8b7f25c7a8d6a61764c2c1c33c"
-    },
-    {
-      "path": "hardware/proposed/apply.sh",
-      "origin": "goldentee-review/proposed/apply.sh",
-      "sanitized": true,
-      "sha256": "a91b94c5f1e8fe321ef79fe8e7b2612067b25600e259fc058641a1c399ccb015"
-    },
-    {
-      "path": "hardware/proposed/cat",
-      "origin": "goldentee-review/proposed/cat",
-      "sanitized": false,
-      "sha256": "eb0b0d15aa12b010fdd2ef0ee943203bb12fa70c2105030d22730a37859af8e3"
-    },
-    {
-      "path": "hardware/proposed/ssh-lifecycle.patch",
-      "origin": "goldentee-review/proposed/ssh-lifecycle.patch",
-      "sanitized": false,
-      "sha256": "bfe7fb2430ad2a04f618d9b3e9f340210b7b0c2070b5ceda7cf9e372bb66a898"
-    },
-    {
-      "path": "hardware/retest-20261104/1080-health.sh",
-      "origin": "goldentee-review/retest-20261104/1080-health.sh",
-      "sanitized": false,
-      "sha256": "87571e3d0a7ffd595cb196fdceb60a6361cf092717e487662f4402daa55e8b40"
-    },
-    {
-      "path": "hardware/retest-20261104/1080-preflight.sh",
-      "origin": "goldentee-review/retest-20261104/1080-preflight.sh",
-      "sanitized": false,
-      "sha256": "91066a758360973ac465b10a7b93acda857e2c850cf5342c2c712ae713ff8e72"
-    },
-    {
-      "path": "hardware/retest-20261104/1080-running.sh",
-      "origin": "goldentee-review/retest-20261104/1080-running.sh",
-      "sanitized": false,
-      "sha256": "b326662ff2a6d7198acdf0af8975f2467da3656f8f845a98f1f94fbb8318469d"
-    },
-    {
-      "path": "hardware/retest-20261104/cat",
-      "origin": "goldentee-review/retest-20261104/cat",
-      "sanitized": false,
-      "sha256": "496b5a126d20eedf824092466eace1ec1403d34a41e2a0f194bb4ac4dd5bb33f"
-    },
-    {
-      "path": "hardware/retest-20261104/check-startup.sh",
-      "origin": "goldentee-review/retest-20261104/check-startup.sh",
-      "sanitized": false,
-      "sha256": "8c14ee38c4907c0412b9d665234a41256cc513584af4dbaca7838e3bec8a6e9f"
-    },
-    {
-      "path": "hardware/retest-20261104/deploy.sh",
-      "origin": "goldentee-review/retest-20261104/deploy.sh",
-      "sanitized": true,
-      "sha256": "edb021eaf35e8db305238fe2e64484f20ee2e78b2be8cfc9bac56e0b9640053d"
-    },
-    {
-      "path": "hardware/retest-20261104/inspect.sh",
-      "origin": "goldentee-review/retest-20261104/inspect.sh",
-      "sanitized": false,
-      "sha256": "ee380109917cc0e70c7697ca54f39a091d497cf47d2eae75334a619156720052"
-    },
-    {
-      "path": "hardware/retest-20261104/poweroff.sh",
-      "origin": "goldentee-review/retest-20261104/poweroff.sh",
-      "sanitized": false,
-      "sha256": "8f78c215c0fab772f76517b7b005b25c4af023a1b969032554d027ac8210e9dd"
-    },
-    {
-      "path": "hardware/retest-20261104/reboot.sh",
-      "origin": "goldentee-review/retest-20261104/reboot.sh",
-      "sanitized": false,
-      "sha256": "8aae35637270b61bb19d1838e838db57788028cc7a9eea98c3a05f4c92d58301"
-    },
-    {
-      "path": "hardware/retest-20261104/recovery-gate.sh",
-      "origin": "goldentee-review/retest-20261104/recovery-gate.sh",
-      "sanitized": false,
-      "sha256": "78027f7ab7887af639bd9f9beb0058bcc9a094cf2663d6530d2922d44d896657"
-    },
-    {
-      "path": "hardware/retest-20261104/release.sh",
-      "origin": "goldentee-review/retest-20261104/release.sh",
-      "sanitized": false,
-      "sha256": "5848c731f528dd1f817465167d177f64405954aba4cbb45eab659bfe526a58da"
-    },
-    {
-      "path": "hardware/retest-20261104/start-bootagent.sh",
-      "origin": "goldentee-review/retest-20261104/start-bootagent.sh",
-      "sanitized": false,
-      "sha256": "58b3e98da560331e7c4b62e8fffe23e465c4d47791b8fb48eded087fe5faca89"
-    },
-    {
-      "path": "hardware/retest-20261104/verify.py",
-      "origin": "goldentee-review/retest-20261104/verify.py",
-      "sanitized": true,
-      "sha256": "baa53b82dceaad1fe1055f5e70db9897ce8d589bcf28ad3474e4f60e73072dbc"
-    },
-    {
-      "path": "hardware/black-screen-audit/verify-evidence.py",
-      "origin": "goldentee-review/black-screen-audit/verify-evidence.py",
-      "sanitized": true,
-      "sha256": "27cdadedc8c8b461f554faa166f130f4ffeffc7b431a9df252f22488bd1e1005"
-    },
-    {
-      "path": "hardware/ssh/gt-ssh",
-      "origin": "goldentee-review/etc/rc.d/it.d/gt-ssh",
-      "sanitized": false,
-      "sha256": "0d33b0eef1c28a23d3e45e7f0937614a4ef4c015b14021962427de4226cde993"
-    },
-    {
-      "path": "hardware/proposed/nvidia-selector.patch",
-      "origin": "diff of original and proposed NVIDIA selector",
-      "sanitized": true,
-      "sha256": "a4b9a935839d49eda24833ee14ff921c66681080f960a9444ca978f4a1637e97"
     }
   ]
 }

@@ -98,4 +98,22 @@ class ResponderTests(unittest.TestCase):
         reply,event=r.response(frame)
         self.assertEqual([x[0] for x in decode_messages(body(reply))],[261,261,258,189])
         self.assertEqual(m.invoke(0x089a8bfa,[0,257,1,258])&255,1)
+    def test_method2_bundle_encrypted_and_rejected(self):
+        import zlib
+        from test_container_compression import frame, sorted_fixture
+        r=self.responder()
+        payload=encode_messages([(235,2,{}),(235,2,{})])
+        compressed=frame(zlib.compress(sorted_fixture(payload)),2)
+        reply,event=r.response(compressed)
+        self.assertEqual([m for m,v,f in decode_messages(body(reply))],[236,236])
+        key=bytes(range(32));r.session={'shared_key':key,'sequence':0,'expires':2000001000}
+        encrypted=to_encrypted(compressed,{0:key})
+        reply,event=r.response(encrypted)
+        self.assertTrue(reply[1]&64)
+        self.assertEqual([m for m,v,f in decode_messages(body(to_plain(reply,{0:key})))],[236,236])
+        with self.assertRaises(ValueError):r.response(frame(zlib.compress(payload),6))
+        def denied():raise RuntimeError('isolation missing')
+        r.guard=denied
+        with self.assertRaises(RuntimeError):r.response(compressed)
+
 if __name__=='__main__':unittest.main()
