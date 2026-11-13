@@ -83,3 +83,22 @@ Observed combined result:70 offline methods (40 native/private-input,30 standalo
 ## Follow-up: strict V2 codec and modeled save completion
 
 The prior first-save-only results are extended by [V2 codec and correlation checks](PLAYER_V2_CODEC.md). The standalone codec now supports184 versions0–3; earlier statements that it rejects184 describe the previous release. Network login remains disabled. Original completion flow now propagates modeled initialization/save failures, and static outgoing-queue correlation is documented separately from runtime proof.
+
+## ITNet completion versus player-login success
+
+The original completion reader and bounded polling slice are now covered by `test_native_itnet_completion.py` (seven methods) and `test_native_itnet_poll.py` (three methods). They require the private matching executable; database boundaries are modeled.
+
+The queue reader reports missing rows as 3, database failures as 0, and maps pending -1 to 0. On channels 1, 2, 3 and 6, stored statuses are reduced to `status == 1`; other channels preserve their signed value (apart from -1). Original classifier instructions are tested together with the reader.
+
+The polling slice at 0x089b7f95 exits for **any positive returned status**, including 2 and 3; zero/negative statuses go toward retry. Initialization failure skips the reader and leaves the previous output untouched. Therefore neither a loop exit nor an unchanged output is proof of successful login. Tests stop at retry/exit cleanup boundaries; they do not execute the complete loop, constructors, timing, cleanup or UI.
+
+A bounded direct-reference search did not bind helper 0x089b7d45 to a player-specific caller. Its exported symbol alone does not establish live use. Outgoing queue `thread_handler` is supplied by request options, and player-specific selection remains under investigation.
+
+### Cabinet evidence still needed
+
+1. Record the actual request family/version and correlation fields produced by an operator's login attempt; keep card identity and raw captures private.
+2. Identify the queued destination object/category and scheduling options for that request.
+3. Separately establish transport completion, decoder/save result, and on-screen player acceptance. Do not collapse these into one success flag.
+4. Only after a verified login, test a profile change and reload/restart persistence with an explicit rollback path.
+
+This checklist is not a live test already performed and does not enable the network responder's player-login replies. No cabinet change is part of this offline batch.

@@ -414,3 +414,9 @@ Seven new native offline test methods exercise the original request-completion r
 Static tracing connects handler success/failure to completion values 1/3 and a conditional completion-persistence call. Handler failure takes precedence over the persistence result; successful handlers return the persistence result. This is not proof of an actual database commit. The outgoing enqueue path binds `thread_handler` from request options, so message ID alone does not establish the sending worker.
 
 The selected suite passes 104 methods (97 previous plus seven completion-reader methods). Source inventory:123 files. Run the new subset with `.venv/bin/python -m unittest test_native_itnet_completion` from research; it requires the private matching executable and the existing queue fixture. Database operations remain modeled; no SQL runs. A generic status helper is identified, but its player/UI caller and the swipe-specific scheduling options remain unresolved. No live login, cabinet change, or Titan conversion is claimed.
+
+## 2026-11-13 — bounded ITNet polling tests
+
+Three further methods execute the original polling slice with modeled initialization/status/timing boundaries. Positive statuses 1, 2 and 3 all exit; nonpositive statuses retry. Initialization failure skips reading and preserves the existing output. A helper exit therefore cannot be counted as successful login. The full loop and player-specific caller remain unproven; see [handoff boundaries](PLAYER_HANDOFF.md#itnet-completion-versus-player-login-success).
+
+Selected combined suite:107 methods. Public source inventory:124 files. No cabinet, account or gateway actions.
