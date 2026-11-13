@@ -420,3 +420,9 @@ The selected suite passes 104 methods (97 previous plus seven completion-reader 
 Three further methods execute the original polling slice with modeled initialization/status/timing boundaries. Positive statuses 1, 2 and 3 all exit; nonpositive statuses retry. Initialization failure skips reading and preserves the existing output. A helper exit therefore cannot be counted as successful login. The full loop and player-specific caller remain unproven; see [handoff boundaries](PLAYER_HANDOFF.md#itnet-completion-versus-player-login-success).
 
 Selected combined suite:107 methods. Public source inventory:124 files. No cabinet, account or gateway actions.
+
+## 2026-11-13 — player-specific request routing
+
+Identified concrete player-info183v3 and alternate-checkin166v7 configuration paths, both initializing handler1. Three new native methods verify bounded constructor initialization and48 generic enqueue-forwarding combinations. Cardless203v0 forwards the same options offset, but its configuration default and handler1's named-worker association are still unresolved. See [routing scope](PLAYER_HANDOFF.md#player-specific-scheduling-configuration).
+
+Selected suite110 methods;125 exported source/dependency files. No cabinet, SQL, account or gateway operations; no live-login claim.

@@ -102,3 +102,11 @@ A bounded direct-reference search did not bind helper 0x089b7d45 to a player-spe
 4. Only after a verified login, test a profile change and reload/restart persistence with an explicit rollback path.
 
 This checklist is not a live test already performed and does not enable the network responder's player-login replies. No cabinet change is part of this offline batch.
+
+## Player-specific scheduling configuration
+
+Static receiver tracing now connects `PlayerInfoReqConfig` construction at 0x085ba680 to the 183v3 serializer and `GolfAltCheckinConfig` construction at 0x085b9b00 to the 166v7 serializer. Both initialize the request's handler field to 1. Their serializers forward `config+0xc` as options, placing `thread_handler` at `config+0x10`. The cardless203v0 serializer uses the same offset, but its actual configuration default remains unverified. Handler value1 has **not yet been bound to a named worker**.
+
+Three methods in `test_native_player_routing.py` execute bounded original constructor slices and the original generic wrapper up to enqueue entry. The forwarding test covers48 combinations of four synthetic message/version pairs, four handler values and three modeled classifier results. It confirms that the options value is preserved separately from the classifier's boolean mode flag. It does not execute SQL, the real classifier, full construction or a cabinet login. Synthetic14v7 forwarding is not evidence that a real14 caller was found.
+
+Selected combined suite:110 methods; public source inventory125. The actual swipe/UI caller, named-worker association and live acceptance remain open.

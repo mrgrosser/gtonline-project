@@ -638,6 +638,12 @@
       "sha256": "5ae5a160806087fe7d571304056a3d271d668b056cc6ce848ecc142966c031fb"
     },
     {
+      "path": "research/test_native_player_routing.py",
+      "origin": "golden-tee-research/test_native_player_routing.py",
+      "sanitized": false,
+      "sha256": "ead0dd6aabf746676b7e981c81653cd468be5d5fbed8fddb7eb0197976378b05"
+    },
+    {
       "path": "research/test_native_player_v2.py",
       "origin": "golden-tee-research/test_native_player_v2.py",
       "sanitized": false,

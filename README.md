@@ -13,7 +13,7 @@ Read **[the project log](PROJECT_LOG.md)** for the dated change history, experim
 - Online-menu access, card swipe, player login, and saved profiles **not yet verified end to end**.
 - Original registration state restored after testing; no permanent private service installed.
 
-This repository contains the project journal and **122 sanitized source/dependency files**, including protocol scripts, native emulation harnesses, recovery tools, tests, and earlier GPU/SSH work. It is not a ready-to-install emulator or a connection to official online services.
+This repository contains the project journal and **125 sanitized source/dependency files**, including protocol scripts, native emulation harnesses, recovery tools, tests, and earlier GPU/SSH work. It is not a ready-to-install emulator or a connection to official online services.
 
 Read **[the source guide](SOURCE_GUIDE.md)** before running anything: some historical test scripts perform live operations, and many modules require private inputs that are intentionally not included. The guide distinguishes standalone checks from tests requiring private research inputs.
 
@@ -32,3 +32,5 @@ The latest [V2 codec and correlation checks](PLAYER_V2_CODEC.md) bring the selec
 Six further native queue tests exercise missing-context errors and successful synthetic request correlation. Selected coverage is now93 methods; actual SQL and live login remain unverified.
 
 Nighthawk queue-error and caller status-gate checks bring selected offline coverage to97 methods. Partial request context after a failed lookup is explicitly tested; no live-login claim is made.
+
+ITNet completion-reader and polling coverage brings the selected offline suite to110 methods. Polling exit is not login success; see [completion and cabinet acceptance boundaries](PLAYER_HANDOFF.md#itnet-completion-versus-player-login-success). Player-specific routing investigation continues.

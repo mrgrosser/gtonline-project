@@ -4,7 +4,7 @@
 
 This is the recoverable project source used through November 13, 2026, exported from the working research directories. It includes successful approaches, superseded experiments, and historical cabinet-specific scripts. It is **not a turnkey emulator, installer, or complete reproducible cabinet environment**.
 
-The original private working files were not changed. The public copies replace identifying deployment details with examples. `SOURCE_MANIFEST.json` lists all 122 exported source/dependency files, their relative origin, whether sanitization occurred, and the SHA-256 of the published copy. It does not contain hashes of private data.
+The original private working files were not changed. The public copies replace identifying deployment details with examples. `SOURCE_MANIFEST.json` lists all 125 exported source/dependency files, their relative origin, whether sanitization occurred, and the SHA-256 of the published copy. It does not contain hashes of private data.
 
 ## Layout
 
@@ -133,3 +133,14 @@ python3 -m unittest test_player_wire test_player_wire_v2 test_player_store test_
 ```
 
 Do not use blanket test discovery: historical modules can perform live operations. `test_player_response_correlation` requires private protocol metadata at import, despite not needing the game executable.
+
+## ITNet completion and polling follow-up
+
+`test_native_itnet_completion.py` and `test_native_itnet_poll.py` add ten offline methods requiring the matching private executable. They use modeled database or callback boundaries; the former includes the original channel classifier, while the latter runs a bounded poll slice and stops before cleanup/retry. Run explicitly, never with blanket historical test discovery:
+
+```sh
+cd research
+python3 -m unittest test_native_itnet_completion test_native_itnet_poll
+```
+
+Selected combined coverage is110 methods; source inventory125. These tests neither enable player replies nor contact the cabinet.
