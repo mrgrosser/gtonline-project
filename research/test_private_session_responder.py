@@ -70,6 +70,16 @@ class ResponderTests(unittest.TestCase):
         def failed(_):raise OSError('disk failure')
         r.diagnostic_sink=failed
         with self.assertRaises(OSError):r.response(frame)
+    def test_ping_then_update_check(self):
+        raw=bytes.fromhex('00010c22926015c35c10040f00000000')
+        request=frame_for(self.template,raw);r=self.responder();saved=[]
+        with self.assertRaises(ValueError):r.response(request)
+        r.diagnostic_sink=saved.append
+        reply,event=r.response(request)
+        self.assertEqual(decode_messages(body(reply)),[(2,0,{'ECHO_BYTE':12}),(32767,0,{})])
+        self.assertEqual(saved,[request])
+        with self.assertRaises(ValueError):r.response(frame_for(self.template,raw+b'\x00\x01\x01'))
+
     def test_update_check_receipt(self):
         frame=(ROOT/'evidence/card-startup-live-20261113/008-plain.bin').read_bytes()
         r=self.responder();saved=[];r.diagnostic_sink=saved.append

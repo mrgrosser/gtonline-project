@@ -44,9 +44,8 @@ def values(blobs,*,policy,nickname,generated_at):
         raw=bytes(m.uc.mem_read(obj+offset,4))
         if kind=='float':
             value=struct.unpack('<f',raw)[0]
-            if not math.isfinite(value) or not value.is_integer():
-                raise ValueError('Native float cannot be exactly represented on integer wire: '+name)
-            value=int(value)
+            if not math.isfinite(value):
+                raise ValueError('Nonfinite native float: '+name)
         else:value=int.from_bytes(raw,'little',signed=kind=='signed')
         result[name]=value
     encode_complete_stats(result)

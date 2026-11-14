@@ -8,9 +8,10 @@ import json,select,socket,threading,time,os,argparse
 def monotonic():return os.times()[4]
 parser=argparse.ArgumentParser()
 parser.add_argument('--duration',type=int,default=540)
+parser.add_argument('--persistent',action='store_true')
 args=parser.parse_args()
 assert 1<=args.duration<=7200
-DEADLINE=monotonic()+args.duration
+DEADLINE=float('inf') if args.persistent else monotonic()+args.duration
 
 def handle(c,port):
     u=None;counts=[0,0]
@@ -39,11 +40,11 @@ def main():
             s.bind(('0.0.0.0',port));s.listen(8);listeners.append(s)
         print(json.dumps({'ready':True,'mode':'byte_only_bridge'}))
         accepted=0
-        while monotonic()<DEADLINE and accepted<32:
+        while monotonic()<DEADLINE and (args.persistent or accepted<32):
             ready,_,_=select.select(listeners,[],[],1)
             for s in ready:
                 c,peer=s.accept()
-                if peer[0] not in ('127.0.0.1','192.0.2.124','203.0.113.49'):c.close();continue
+                if peer[0] not in ('127.0.0.1','192.0.2.124','63.116.120.49'):c.close();continue
                 accepted+=1;t=threading.Thread(target=handle,args=(c,s.getsockname()[1]));t.start();workers.append(t)
     finally:
         for s in listeners:s.close()

@@ -15,6 +15,9 @@ p.add_argument('--trust-ready',required=True,type=Path)
 p.add_argument('--control-path',default='/tmp/gt-private-session-ssh-%u')
 p.add_argument('--resume-session',type=Path)
 p.add_argument('--port',type=int,default=15002)
+p.add_argument('--persistent',action='store_true')
+p.add_argument('--identity-file',type=Path)
+p.add_argument('--session-checkpoint',type=Path)
 p.add_argument('--player-not-found-capture',type=Path,help='Explicit pin of one captured player identity with no local profile')
 p.add_argument('--player-profile-capture',type=Path)
 p.add_argument('--player-store',type=Path)
@@ -34,6 +37,7 @@ api.load_env_files();gateway,prefix=api.make_network_client()
 endpoint=api.join_prefix(prefix,'/sites/00000000-0000-4000-8000-000000000003/firewall/policies/'+a.policy_id)
 journal=a.evidence/'positive-may-have-been-sent.json'
 ssh=['ssh','-S',a.control_path,'-o','BatchMode=yes','-o','ConnectTimeout=5','operator@192.0.2.124']
+if a.identity_file:ssh[1:1]=['-i',str(a.identity_file)]
 def guard():
     trust=json.loads(a.trust_ready.read_text())
     if not trust.get('applied') or not trust.get('passed') or trust.get('boot_id')!=a.boot_id:
@@ -98,6 +102,11 @@ if a.home_selection_ledger:
     equipment=HomeSelectionLedger(a.home_selection_ledger,identity=r.player_profile_adapter.identity,catalog=catalog)
     r.home_selection_ledger=equipment
     r.player_profile_adapter.equipment=equipment
+collector=None
+if a.game_start_journal and a.round_event_journal:
+    from live_round_collector import LiveRoundCollector
+    collector=LiveRoundCollector(r.player_profile_adapter,r.game_start_journal,r.round_event_journal,a.player_store.parent/'round-history.sqlite')
+    collector.reconcile()
 if a.resume_session:
     state=json.loads(a.resume_session.read_text())
     assert state['boot_id']==a.boot_id and state['expires']>int(time.time())
@@ -105,7 +114,8 @@ if a.resume_session:
     assert 0<=state['sequence']<=65535
     r.session={'shared_key':key,'sequence':state['sequence'],'expires':state['expires']}
     guard()
-deadline=time.monotonic()+a.duration;counter=0
+if a.persistent and not a.session_checkpoint:raise ValueError('Persistent server needs durable session checkpoint')
+deadline=float('inf') if a.persistent else time.monotonic()+a.duration;counter=0
 with socket.socket() as listener:
     listener.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1);listener.bind(('127.0.0.1',a.port));listener.listen(8);listener.settimeout(1)
     print(json.dumps({'ready':True,'mode':'private_no_upstream'}),flush=True)
@@ -115,20 +125,25 @@ with socket.socket() as listener:
         with conn:
             conn.settimeout(min(300,max(.1,deadline-time.monotonic())))
             try:
-                while time.monotonic()<deadline and counter<4096:
+                while time.monotonic()<deadline and (a.persistent or counter<4096):
                     req=read_frame(conn);counter+=1
                     (a.evidence/('%03d-request.bin'%counter)).write_bytes(req)
                     keys={} if not r.session else {r.session['sequence']>>15:r.session['shared_key']}
                     plain=to_plain(req,keys);meta=request_identity(plain)
                     print(json.dumps({'request':counter,'identity':meta,'encrypted':bool(req[1]&64)}),flush=True)
                     (a.evidence/('%03d-plain.bin'%counter)).write_bytes(plain)
+                    if collector is not None:
+                        try:
+                            if collector.capture(body(plain)):collector.reconcile()
+                        except ValueError as exc:
+                            print(json.dumps({'request':counter,'collector_error':str(exc)}),flush=True)
                     try:reply,event=r.response(req)
                     except UnsupportedApplication:
                         print(json.dumps({'request':counter,'event':'unimplemented_no_ack_connection_retained'}),flush=True)
                         continue
-                    if event=='local_session_reply' and a.resume_session:
+                    if event=='local_session_reply' and (a.session_checkpoint or a.resume_session):
                         from session_checkpoint import save as save_session
-                        save_session(a.resume_session,r.session,a.boot_id)
+                        save_session(a.session_checkpoint or a.resume_session,r.session,a.boot_id)
                     conn.sendall(reply)
                     print(json.dumps({'request':counter,'event':event}),flush=True)
             except EOFError:pass

@@ -26,7 +26,7 @@ class NativeStatsDefaultsTests(unittest.TestCase):
         m=HandoffMachine();parsed,consumed=m.parse(STATS_V2,wire[2:])
         self.assertEqual(consumed,len(wire)-2);self.assertEqual(m.status,(0,0));self.assertEqual(m.calls,['construct','initialize','save'])
         attrs=dict(m.attributes)
-        self.assertEqual(attrs[b'18_BEST_ROUND'],b'200');self.assertEqual(attrs[b'AVE_HANDICAP'],b'100')
+        self.assertEqual(attrs[b'18_BEST_ROUND'],b'200');self.assertEqual(attrs[b'AVE_HANDICAP'],b'1120403456')
         self.assertEqual(len(attrs),66)
     def test_explicit_policy_and_identity_time_boundaries(self):
         for bad in (None,True,'official-import',''):

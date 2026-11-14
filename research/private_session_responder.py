@@ -42,7 +42,20 @@ class PrivateResponder:
         return response,event
     def _response(self,request):
         ident=request_identity(request);mid,version,flags=ident['id'],ident['version'],ident['flags']
-        if (mid,version,flags)==(1,0,0):return pong_for(request),'pong'
+        if (mid,version,flags)==(1,0,0):
+            from observed_bundle_inspect import split_observed_bundle
+            parts=split_observed_bundle(body(request))
+            shape=tuple((p.message,p.version,p.flags) for p in parts)
+            if shape==((1,0,0),):
+                return frame_for(request,encode_messages([(2,0,{'ECHO_BYTE':parts[0].fields['ECHO_BYTE']})])),'pong'
+            if shape!=((1,0,0),(146,1,2)):
+                raise UnsupportedApplication('Unsupported heartbeat bundle')
+            if not callable(self.diagnostic_sink):raise ValueError('Diagnostic persistence unavailable')
+            reply=frame_for(request,encode_messages([(2,0,{'ECHO_BYTE':parts[0].fields['ECHO_BYTE']}),(32767,0,{})]))
+            self.guard()
+            self.diagnostic_sink(request)
+            return reply,'pong_and_local_update_check_receipt'
+
         if (mid,version,flags) in ((141,2,2),(146,1,2)):
             diagnostics=observed_diagnostic_decode(request)
             if not callable(self.diagnostic_sink):raise ValueError('Diagnostic persistence unavailable')

@@ -1,5 +1,5 @@
 """Full66-field native parse/save handoff with synthetic DB boundaries only."""
-import unittest
+import unittest,struct
 from stats_wire import STATS_V2,encode_complete_stats
 from emulate_player_handoff import HandoffMachine
 from emulate_player_payload import PayloadReadPastEnd
@@ -15,7 +15,7 @@ class NativeStatsContractTests(unittest.TestCase):
         values=synthetic_values();wire=encode_complete_stats(values)
         self.assertEqual(len(STATS_V2),66);self.assertEqual(wire[:2],b'\x40\x09')
         m=HandoffMachine();parsed,consumed=m.parse(STATS_V2,wire[2:])
-        expected=[str(values[name]).encode() for name,_,_ in STATS_V2]
+        expected=[str(int.from_bytes(struct.pack('>f',values[name]),'big') if name in ('AVE_ROUNDS_COMPLETED','AVE_HANDICAP') else values[name]).encode() for name,_,_ in STATS_V2]
         self.assertEqual(parsed,expected);self.assertEqual(consumed,len(wire)-2)
         self.assertEqual(m.attributes,list(zip([name.encode() for name,_,_ in STATS_V2],expected)))
         self.assertEqual(m.calls,['construct','initialize','save']);self.assertEqual(m.status,(0,0))

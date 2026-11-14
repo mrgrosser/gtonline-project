@@ -794,3 +794,13 @@ After the cached-resource fix, the user confirmed course entry. Fresh profile, s
 The user also reported missing Great Shot Points. Three received score reports had zero Great Shot Points while ordinary Golden Tee Points increased. Qualification rules versus game-setup effects remain unresolved; no points were fabricated or scoring rules patched.
 
 This publication updates source and documentation only. It does not deploy a permanent service or change the cabinet's current test lifecycle.
+
+## 2026-11-14 — persistent online service and lifetime round counter
+
+Owner explicitly requests private ONLINE by default. Enabled supervised host tunnel/backend and cabinet boot trust setup with retained recovery backups. A controlled cabinet reboot automatically rearmed the private connection; later user card login/play succeeded. Fresh cabinet screenshot shows green LIVE after host service reload. No timed shutdown or reboot-to-hold is part of normal operation. Existing cooling-system warning remains separate.
+
+Fixed lifetime Rounds Played wire encoding: the original field binder reads an integer word, while the stats model/UI interpret that storage as float32. Sending integer 1 produced displayed 0; bit-casting semantic float values at the wire boundary fixes this. The same representation applies to native handicap; fractional values are now retained rather than rejected or rounded. Stored semantic counts remain unchanged.
+
+Recovered and independently cross-validated three complete local scorecards using matching start, terminal score, and 18-hole session evidence. Aggregate is 3 rounds / 54 holes; imported website history is preserved separately. Integrated durable receipt collection and idempotent all-history projection for subsequent completed rounds, including validated parts of otherwise unsupported bundles without issuing success ACKs for unsupported content.
+
+Verification: 36 focused tests passed before the additional fractional-float regression; the final lifetime display module has 4 passing tests. Original native display conversion reproduces the old zero and displays corrected counts. Running private responder returns the corrected 3-round statistics. Fresh cabinet stats-screen confirmation still requires next check-in; no claim of a displayed 3 yet. Backups retained privately. No cabinet reboot during this stats repair.
