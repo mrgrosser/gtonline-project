@@ -2,7 +2,13 @@
 """Refresh only public pointers after a reboot; assert identical public identity."""
 import json,os,struct,subprocess,binascii
 c=json.load(open('/tmp/gt-trust-drill-config.json'))
-pid=int(subprocess.check_output(['pidof','go']).strip())
+try:
+ from game_process import game_pid
+except ImportError:
+ from persistent.game_process import game_pid
+pid=game_pid()
+if pid is None:raise ValueError('No unique stable game process')
+if os.environ.get('GT_EXPECTED_GAME_PID') and pid!=int(os.environ['GT_EXPECTED_GAME_PID']):raise ValueError('Game process changed before public-context read')
 fields={'server_rsa_n':(0x64,256),'server_rsa_e':(0x164,4),
  'client_rsa_n':(0x168,256),'client_rsa_e':(0x268,4),
  'server_dsa_y':(0x36c,96),'server_dsa_q':(0x3cc,20),'server_dsa_p':(0x3e0,96),'server_dsa_g':(0x440,96),

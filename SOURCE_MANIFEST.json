@@ -2,6 +2,78 @@
   "scope": "Sanitized original project source, not a deployable cabinet image",
   "files": [
     {
+      "path": "gtstats/.dockerignore",
+      "origin": "gtstats/.dockerignore",
+      "sanitized": true,
+      "sha256": "cede2fe0c2462a5994b213e37667c4ecca5cd469e84caf237126661c04150251"
+    },
+    {
+      "path": "gtstats/.gitignore",
+      "origin": "gtstats/.gitignore",
+      "sanitized": true,
+      "sha256": "16e249787ee22d35d9a1cdaadcd851e54c8cd86c60e40f09a2233ea6c33d0643"
+    },
+    {
+      "path": "gtstats/Dockerfile",
+      "origin": "gtstats/Dockerfile",
+      "sanitized": true,
+      "sha256": "c7dc03805f43c3b624fa046a53fb697cd5631966932f6cbb3205e5100e0bd93b"
+    },
+    {
+      "path": "gtstats/README.md",
+      "origin": "gtstats/README.md",
+      "sanitized": true,
+      "sha256": "272ef1a312b3907e648f6702e86f873e08261ef5e27f3b495a7043a0b16444bc"
+    },
+    {
+      "path": "gtstats/courses.json",
+      "origin": "gtstats/courses.json",
+      "sanitized": true,
+      "sha256": "137f4419963b57843fe5681c7b816d681f6b8d00fbea3fc423a575c6ef31edd0"
+    },
+    {
+      "path": "gtstats/export_snapshot.py",
+      "origin": "gtstats/export_snapshot.py",
+      "sanitized": true,
+      "sha256": "1232b7c85079fa5e21f58544f5884a019629ec6c08d87bc8b8412593ab709475"
+    },
+    {
+      "path": "gtstats/public/app.js",
+      "origin": "gtstats/public/app.js",
+      "sanitized": true,
+      "sha256": "99cd1acd30171b2f9cef434a56182e005249cf640d65594ec3bc1f1a36134992"
+    },
+    {
+      "path": "gtstats/public/index.html",
+      "origin": "gtstats/public/index.html",
+      "sanitized": true,
+      "sha256": "38c94dcc5cf30921318f7e8c519adc7a20298207d6e3a2c13b20738f77dc233a"
+    },
+    {
+      "path": "gtstats/public/style.css",
+      "origin": "gtstats/public/style.css",
+      "sanitized": true,
+      "sha256": "e55120696a371592494a111991008c78e4941171ba24f6a3ffad904981adab0a"
+    },
+    {
+      "path": "gtstats/server.mjs",
+      "origin": "gtstats/server.mjs",
+      "sanitized": true,
+      "sha256": "22d40635424986096221acd9fc2da1784ab0a71ab65a9ab9cd93f26d31016087"
+    },
+    {
+      "path": "gtstats/sync_snapshot.sh",
+      "origin": "gtstats/sync_snapshot.sh",
+      "sanitized": true,
+      "sha256": "f743986ccf38a5dbfa20909836c282d4b2cabe4919a3198e21fbfd5d00df3ea4"
+    },
+    {
+      "path": "gtstats/test_export_snapshot.py",
+      "origin": "gtstats/test_export_snapshot.py",
+      "sanitized": true,
+      "sha256": "fd2eaf45b6a4baedf82a5e8f7b6a428536d0e059c547aff561aee2a30ebe5f4b"
+    },
+    {
       "path": "hardware/black-screen-audit/verify-evidence.py",
       "origin": "goldentee-review/black-screen-audit/verify-evidence.py",
       "sanitized": true,
@@ -448,8 +520,8 @@
     {
       "path": "research/local_home_selection_ledger.py",
       "origin": "golden-tee-research/local_home_selection_ledger.py",
-      "sanitized": false,
-      "sha256": "8ef53a4859d5c3cd7b907e477501d8ae95511b82f1965fef960253d6d53e7c77"
+      "sanitized": true,
+      "sha256": "ed038981316ee8bcf3419cace30a224fd7517074bf011aa964e0dda8553c9396"
     },
     {
       "path": "research/local_inventory_policy.py",
@@ -468,6 +540,12 @@
       "origin": "golden-tee-research/local_round_history.py",
       "sanitized": false,
       "sha256": "6fa68078641b8a8f6e2e7399f4b9173bda6461a93b9887a2b038681b0159cffb"
+    },
+    {
+      "path": "research/local_starter_cosmetics.py",
+      "origin": "golden-tee-research/local_starter_cosmetics.py",
+      "sanitized": true,
+      "sha256": "c7c6496ab80c95349dcbe91db3e8d8e10a035d7fe6a04ac8a557fc1d6ba324a3"
     },
     {
       "path": "research/local_stats_baseline.py",
@@ -521,13 +599,19 @@
       "path": "research/persistent/cabinet-control.py",
       "origin": "golden-tee-research/persistent/cabinet-control.py",
       "sanitized": true,
-      "sha256": "3d6f0a75a3b9a7d9d2543b003394f126ef166ecf30c98b6ab1c12e8e31c9592f"
+      "sha256": "32ab64ace34a8b7d575916dcfcf45ee8989ce54268b5380e333a8a8c14e50579"
     },
     {
       "path": "research/persistent/cabinet-worker.py",
       "origin": "golden-tee-research/persistent/cabinet-worker.py",
       "sanitized": true,
-      "sha256": "51062aaa82f531fd99e904bffb98311334537fc6804ea019d02c96c326d14a60"
+      "sha256": "f2815dabff764b4dbacfbe5ae6dd7387feac9cca30b516defcaeb7c4c53fabbb"
+    },
+    {
+      "path": "research/persistent/game_process.py",
+      "origin": "golden-tee-research/persistent/game_process.py",
+      "sanitized": true,
+      "sha256": "9ae98b4202a173b82a9eeb57dd9d13db0d3996fceeb1ea04a3b842b365a22703"
     },
     {
       "path": "research/persistent/host_supervisor.py",
@@ -544,8 +628,8 @@
     {
       "path": "research/player_setup_bundle.py",
       "origin": "golden-tee-research/player_setup_bundle.py",
-      "sanitized": false,
-      "sha256": "d6b8cee0be8be570df00be03afbbfe01b33501a04d9d679f6cb09b3c360904ec"
+      "sanitized": true,
+      "sha256": "1c08dbd25363591bdd2b33e66ec11bddc5da0b96a1fc7f9e39525faef920e913"
     },
     {
       "path": "research/player_store.py",
@@ -593,7 +677,7 @@
       "path": "research/private_session_responder.py",
       "origin": "golden-tee-research/private_session_responder.py",
       "sanitized": true,
-      "sha256": "d9d3c56097521e490164e0e44596e17a0e56fdf61da1c4bf1ba50d35af294732"
+      "sha256": "f83a960a3abfeeb5e44057122da69a4d63474126eeff421f2f6fec0e6dd81438"
     },
     {
       "path": "research/read_after_ui_storage.py",
@@ -676,8 +760,8 @@
     {
       "path": "research/refresh_public_context.py",
       "origin": "golden-tee-research/refresh_public_context.py",
-      "sanitized": false,
-      "sha256": "acc2ed7d2594642ca370a5ebdf49f825bd8d7fa5c44c3f05cf7453aeec4737a4"
+      "sanitized": true,
+      "sha256": "8311f6ab9237dc6b72556c79a7e48c841e7b726f06466e13692e3290c7d41810"
     },
     {
       "path": "research/registration_fixture.py",
@@ -743,7 +827,7 @@
       "path": "research/run_private_host.py",
       "origin": "golden-tee-research/run_private_host.py",
       "sanitized": true,
-      "sha256": "cfb17dc10d4e313afec561294e023cc160917458699c2dceb9b524cb087b3e07"
+      "sha256": "fba98792ce677bddd49f94b5b9f6c1062e2abf07d39b30aac8c20602fb8deec8"
     },
     {
       "path": "research/session_checkpoint.py",
@@ -774,6 +858,12 @@
       "origin": "golden-tee-research/summarize_tcp_capture.py",
       "sanitized": false,
       "sha256": "0189c2843823f9832d23ad7bcc585f6556319b302f6b6026a1b2572666717fb1"
+    },
+    {
+      "path": "research/terminal_equipment_receipt.py",
+      "origin": "golden-tee-research/terminal_equipment_receipt.py",
+      "sanitized": true,
+      "sha256": "6382ef3b585a3e56dd1305ad9c2097fd8b9ba9e238846f2cf7a393147ad40d68"
     },
     {
       "path": "research/test_completed_round_collector.py",
@@ -898,7 +988,7 @@
     {
       "path": "research/test_local_home_selection_ledger.py",
       "origin": "golden-tee-research/test_local_home_selection_ledger.py",
-      "sanitized": false,
+      "sanitized": true,
       "sha256": "4ad5818e028e1289d2e3f7d37741f11fa685617b5cfdc80e016a6a7296731e81"
     },
     {
@@ -1106,6 +1196,12 @@
       "sha256": "e505636282883a25de9ee15d97f49fa293aa3f3c3eb3faf038b40311fdb782be"
     },
     {
+      "path": "research/test_persistent_game_process.py",
+      "origin": "golden-tee-research/test_persistent_game_process.py",
+      "sanitized": true,
+      "sha256": "fa6e765e7539a591ed75a966aaa6a18ef23f582efd3ee62b3d74dba663eb81a4"
+    },
+    {
       "path": "research/test_pinned_player_not_found.py",
       "origin": "golden-tee-research/test_pinned_player_not_found.py",
       "sanitized": false,
@@ -1226,6 +1322,12 @@
       "sha256": "5370513895b480dc61a0e09e7f29212a14b782ea0610f68ba5a1380a9435d8b6"
     },
     {
+      "path": "research/test_starter_cosmetics.py",
+      "origin": "golden-tee-research/test_starter_cosmetics.py",
+      "sanitized": true,
+      "sha256": "3ef46f9faf5c4dfccac7e7a2f217b0e331a655ac8eade4a627843d9590f1d2c8"
+    },
+    {
       "path": "research/test_starter_equipment_bundle.py",
       "origin": "golden-tee-research/test_starter_equipment_bundle.py",
       "sanitized": false,
@@ -1236,6 +1338,12 @@
       "origin": "golden-tee-research/test_storage_drill.py",
       "sanitized": false,
       "sha256": "7662ffd505fb4df72b1310ac4e6bbfbacb0bc62f5e9cb134a85c500da7a69c23"
+    },
+    {
+      "path": "research/test_terminal_equipment_receipt.py",
+      "origin": "golden-tee-research/test_terminal_equipment_receipt.py",
+      "sanitized": true,
+      "sha256": "e81ff0bf1d51eff42f2a90de500d874bb2f91697d6515bde33b72f8695c86874"
     },
     {
       "path": "research/test_website_best_distances.py",

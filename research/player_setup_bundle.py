@@ -61,7 +61,7 @@ def starter_equipment_reply(raw,identity,*,policy,stats_reply=None,equipment=Non
                 from avatar_wire import avatar_payload as encode_avatar
                 from local_home_selection_ledger import home_avatar_values
                 selected=equipment.snapshot() or {'club':0}
-                v=home_avatar_values(values(identity,fields['COURSE_ID']),catalog=equipment.catalog,club=selected['club'])
+                v=equipment.project_avatar(home_avatar_values(values(identity,fields['COURSE_ID']),catalog=equipment.catalog,club=selected['club']))
                 replies.append(b'\xa0\xc9'+encode_avatar(v))
         elif mid==214:
             if equipment is None:replies.append(base_consumable_reply(policy=BASE_CONSUMABLE_POLICY))

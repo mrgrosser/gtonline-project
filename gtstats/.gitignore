@@ -1,0 +1,6 @@
+.runtime/
+.sync.lock
+__pycache__/
+*.sqlite
+*.xwd
+*.png

@@ -28,6 +28,7 @@ p.add_argument('--ack-observed-score22',action='store_true')
 p.add_argument('--home-selection-ledger',type=Path)
 p.add_argument('--verified-home-club-count',type=int)
 p.add_argument('--verified-home-ball-count',type=int)
+p.add_argument('--verified-cosmetic-catalog',type=Path)
 a=p.parse_args();assert 1<=a.duration<=7200
 assert not (a.player_profile_capture and a.player_not_found_capture)
 assert bool(a.player_profile_capture)==bool(a.player_store)==bool(a.player_identity_key)
@@ -99,7 +100,14 @@ if a.home_selection_ledger:
     if not a.player_profile_capture:raise ValueError('Home ledger requires pinned profile')
     from local_home_selection_ledger import HomeCatalog,HomeSelectionLedger,HOME_POLICY
     catalog=HomeCatalog(HOME_POLICY,a.verified_home_club_count,a.verified_home_ball_count)
-    equipment=HomeSelectionLedger(a.home_selection_ledger,identity=r.player_profile_adapter.identity,catalog=catalog)
+    cosmetics=None
+    if a.verified_cosmetic_catalog:
+        from local_starter_cosmetics import CosmeticCatalog
+        data=json.loads(a.verified_cosmetic_catalog.read_text())
+        if data.get('game_elf_sha256')!='3d407b648d16da0d0e6c324420c10a51eb432f3068fa0bbc1f1561c92d250d1d':
+            raise ValueError('Unverified cosmetic catalog executable')
+        cosmetics=CosmeticCatalog(data['policy'],data['counts'])
+    equipment=HomeSelectionLedger(a.home_selection_ledger,identity=r.player_profile_adapter.identity,catalog=catalog,cosmetics=cosmetics)
     r.home_selection_ledger=equipment
     r.player_profile_adapter.equipment=equipment
 collector=None
@@ -107,6 +115,7 @@ if a.game_start_journal and a.round_event_journal:
     from live_round_collector import LiveRoundCollector
     collector=LiveRoundCollector(r.player_profile_adapter,r.game_start_journal,r.round_event_journal,a.player_store.parent/'round-history.sqlite')
     collector.reconcile()
+if a.verified_cosmetic_catalog and not a.home_selection_ledger:raise ValueError('Cosmetic catalog requires HOME ledger')
 if a.resume_session:
     state=json.loads(a.resume_session.read_text())
     assert state['boot_id']==a.boot_id and state['expires']>int(time.time())

@@ -804,3 +804,23 @@ Fixed lifetime Rounds Played wire encoding: the original field binder reads an i
 Recovered and independently cross-validated three complete local scorecards using matching start, terminal score, and 18-hole session evidence. Aggregate is 3 rounds / 54 holes; imported website history is preserved separately. Integrated durable receipt collection and idempotent all-history projection for subsequent completed rounds, including validated parts of otherwise unsupported bundles without issuing success ACKs for unsupported content.
 
 Verification: 36 focused tests passed before the additional fractional-float regression; the final lifetime display module has 4 passing tests. Original native display conversion reproduces the old zero and displays corrected counts. Running private responder returns the corrected 3-round statistics. Fresh cabinet stats-screen confirmation still requires next check-in; no claim of a displayed 3 yet. Backups retained privately. No cabinet reboot during this stats repair.
+
+### Starter clothing source fix — 2026-11-14 (deployment pending)
+
+The private server advertised only the default clothing item and did not persist appearance changes. Added the original game’s normal starter choices: five shirts, five pants and five shoes, plus catalog-bounded body/face selections. Verified the installed catalog counts read-only; no cabinet memory modification, reboot, or official entitlement changes. Hats intentionally remain the default item; this is not an all-items unlock.
+
+Appearance now persists atomically with equipment. Exact terminal equipment/score bundles are receipted only when matched to a full completed round, with zero consumption deltas and identity/course/session agreement; unknown bundles remain unsupported. Native acknowledgment contracts and 43 focused tests pass, including real final uploads and preservation of selected appearance. Source is ready; deployment and physical clothing menu verification remain separate parent-owned steps.
+
+### Clothing deployed and GTStats launched — 2026-11-14
+
+Supersedes the deployment-pending note above: the verified starter-clothing policy is deployed. A guarded migration recovered the previously chosen character from validated final uploads, preserved the newer equipment selection/timestamp, and retained rollback backups. The running avatar response advertises five shirts, five pants and five shoes. Hats remain default-only. Physical menu visibility and a new selection surviving the next login still require owner confirmation.
+
+GTStats is deployed internally on Docker Swarm behind authenticated Pangolin routing at https://gtstats.4511home.com. It provides local lifetime totals, averages, personal bests, round progression, course filters, expandable 18-hole scorecards and separately labeled imported history. It is an original interface, not a copy of proprietary website assets. Three completed rounds / 54 holes are represented; Anse Cocos is 70 on par 71 (-1). Great Shot Points were confirmed working by the owner and preserved in saved results.
+
+A read-only, allowlisted database export is atomically synchronized every minute; the browser refreshes every 30 seconds and reports stale data. Non-root/read-only hosting has no gameplay write endpoint. Existing Pangolin sign-in protects the site. Trusted TLS, anonymous sign-in redirection, an authenticated scorecard workflow, desktop/mobile layout, course filtering and imported-history tabs were verified. Temporary verification credentials were revoked. Owner-side browser and cabinet clothing checks remain unverified while the owner is away.
+
+### Stable game-process selection — 2026-11-14
+
+A bounded read-only sample caught transient child processes appearing ahead of the main game in name-based process lookup. Added a shared /proc selector that verifies executable identity, ignores descendants, rejects ambiguity/zombies and rechecks PID start time. Five focused tests pass; cabinet Python 2 compilation succeeded. Four files were deployed with backup and preserved ownership/modes. The next control status selected the unchanged primary game and matching applied/passed trust; host tunnel/backend remained active. No cabinet or game restart. The already-running worker was intentionally not restarted; its new selection logic activates on its next start.
+
+GTStats source is included under `gtstats/`; private runtime snapshots, authentication material and host-specific deployment values are excluded.

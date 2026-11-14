@@ -2,6 +2,7 @@
 """Per-game RAM trust worker. Never rewrites cabinet identity/private keys."""
 from __future__ import print_function
 import json,os,subprocess,time,shutil,fcntl
+from game_process import game_pid
 BASE='/game/dynamic/gt-private-online'
 lock=open('/run/gt-private-trust-worker.lock','w')
 try:fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
@@ -10,7 +11,8 @@ while os.path.isfile(BASE+'/enabled'):
  try:
   boot=open('/proc/sys/kernel/random/boot_id').read().strip()
   if open('/run/gt-gateway-isolation-verified').read().strip()!=boot:raise ValueError('Awaiting isolation verification')
-  pid=int(subprocess.check_output(['pidof','go']).split()[0])
+  pid=game_pid()
+  if pid is None:raise ValueError('Awaiting one stable game process')
   try:previous=json.load(open('/tmp/gt-private-trust-applied.json'))
   except (IOError,ValueError):previous={}
   if previous.get('boot_id')==boot and previous.get('pid')==pid:
@@ -21,7 +23,8 @@ while os.path.isfile(BASE+'/enabled'):
   shutil.copyfile(BASE+'/public-trust-config.json','/tmp/gt-trust-drill-config.json');os.chmod('/tmp/gt-trust-drill-config.json',0600)
   with open('/game/dynamic/gt-compat/positive-test.pending','w') as f:f.write(boot+'\n')
   # Refresh validates every original public field and currently running PID.
-  subprocess.check_call(['python',BASE+'/refresh_public_context.py'])
+  refresh_env=os.environ.copy();refresh_env['GT_EXPECTED_GAME_PID']=str(pid)
+  subprocess.check_call(['python',BASE+'/refresh_public_context.py'],env=refresh_env)
   cfg=json.load(open('/tmp/gt-trust-drill-config.json'));cfg['verified_clock_epoch']=int(time.time())
   with open('/tmp/gt-trust-drill-config.json','w') as f:json.dump(cfg,f)
   env=os.environ.copy();env['GT_TRUST_MODE']='apply'

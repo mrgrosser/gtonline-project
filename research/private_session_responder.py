@@ -71,6 +71,20 @@ class PrivateResponder:
             if len(diagnostics)==2:event='local_update_check_receipt_and_pong'
             return response,event
         equipment=getattr(self,'home_selection_ledger',None)
+        if equipment is not None and (mid,version,flags) in ((201,5,2),(216,5,2)):
+            from observed_bundle_inspect import split_observed_bundle
+            try:parts=split_observed_bundle(body(request))
+            except ValueError as exc:raise UnsupportedApplication('Unrecognized equipment bundle') from exc
+            if parts and parts[-1].message==22:
+                if not callable(self.diagnostic_sink):raise UnsupportedApplication('Durable equipment capture unavailable')
+                starts=getattr(self,'game_start_journal',None);events=getattr(self,'round_event_journal',None)
+                if starts is None or events is None or not getattr(self,'ack_observed_score22',False):
+                    raise UnsupportedApplication('Terminal receipt prerequisites unavailable')
+                self.guard();self.diagnostic_sink(request)
+                from terminal_equipment_receipt import apply_terminal
+                try:count,status=apply_terminal(body(request),ledger=equipment,starts=starts,events=events)
+                except ValueError as exc:raise UnsupportedApplication(str(exc)) from exc
+                return frame_for(request,b'\x04'*count),'local_completed_equipment_receipt'
         if equipment is not None and (mid,version,flags)==(201,5,2):
             if not callable(self.diagnostic_sink):raise UnsupportedApplication('Durable equipment capture unavailable')
             self.guard()
